@@ -1,0 +1,880 @@
+---
+name: student-hardware
+title: 1.1 Hardware
+level: 3
+ordinal: 10
+locked: false
+publish: production
+coverImagePath: ./hardwarecover.jpg
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ImageWithBorder,
+} from '../../../../activities';
+
+import speaker from './kupu_speaker.png';
+import microphone from './kupu_mic.png';
+import screen from './kupu_screen.png';
+import button from './kupu_button.png';
+import cpu from './kupu_cpu.png';
+import camera from './kupu_camera.png';
+
+import smartphonelabel from './smartphonelabel3.png';
+import whatishardware from './whatishardware.jpg';
+import hardwarecover from './hardwarecover.jpg';
+
+import clock from './clock.png';
+import notepad from './notepad.png';
+import pen from './pen.png';
+import phone from './phone.png';
+
+import screws from './screws.png';
+import controller from './controller.png';
+import board from './board.png';
+
+import garden from './garden2.png';
+
+import electricgarden from './electricgarden.png';
+import axe from './axe.png';
+import spade from './spade.png';
+import wateringcan from './wateringcan.png';
+
+import tapemeasure from './tapemeasure.png';
+import sewingmachine from './sewingmachine.png';
+import fabric from './fabric.png';
+import thread from './thread.png';
+
+import whatiseg from './whatiseg.jpg';
+import choosespot_location from './choosespot_location.jpg';
+import choosespot_protection from './choosespot_protection.jpg';
+
+import eghardwarebg from './egexternal.png';
+import eghardwareinternal from './eginternal.png';
+
+import choosespot from './choosespot.png';
+import protect from './wahiprotect.png';
+import locate from './wahilocate.png';
+
+import location_goal from './location_goal.png';
+import location_shed from './location_shed.png';
+import location_tree from './location_tree.png';
+import location_veg from './location_veg.png';
+import loc1 from './loc1.png';
+import loc2 from './loc2.png';
+import loc3 from './loc3.png';
+import loc4 from './loc4.png';
+
+import whatiseg1 from './whatiseg1.png';
+
+import airprobe from './airprobe.png';
+import soilprobe from './soilprobe.png';
+import setupbg from './setupbg.png';
+import shelter from './shelter.png';
+import device from './device.png';
+import setup_correct from './setup_correct.png';
+import setup_wrong1 from './setup_wrong1.png';
+import setup_wrong2 from './setup_wrong2.png';
+import setup_wrong3 from './setup_wrong3.png';
+
+import setup1 from './setup1.png';
+import setup2 from './setup2.png';
+import setup3 from './setup3.png';
+import setup4 from './setup4.png';
+import setup5 from './setup5.png';
+import setup6 from './setup6.png';
+
+import setup_1 from './setup_1.png';
+import setup_2 from './setup_2.png';
+import setup_3 from './setup_3.png';
+import setup_4 from './setup_4.png';
+import setup_5 from './setup_5.png';
+import setup_6 from './setup_6.png';
+
+import complete1_1 from './complete1_1.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.1 Hardware**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={hardwarecover} border="true" />
+</Figure>
+
+<br />
+
+##### Nau mai e te whānau, it's time for you to complete your **online project** to build on your knowledge of **hardware** and the **Electric Garden**!
+
+##### Good luck, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>He pūrere</TextBox>]}>
+        <Para>Device</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>He pūmārō</TextBox>]}>
+        <Para>Hardware</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Te whakarite</TextBox>]}>
+        <Para>Prepare, Establish, Set Up</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>He wāhi</TextBox>]}>
+        <Para>Place, Location</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** for each hardware part with the proper icon:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Kē te pai!', fail: 'Not quite, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    columns={3}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Speaker</TextBox>]}>
+        <ImageWithText src={speaker} text={'He tukuoro'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Microphone</TextBox>]}>
+        <ImageWithText src={microphone} text={'He hopuoro'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Screen</TextBox>]}>
+        <ImageWithText src={screen} text={'He mata'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Button</TextBox>]}>
+        <ImageWithText src={button} text={'He pātene'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>CPU</TextBox>]}>
+        <ImageWithText src={cpu} text={'He pūtukatuka matua'} fontSize={12} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'110px'}>Camera</TextBox>]}>
+        <ImageWithText src={camera} text={'He pū whakaahua'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Hardware & Devices {#hardware}
+
+### What is **hardware**?
+
+<Captioned>
+    He aha <b>te pūmārō</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={screws} />
+    <RoundImage src={board} />
+    <RoundImage src={controller} />
+</Figure>
+
+<br />
+
+#### **3.** Which answer best describes hardware?
+
+<MultiChoiceActivity
+    question="Hardware is:"
+    choices={[
+        {
+            label: 'the physical parts that make up a tool or device',
+            correct: true,
+            feedback: "Ka pai, you've got it!",
+        },
+        {
+            label: 'things that are super tough and super solid',
+            feedback: 'Kāore',
+        },
+        {
+            label: 'a thing that is really hard to see or touch',
+            feedback: 'Kāore',
+        },
+        {
+            label: 'the instructions needed to build something',
+            feedback: 'Kāore',
+        },
+    ]}
+/>
+
+### **Familiar Hardware**
+
+#### **4.** Match the labels with the parts of a Smartphone's **hardware**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={smartphonelabel}
+            tooltip="Smartphone Hardware"
+            width={800}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                Speaker
+            </TextBox>,
+        ]}
+        position={{ left: 165, top: 30 }}
+    >
+        <Box width={100} height={50}>
+            <Para>A</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                Screen
+            </TextBox>,
+        ]}
+        position={{ left: 165, top: 138 }}
+    >
+        <Box width={100} height={50}>
+            <Para>B</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                Microphone
+            </TextBox>,
+        ]}
+        position={{ left: 165, top: 243 }}
+    >
+        <Box width={100} height={50}>
+            <Para>C</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                Camera
+            </TextBox>,
+        ]}
+        position={{ left: 663, top: 30 }}
+    >
+        <Box width={100} height={50}>
+            <Para>D</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                CPU
+            </TextBox>,
+        ]}
+        position={{ left: 663, top: 138 }}
+    >
+        <Box width={100} height={50}>
+            <Para>E</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'100px'} maxWidth={12}>
+                Button
+            </TextBox>,
+        ]}
+        position={{ left: 663, top: 243 }}
+    >
+        <Box width={100} height={50}>
+            <Para>F</Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+### **Digital Devices**
+
+##### Can you identify a digital device?
+
+<CollapsablePanel heading={<p>What is a digital device?</p>}>
+    <p>
+        A digital device is a piece of electronic hardware that functions to
+        record, store, send, or create data.
+    </p>
+</CollapsablePanel>
+
+<br />
+
+#### **5.** Look at the pictures below and choose the items that are digital devices:
+
+<MultiChoiceActivity
+    question="A) Select the picture of a digital device:"
+    choices={[
+        {
+            label: 'phone',
+            correct: true,
+            image: phone,
+            feedback:
+                'Nice one! Yes, a smartphone is definitely a digital device!',
+        },
+        {
+            label: 'clock',
+            image: clock,
+            feedback:
+                'Kāore, this is an analog clock that uses rotating hands.',
+        },
+        {
+            label: 'pen',
+            image: pen,
+            feedback: 'Kāore, a pen is a mechanical device!',
+        },
+        {
+            label: 'notepad',
+            image: notepad,
+            feedback: 'Kāore, a notebook is just a collection of paper!',
+        },
+    ]}
+/>
+
+<MultiChoiceActivity
+    question="B) Select the picture of a digital device:"
+    choices={[
+        {
+            label: 'sewing machine',
+            correct: true,
+            image: sewingmachine,
+            feedback:
+                'Ka pai, this machine uses hardware and software to make sewing easier!',
+        },
+        {
+            label: 'thread',
+            image: thread,
+            feedback: 'Kāore, this is just a spool of thread!',
+        },
+        {
+            label: 'fabric',
+            image: fabric,
+            feedback: 'Kāore, this is just some folded fabric!',
+        },
+        {
+            label: 'tapemeasure',
+            image: tapemeasure,
+            feedback: 'Kāore, this is just a strip of measuring tape!',
+        },
+    ]}
+/>
+
+<MultiChoiceActivity
+    question="C) Select the picture of a digital device:"
+    choices={[
+        {
+            label: 'Electric Garden',
+            correct: true,
+            image: electricgarden,
+            feedback: "Ka pai, we're going to learn all about the EG together!",
+        },
+        {
+            label: 'spade',
+            image: spade,
+            feedback: 'Kāore, this is a simple tool for digging!',
+        },
+        {
+            label: 'axe',
+            image: axe,
+            feedback: 'Kāore, this is a simple tool for chopping!',
+        },
+        {
+            label: 'wateringcan',
+            image: wateringcan,
+            feedback: 'Kāore, this is a simple tool for moving water!',
+        },
+    ]}
+/>
+
+## EG Hardware {#eg-hardware}
+
+### What is **the Electric Garden**?
+
+<Captioned>
+    He aha <b>te Electric Garden</b>?
+</Captioned>
+<Figure>
+    <Image src={whatiseg1} />
+</Figure>
+
+#### **6.** Which answer best describes the Electric Garden?
+
+<MultiChoiceActivity
+    question="The Electric Garden is:"
+    choices={[
+        {
+            label: 'a digital device that monitors garden conditions',
+            correct: true,
+            feedback: 'Ka pai, it helps us collect data about the environment',
+        },
+        {
+            label: 'a new video game',
+            feedback: 'Kāore, although the EG can be just as fun!',
+        },
+        {
+            label: 'what happens when lightning strikes a garden',
+            feedback: 'Kāore, but lightning is a burst of electric energy!',
+        },
+        {
+            label: 'a sensor that automatically waters the garden',
+            feedback: 'Kāore, we still have to do the work ourselves!',
+        },
+    ]}
+/>
+
+#### **7.** What can the Electric Garden **measure**?
+
+<MultiChoiceActivity
+    question="Select all that apply"
+    choices={[
+        { label: 'Air temperature', correct: true },
+        { label: 'Soil temperature', correct: true },
+        { label: 'Air humidity', correct: true },
+        { label: 'Soil moisture', correct: true },
+        { label: 'Light', correct: true },
+        { label: 'Plant growth speed' },
+        { label: 'Garden size' },
+        { label: 'Chemicals in the soil' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### The Parts of the Electric Garden
+
+#### **8.** Label the **external hardware** parts of the EG unit:
+
+<Captioned>
+    <b>He pūmārō o waho</b>
+</Captioned>
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai, nice job! Now you know the different parts of the EG!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={eghardwarebg}
+            tooltip="Electric Garden External Hardware"
+            width={650}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Air Probe</TextBox>]}
+        position={{ left: 270, top: 33 }}
+    >
+        <Box width={50} height={150} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Soil Probe</TextBox>]}
+        position={{ left: 125, top: 131 }}
+    >
+        <Box width={88} height={336} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Light Sensor</TextBox>]}
+        position={{ left: 431, top: 269 }}
+    >
+        <Box width={60} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Antenna</TextBox>]}
+        position={{ left: 549, top: -10 }}
+    >
+        <Box width={76} height={341} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Device Case</TextBox>]}
+        position={{ left: 402, top: 355 }}
+    >
+        <Box width={155} height={114} />
+    </MatchTarget>
+</MatchingActivity>
+
+<br />
+
+#### **9.** Label the **internal hardware** parts of the EG device:
+
+<Captioned>
+    <b>He pūmārō o roto</b>
+</Captioned>
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai, good spotting! Now you know all the parts of the EG, inside and out!!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={eghardwareinternal}
+            tooltip="Electric Garden Internal Hardware"
+            width={700}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Air Probe Connector
+            </TextBox>,
+        ]}
+        position={{ left: 140, top: 268 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Soil Probe Connector
+            </TextBox>,
+        ]}
+        position={{ left: 140, top: 48 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Light Sensor
+            </TextBox>,
+        ]}
+        position={{ left: 570, top: 32 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Antenna Connector
+            </TextBox>,
+        ]}
+        position={{ left: 140, top: 157 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                SIM Card Slot
+            </TextBox>,
+        ]}
+        position={{ left: 570, top: 126 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                CPU
+            </TextBox>,
+        ]}
+        position={{ left: 570, top: 220 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Battery Slot
+            </TextBox>,
+        ]}
+        position={{ left: 570, top: 310 }}
+    >
+        <Box width={120} height={60} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Location & Protection {#choose-spot}
+
+### **Choosing a Spot **
+
+<Captioned>
+    <b>Tirohia te wāhi</b>
+</Captioned>
+<Figure>
+    <RoundImage src={locate} />
+    <RoundImage src={protect} />
+</Figure>
+
+##### Now let's think about **location** and **protection** for our EG unit.
+
+<br />
+
+#### **10.** How should we **choose a location** for our Electric Garden?
+
+<MultiChoiceActivity
+    question="Which should we think about?"
+    choices={[
+        {
+            label: 'All of these',
+            correct: true,
+            feedback:
+                'Ka pai! Each of these is an important aspect to consider.',
+        },
+        {
+            label: 'What area we want to learn more about',
+            feedback: 'For sure!...but is that all we need to think about?',
+        },
+        {
+            label: 'How well we can get to and from the area',
+            feedback: 'Too true!...but is that all we need to think about?',
+        },
+        {
+            label: 'How safe and secure the area is',
+            feedback: 'Of course!...but is that all we need to think about?',
+        },
+    ]}
+/>
+
+#### **11.** Practice choosing the **best spot** for your Electric Garden:
+
+<MultiChoiceActivity
+    question="Which spot would be best for an EG unit?"
+    choices={[
+        {
+            label: 'School veggie garden',
+            correct: true,
+            image: loc4,
+            feedback:
+                'Nice choice! This looks like a great spot in the garden!',
+        },
+        {
+            label: 'Tree in a reserve',
+            image: loc3,
+            feedback:
+                'Uh oh, will the EG be safe from people using the swings?!',
+        },
+        {
+            label: 'Football pitch goal',
+            image: loc2,
+            feedback: 'Look out! The EG is in the way of the game!!',
+        },
+        {
+            label: 'Inside garden shed',
+            image: loc1,
+            feedback:
+                'Hmmm, do we really want to collect data inside the shed?',
+        },
+    ]}
+/>
+
+#### **12.** How can we make sure the Electric Garden is **safe** in our spot?
+
+<MultiChoiceActivity
+    question="What should we think about?"
+    choices={[
+        {
+            label: 'All of these',
+            correct: true,
+            feedback:
+                'Kei te pai! Each of these hazards is import to consider.',
+        },
+        {
+            label: 'Shaded from the sun',
+            feedback: 'For sure!...but is that all we need to think about?',
+        },
+        {
+            label: 'Clear of nearby activities',
+            feedback: 'Ah, yeah!...but is that all we need to think about?',
+        },
+        {
+            label: 'Safe from being stolen',
+            feedback: 'Too true!...but is that all we need to think about?',
+        },
+    ]}
+/>
+
+## Setting Up the EG {#eg-setup}
+
+### **Setting Up the Device**
+
+<Captioned>
+    <b>Whakaritea te pūrere</b>
+</Captioned>
+
+![egsetup1](./egsetup1.png)
+
+#### **13.** How do we **set up** the Electric Garden device?
+
+<MatchingActivity
+    question="Label the images to match the logical order for setting up a device:"
+    unmatched={[]}
+    feedback={{
+        success: "Āe! You've got it!",
+        fail: 'Hmmm, will that order really work? Tēnā anō',
+    }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Step 1</TextBox>]}>
+        <ImageWithText src={setup_1} text={'Install batteries'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 2</TextBox>]}>
+        <ImageWithText src={setup_2} text={'Check LEDs'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 3</TextBox>]}>
+        <ImageWithText src={setup_3} text={'Fasten screws'} />
+    </MatchTarget>
+</MatchingActivity>
+
+### **Setting Up in the Garden**
+
+<Captioned>
+    <b>Whakaritea i te māra</b>
+</Captioned>
+
+<Figure>
+    <ImageWithBorder src={garden} border="true" />
+</Figure>
+
+#### **14.** How do we set up the Electric Garden in our spot?
+
+<MatchingActivity
+    question="Label the images to match the logical order for setting up outside:"
+    unmatched={[]}
+    feedback={{
+        success: "Āe! You've got it!",
+        fail: 'Hmmm, will that order really work? Tēnā anō',
+    }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Step 1</TextBox>]}>
+        <ImageWithText src={setup_4} text={'Build shelter'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 2</TextBox>]}>
+        <ImageWithText src={setup_5} text={'Place sensors'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 3</TextBox>]}>
+        <ImageWithText src={setup_6} text={'Check online'} />
+    </MatchTarget>
+</MatchingActivity>
+
+### **Spot the Differences**
+
+#### **15.** Can you tell which arrangement is best?
+
+<MultiChoiceActivity
+    question="Choose the best setup for the Electric Garden:"
+    choices={[
+        {
+            label: 'Setup A',
+            correct: true,
+            image: setup_correct,
+            feedback:
+                "Ka pai, awesome! Now that you've had some practice, try setting up your Electric Garden with your class!",
+        },
+        {
+            label: 'Setup B',
+            image: setup_wrong1,
+            feedback: "Hmmm, what's going on with the soil probe??",
+        },
+        {
+            label: 'Setup C',
+            image: setup_wrong2,
+            feedback: 'Hmmm, are all of the sensors in the right place??',
+        },
+        {
+            label: 'Setup D',
+            image: setup_wrong3,
+            feedback: 'Hmmm, is that the best spot for the device??',
+        },
+    ]}
+/>
+
+## Conclusion {#conclusion}
+
+#### Kia ora e hoa, you've done it! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_1} border="true" />
+</Figure>
+
+<br />
+
+##### Ka rawe! You've completed your **online project** for this lesson and shown us your knowledge of **hardware** and the **Electric Garden**!
+
+##### Well done, and all the best in your studies to come!

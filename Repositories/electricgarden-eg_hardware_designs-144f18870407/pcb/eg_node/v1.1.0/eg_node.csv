@@ -1,0 +1,44 @@
+Qty,Reference(s),Value,LibPart,Footprint,Modifier,Detail,Manufacturer,Part_number
+1,AE1,Wi-Fi,brush:Antenna_F,RF_Antennas:Texas_SWRA117D_2.4GHz_Right,DNF,,,
+1,AE2,LoRa 915,brush:Antenna_F,brush:Texas_SWRA228C_915MHz_Right,DNF,,,
+4,"C2, C3, C8, C9",C,device:C,brush:SM0603,DNF,,,
+1,C7,100n,device:C,brush:SM0603,DNF,,,
+2,"DP2, DP5","PESD3V3L4UW,115",brush:UCLAMP3304A,TO_SOT_Packages_SMD:SOT-666,DNF,TVS DIODE 3V3 12V SOT665,Nexperia,"PESD3V3L4UW,115"
+2,"G1, G2",MOUNT,brush:MOUNT,brush:Boxco-gland,DNF,,,
+2,"J2, J8",Molex Milligrid 2x2 2mm,conn:Conn_01x04_Male,brush:Molex_Milligrid_02x2_2mm,DNF,,,
+1,J4,Micro USB horizontal,conn:Conn_01x05_Male,Connectors_USB:USB_Micro-B_Molex-105017-0001,DNF,CONN RCPT MICRO USB R/A SMD,Molex,105017-0001
+2,"J6, J7",Conn_Coaxial,conn:Conn_Coaxial,brush:Hirose-U.FL-R-SMT-1(40),DNF,,,
+6,"L13, L14, L15, L4, L5, L6",1k@100MHz,device:L,brush:SM0603,DNF,FERRITE BEAD 1KOHM 0603,Murata,BLM18AG102SN1D
+1,Logo1,Logo,brush:MOUNT,brush:logo-electric-garden-32x14,DNF,,,
+3,"M1, M2, M3",MOUNT,brush:MOUNT,brush:hole4.5,DNF,,,
+1,Q3,LS06-S PLCC-2,device:Q_Photo_NPN,LEDs:LED_PLCC-2,DNF,,,
+4,"R10, R20, R29, R9",0R,device:R,brush:SM0603,DNF,,,
+4,"R16, R26, R27, R28",1k,device:R,brush:SM0603,DNF,RES 1K0 1% 1/10W 0603,,
+1,R18,68k,device:R,brush:SM0603,DNF,,,
+4,"R3, R32, R33, R4",22R,device:R,brush:SM0603,DNF,,,
+3,"SW1, SW2, SW3",TACT,switches:SW_Push,brush:CK_KXT_3xx,DNF,SWITCH TACT SPST-NO 0.02A 15V,C&K,KXT 331 LHS
+1,U3,LM358,linear:LM358,Housings_SSOP:MSOP-8_3x3mm_Pitch0.65mm,DNF,,,
+1,BT1,BATTERY BOX,brush:BATTERY,brush:MPD_BC3AAPC,,HOLDER BATT 3-AA CELLS PC MNT,Memory Protection Devices,BC3AAPC
+3,"C1, C10, C4",100n,device:C,brush:SM0603,,CAP CER 100N 10V X7R 0603,,
+2,"C5, C6",10u,device:C,brush:SM0603,,CAP CER 10U 10V X7R 0603,,
+5,"D1, D2, D3, D4, D5",NSR0530HT1G,brush:D_Schottky_Small,Diodes_SMD:D_SOD-323_HandSoldering,,DIODE SCHOTTKY 30V 500MA SOD323,ON Semi,NSR0530HT1G
+2,"DP1, DP4","PESD3V3L4UW,115",brush:UCLAMP3304A,TO_SOT_Packages_SMD:SOT-666,,TVS DIODE 3V3 12V SOT665,Nexperia,"PESD3V3L4UW,115"
+1,DP3,"PESD5V0L4UW,115",brush:UCLAMP3304A,TO_SOT_Packages_SMD:SOT-666,,TVS DIODE 5V 12V SOT665,Nexperia,"PESD5V0L4UW,115"
+1,J1,Molex Milligrid 2x2 2mm,conn:Conn_01x04_Male,brush:Molex_Milligrid_02x2_2mm,,CONN MILLIGRID 2MM 2x2,Molex,87832-0406
+1,J3,Micro USB vertical,conn:Conn_01x05_Male,Connectors_USB:USB_Micro-B_Vertical_Molex-105133-0001,,MICRO USB B REC. VERTICAL TYPE,Molex,105133-0001
+1,J5,FTDI,conn:Conn_01x06_Male,Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm,,CONN HEADER 6POS 0.1” SIL,,
+6,"L1, L2, L3, L7, L8, L9",1k@100MHz,device:L,brush:SM0603,,FERRITE BEAD 1KOHM 0603,Murata,BLM18AG102SN1D
+2,"L11, L12",0R,device:L,brush:SM0603,,RES 0R 5% 1/10W 0603,,
+1,LED1,GREEN,device:LED_ALT,brush:LED-0603,,LED GREEN CLEAR CHIP 1608,Kingbright,APT1608SGC
+3,"Q1, Q2, Q5",DMP3160L,brush:MOSFET_P,brush:SOT23GDS,,MOSFET P-CH 30V 2.7A SOT23-3,Diodes Inc,DMP3160L-7
+5,"R1, R12, R13, R14, R2",22R,device:R,brush:SM0603,,RES 22R 5% 1/10W 0603,,
+1,R11,10k,device:R,brush:SM0603,,RES 10K 5% 1/10W 0603,,
+7,"R15, R30, R31, R5, R6, R7, R8",4k7,device:R,brush:SM0603,,RES 4K7 5% 1/10W 0603,,
+4,"R17, R19, R21, R22",0R,device:R,brush:SM0603,,RES 0R 5% 1/10W 0603,,
+1,R23,1M,device:R,brush:SM0603,,RES 1M 1% 1/10W 0603,,
+1,R24,510k,device:R,brush:SM0603,,RES 510K 1% 1/10W 0603,,
+1,R25,330R,device:R,brush:SM0603,,RES 330R 5% 1/10W 0603,,
+1,U1,HDC2080,brush:HDC1050,brush:WSON6,,HUMIDITY SENSOR,Texas Instruments,HDC2080DMBT
+1,U2,LoPy_L01,brush:LoPy_LO1,brush:LoPy_L01_OEM,,LOPY L01 OEM MODULE,Pycom.io,L01 OEM Module
+1,U4,XC6203-SOT-89-3,brush:XC6203-SOT223,TO_SOT_Packages_SMD:SOT-89-3_Handsoldering,,IC REG LDO 3V3 400MA 300MV,Torex,XC6203P332PR-G
+1,U5,LTR-329ALS-01,brush:LTR-329ALS-01,brush:4-pin-chipled,,AMBIENT LIGHT PHOTO SENSOR,Lite-On Inc,LTR-329ALS-01

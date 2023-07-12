@@ -1,0 +1,19 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "None",
+    "AzureWebJobsSecretStorageType": "Blob",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "eg-event-ingress_ListenOnlySAS_EVENTHUB": "Endpoint=sb://eg-event-ingress.servicebus.windows.net/;SharedAccessKeyName=ListenOnlySAS;SharedAccessKey=Y8vC1xxk5CampZdQEBaBKeQq5Cj8+4NJmdfTlUboIgw=;EntityPath=sensorhub",
+    "egorchastrationstore_STORAGE": "DefaultEndpointsProtocol=https;AccountName=egorchastrationstore;AccountKey=Ff0CWxzKilCoMlUNRnIQY2Ec8R2jFwBReLbY9/NCgSoLwT+yt7rb0c8S8w6MIrajNN2dbTPufSLaQ9MM1k1xyA==",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "1ef5bbda-caeb-4abe-8a62-673323a07059",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=eg59testfunctio81d1;AccountKey=aL42aAoWxpIt366ICIl3VDoAvImyPsQqgza5aN4MFWqYbfH9gXWTrmLO857t3iAjjKEeucWXNSBvujaMdn+x7w==",
+    "WEBSITE_CONTENTSHARE": "eg59testfunction81d1",
+    "eg-cosmos_DOCUMENTDB": "AccountEndpoint=https://eg-cosmos.documents.azure.com:443/;AccountKey=VjeDigxb7d6vqF1AHfYugqQuX1zjWPquErv7H3psBJRa52LW0929vT1hVTZzJajccZZ0byWPncGqdJvBs8BXYg==;",
+    "WEBSITE_SITE_NAME": "EG59TestFunction",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=eg59testfunctio81d1;AccountKey=aL42aAoWxpIt366ICIl3VDoAvImyPsQqgza5aN4MFWqYbfH9gXWTrmLO857t3iAjjKEeucWXNSBvujaMdn+x7w=="
+  }
+}

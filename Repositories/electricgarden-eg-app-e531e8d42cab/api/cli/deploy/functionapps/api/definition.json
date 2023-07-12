@@ -1,0 +1,8 @@
+{
+  "folder": "http",
+  "statics": [
+    "function.json",
+    "static/example-sensor-data.json"
+  ],
+  "functions": ["appapi"]
+}

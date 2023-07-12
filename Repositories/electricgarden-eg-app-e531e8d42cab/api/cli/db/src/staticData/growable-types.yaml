@@ -1,0 +1,77 @@
+standardObservables:
+  - planted
+  - germinated
+  - harvested
+  - photo
+  - status
+  - freeText
+  - plantMeasure
+  - watered
+  - weeded
+  - sprayed
+  - fertilized
+
+types:
+  peas:
+    title: Peas
+
+  beans:
+    title: Beans
+
+  pumpkin:
+    title: Pumpkin
+    observables:
+      - produceMeasure
+
+  leek:
+    title: Leek
+    observables:
+      - produceMeasure
+
+  raspberries:
+    title: Raspberries
+    observables:
+      - produceMeasure
+
+  parsley:
+    title: Parsley
+    observables:
+      - produceMeasure
+
+  carrots:
+    title: Carrots
+    observables:
+      - produceMeasure
+
+  parsnips:
+    title: Parsnips
+    observables:
+      - produceMeasure
+
+  tomatoes:
+    title: Tomatoes
+    observables:
+      - produceMeasure
+      - pruned # laterals removed
+
+  kumara:
+    title: Kūmara
+
+  potatoes:
+    title: Potatoes
+
+  onions:
+    title: Onions
+    observables:
+      - produceMeasure
+
+  corn:
+    title: Corn
+
+  apple:
+    title: Apple
+    observables:
+      - pruned
+
+  other:
+    title: Other

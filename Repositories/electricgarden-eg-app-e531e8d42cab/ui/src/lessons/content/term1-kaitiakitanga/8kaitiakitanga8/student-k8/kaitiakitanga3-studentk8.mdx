@@ -1,0 +1,910 @@
+---
+name: student-kaitiakitanga8
+title: 1.8 Kaitiakitanga (Tuatoru)
+level: 3
+ordinal: 80
+publish: production
+coverImagePath: kelmarna-banner.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+    ImageText,
+    MatchingBox,
+    HorizontalLayout,
+    VerticalLayout,
+} from '../../../../activities';
+
+import kidsveg from './kidsveg.png';
+import finished8 from './kaitiakit3final.gif';
+
+import otaota1 from './otaota1.png';
+import mokopuna1 from './mokopuna1.png';
+import tipuna1 from './tipuna1.png';
+
+import kaitiaki_taonga from './kaitiaki_taonga.png';
+import watering1 from './watering1.png';
+import hearongaotemara from './hearongaotemara.png';
+
+import plant1 from './plant1.png';
+import plant2 from './plant2.png';
+import plant3 from './plant3.png';
+import placeplant from './placeplant.png';
+
+import ahua1 from './ahua1.png';
+import ahua2 from './ahua2.png';
+import ahua3 from './ahua3.png';
+import ahua4 from './ahua4.png';
+
+import aro1 from './aro1.png';
+import aro2 from './aro2.png';
+import aro3 from './aro3.png';
+import aro4 from './aro4.png';
+
+import ct1 from './ct1.png';
+import ct2 from './ct2.png';
+import ct3 from './ct3.png';
+import ct4 from './ct4.png';
+
+import ctdecomp from './ctdecomp.png';
+import ctpattern from './ctpattern.png';
+import ctabstract from './ctabstract.png';
+import ctalgorithm from './ctalgorithm.png';
+
+import weed1 from './weed1.png';
+import weed2 from './weed2.png';
+import weed3 from './weed3.png';
+
+import tiaki1 from './tiaki1.png';
+import tiaki2 from './tiaki2.png';
+import tiaki3 from './tiaki3.png';
+import tiaki4 from './tiaki4.png';
+import tiaki5 from './tiaki5.png';
+import tiaki6 from './tiaki6.png';
+
+import whakaarororohiko1 from './whakaarororohiko1.png';
+import waterschedule from './waterschedule5.png';
+import kaitiakit3final from './kaitiakit3final.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.8 Kaitiakitanga (Tuatoru)**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={kidsveg} border="true" />
+</Figure>
+
+<br />
+
+##### Taihoa koe ka whakaotiotia i te kaupapa mō te kurapeka nei, ko 'Kaitiakitanga'!
+
+##### Now it's time for you to complete your **online project** to progress your knowledge of **kaitiakitanga**, the **purpose** of a garden, and **our roles** in it.
+
+##### Good luck, do your best, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox minWidth={'150px'}>Te kaitiakitanga</TextBox>]}
+    >
+        <Para>Guardianship, Stewardship</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>Te haepapa</TextBox>]}>
+        <Para>Responsibility</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He aronga</TextBox>]}>
+        <Para>Purpose</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He āhuatanga</TextBox>]}>
+        <Para>Circumstances, Conditions</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He otaota</TextBox>]}>
+        <Para>Vegetation, Weeds</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He tīpuna</TextBox>]}>
+        <Para>Grandparents, Ancestors</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He mokopuna</TextBox>]}>
+        <Para>Grandchildren, Decendants</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'150px'}>He māra</TextBox>]}>
+        <Para>Garden</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **3.** Match the **kupu Māori** with the proper aspect of the environment:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai, nice matching!', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He hau</TextBox>]}>
+        <ImageWithText src={ahua1} text={'Air'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He wai</TextBox>]}>
+        <ImageWithText src={ahua2} text={'Water'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He oneone</TextBox>]}>
+        <ImageWithText src={ahua3} text={'Soil'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te rā</TextBox>]}>
+        <ImageWithText src={ahua4} text={'Sun'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Te Kaitiakitanga {#kaitiakitanga}
+
+### What is **kaitiakitanga**?
+
+<Captioned>
+    He aha <b>te kaitiakitanga</b>?
+</Captioned>
+
+<br />
+
+#### **4.** Which answer best describes kaitiakitanga?
+
+<MultiChoiceActivity
+    question="Kaitiakitanga is:"
+    choices={[
+        {
+            label:
+                'the idea of guardianship based on care, knowledge, and truth',
+            correct: true,
+            feedback: 'Ka pai! How do you participate in kaitiakitanga?',
+        },
+        {
+            label: 'the idea of using computer programs to collect data',
+            feedback: "Kāore, that's called digital technologies!",
+        },
+        {
+            label:
+                'the idea of using spreadsheets for organising important activities',
+            feedback: 'Kāore, but spreadsheets are really useful tools!',
+        },
+        {
+            label:
+                "the idea that kaitiaki don't need to know or care about anything",
+            feedback: 'Kāore, that nearly the exact opposite!',
+        },
+    ]}
+/>
+
+<br />
+
+#### **5.** Match the **traits of kaitiaki** and **categories of taonga** with the proper icons:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai, nice matching!', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    columns={3}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>Care, Respect</TextBox>]}
+    >
+        <ImageWithText src={tiaki1} text={'Te aroha'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>Knowledge, Insight</TextBox>]}
+    >
+        <ImageWithText src={tiaki2} text={'Te māramatanga'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>Truth, Integrity</TextBox>]}
+    >
+        <ImageWithText src={tiaki3} text={'Te tika'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>Nature, Environment</TextBox>]}
+    >
+        <ImageWithText src={tiaki4} text={'Te taiao'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>Culture, Customs</TextBox>]}
+    >
+        <ImageWithText src={tiaki5} text={'Te ahurea'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'170px'}>People, Relationships</TextBox>]}
+    >
+        <ImageWithText src={tiaki6} text={'He tāngata'} />
+    </MatchTarget>
+</MatchingActivity>
+
+### What is **responsibility**?
+
+<Captioned>
+    He aha <b>te haepapa</b>?
+</Captioned>
+
+<br />
+
+#### **6.** Which answer best describes what it means to be responsible?
+
+<MultiChoiceActivity
+    question="Someone who is responsible:"
+    choices={[
+        {
+            label: 'is trusted to make decisions and take actions',
+            correct: true,
+            feedback: 'Ka pai! What responsibilities do you carry?',
+        },
+        {
+            label: 'can always give correct responses to questions',
+            feedback: 'Kāore, everyone make mistakes! Pai tū, pai hinga.',
+        },
+        {
+            label: "doesn't need to do anything or help anyone",
+            feedback: "Kāore, that's nearly the exact opposite!",
+        },
+        {
+            label: 'is a skilled gardener and data collector',
+            feedback: "Kāore, that's called a keen gardener!",
+        },
+    ]}
+/>
+
+<br />
+
+#### **7.** Which of these answers show responsibility?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'Making your bed in the morning', correct: true },
+        { label: 'Packing your own school backpack', correct: true },
+        { label: 'Helping clear dishes at the dinner table', correct: true },
+        { label: 'Leaving a mess for someone else to clean' },
+        { label: "Not doing your homework because it's too hard" },
+        { label: 'Trying again when you fail the first time', correct: true },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### What is **accountability**?
+
+<Captioned>
+    He aha <b>ngā kawenga takohanga</b>?
+</Captioned>
+
+<br />
+
+#### **8.** Which answer best describes what it means to be accountable?
+
+<MultiChoiceActivity
+    question="Someone who is accountable can:"
+    choices={[
+        {
+            label: 'explain the results of their decisions and actions',
+            correct: true,
+            feedback:
+                "Ka pai! It's important to own our failures and our successes!",
+        },
+        {
+            label: 'use big numbers and count things quickly',
+            feedback: "Kāore, that's called a maths wiz!",
+        },
+        {
+            label: 'count the data they collect in a spreadsheet',
+            feedback: "Kāore, that's just called maths!",
+        },
+        {
+            label: 'get away with skipping over their responsibilities',
+            feedback: "Kāore, that's nearly the opposite!",
+        },
+    ]}
+/>
+
+<br />
+
+#### **9.** Which of these answers show accountability?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'Telling the truth about your actions', correct: true },
+        { label: 'Feeling good after being successful', correct: true },
+        {
+            label: 'Accepting the consequences for making a mistake',
+            correct: true,
+        },
+        { label: 'Blaming someone else for your mistakes' },
+        { label: 'Making up an excuse to explain your actions' },
+        {
+            label: "Ticking a task as 'done' without actually doing it",
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Te Aronga o te Māra {#garden}
+
+### What is a **garden**?
+
+<Captioned>
+    He aha <b>te māra</b>?
+</Captioned>
+
+<br />
+
+#### **10.** Which answer best describes a garden?
+
+<MultiChoiceActivity
+    question="A garden is:"
+    choices={[
+        {
+            label:
+                'a space that is planned, for enjoying nature in a controlled environment',
+            correct: true,
+            feedback:
+                'Ka pai! They are special places that we cultivate in nature.',
+        },
+        {
+            label:
+                'a space that is wild, for enjoying nature in an uncontrolled environment',
+            feedback: "Kāore, that's just called 'nature'!",
+        },
+        {
+            label: 'a space for growing weeds to remove them from nature',
+            feedback:
+                "Kāore, if you're spending time growing them , then they're not weeds!",
+        },
+        {
+            label:
+                'a space where nature cannot grow without the help of a gardener',
+            feedback:
+                'Kāore, iti noa ana he pito mata. Life always finds a way!',
+        },
+    ]}
+/>
+
+### What is the **purpose** of a garden?
+
+<Captioned>
+    He aha <b>te aronga</b> o te māra?
+</Captioned>
+
+##### In our lesson, we discovered that different gardens can have different goals.
+
+##### What's more, gardens can serve more than one purpose, and sometimes even those that we don't intend.
+
+<br />
+
+#### **11.** Match these few common purposes for keeping a garden:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Food" />
+            <MatchingBox title="Design" />
+            <MatchingBox title="Flowers" />
+            <MatchingBox title="Pollinators" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={aro1} text={'Mō te kai'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para />
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={aro2} text={'Mō te hoahoa'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para />
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={aro3} text={'Mō ngā puaka'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para />
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={aro4} text={'Mō te haenga'} />]}
+        position={{ left: 650, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para />
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+### What is a **weed**?
+
+<Captioned>
+    He aha <b>te otaota</b>?
+</Captioned>
+
+<br />
+
+#### **12.** Which answer best describes a weed?
+
+<MultiChoiceActivity
+    question="A weed is a plant:"
+    choices={[
+        {
+            label: 'growing where it is not wanted',
+            correct: true,
+            feedback: "Ka pai! It's as simple as that!",
+        },
+        {
+            label: 'that grows really quickly',
+            feedback:
+                "Kāore...although some weeds can take over quickly, this isn't the full picture!",
+        },
+        {
+            label: 'that is difficult to remove',
+            feedback:
+                "Kāore...although some weeds can be tough buggers, this isn't the full picture!",
+        },
+        {
+            label: 'that we want to grow in the garden',
+            feedback: "Kāore, that's nearly the exact opposite!",
+        },
+    ]}
+/>
+
+<br />
+
+#### **13.** Where are these plants _**not**_ considered a weed?
+
+##### **Match these plants where they fit with the purpose of the place:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Te ngahere" />
+            <MatchingBox title="Te māra" />
+            <MatchingBox title="Te whare" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={weed2} text={'Kauri Tree'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Forest )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={weed3} text={'Cabbage Plant'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Garden )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={weed1} text={'Mini Succulent'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( House )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+## Debugging in the Garden {#debugging}
+
+### **Computational Thinking**
+
+<Captioned>
+    He aha <b>te whakaaro rorohiko</b>?
+</Captioned>
+
+<br />
+
+#### **14.** Which answer best describes computational thinking?
+
+<MultiChoiceActivity
+    question="Computational thinking is:"
+    choices={[
+        {
+            label: 'a method of problem-solving that computers can understand',
+            correct: true,
+            feedback:
+                "Ka pai! It's thinking like a computer to make problems a cinch to solve!",
+        },
+        {
+            label: 'a type of computer program that can think like a person',
+            feedback: 'Kāore, that sounds like a robot!',
+        },
+        {
+            label: 'a programming language that writes code automatically',
+            feedback: 'Kāore, but how crazy is that!?',
+        },
+        {
+            label: 'a way of thinking about computers, not nature',
+            feedback: "Kāore, that's not thinking outside the box!",
+        },
+    ]}
+/>
+
+##### In our lesson, we used the basic methods of computational thinking to take a closer look at the task of watering the garden.
+
+<br />
+
+#### **15.** Can you identify the four basic stages of computational thinking?
+
+##### **Match the labels with the descriptions for each stage:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Step A" />
+            <MatchingBox title="Step B" />
+            <MatchingBox title="Step C" />
+            <MatchingBox title="Step D" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={ct1} text={'Decomposition'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para align={'middle'}>
+                To break down a problem into smaller, more manageable parts
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={ct2} text={'Pattern Recognition'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                To look for general similarities between the parts of this
+                problem and other problems
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={ct3} text={'Abstraction'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                To create a model for solving the problem based on the most
+                important main parts
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={ct4} text={'Algorithm'} />]}
+        position={{ left: 650, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                To create a set of step-by-step instructions for carrying out
+                the solution
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+<br />
+
+##### _Now let's think a bit about what we can do if we find any **errors** in our solution._
+
+### What is **debugging**?
+
+<Captioned>
+    He aha <b>te patuiro</b>?
+</Captioned>
+
+<br />
+
+##### In the garden a bug is an **insect**, but in programming it means something a bit different!
+
+##### In programming, a **bug** is an **error** in our code, or a **mistake** that prevents a program from doing what it is supposed to do.
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>bug</b> = an error, or mistake, that stops a program from working
+    properly
+</Captioned>
+
+<br />
+
+##### For example, we would consider it a bug if we found our instructions were **out of sequence**, if they were **missing a step**, or if a step was **incorrect**.
+
+##### When creating a program, it is important to use **logic** and **test** each process to look for any bugs and fix them if they are found. This is called **debugging**!
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>debugging</b> = looking for and fixing errors in a program
+</Captioned>
+
+<br />
+
+##### So, rather than managing insects in the garden, debugging is managing errors in our programming.
+
+##### **Debugging** is an important practise to help make sure our programs work the way they were designed.
+
+<br />
+<br />
+
+#### **16.** Which answer best describes a bug in a program?
+
+<MultiChoiceActivity
+    question="A bug is:"
+    choices={[
+        {
+            label: 'an error, or mistake, in our code',
+            correct: true,
+            feedback: "Ka pai, you've got it!",
+        },
+        {
+            label: 'an insect we find out in the garden',
+            feedback:
+                "Kāore, that's a real insect! And hey, not all bugs are baddies!",
+        },
+        {
+            label: 'a sequence of instructions in our code',
+            feedback: 'Kāore, sequencing is important in coding!',
+        },
+        {
+            label: 'an annoying job that we make a program handle for us',
+            feedback: 'Kāore, but they sure may bug you!',
+        },
+    ]}
+/>
+
+#### **17.** Which answer best describes debugging a program?
+
+<MultiChoiceActivity
+    question="Debugging is:"
+    choices={[
+        {
+            label: 'finding and fixing errors in our code',
+            correct: true,
+            feedback: "Ka pai, you've got it!",
+        },
+        {
+            label: 'finding and removing insects from the garden',
+            feedback:
+                "Kāore, that's pest control! And hey, not all bugs are baddies!",
+        },
+        {
+            label: 'finding sequences of instructions in our code',
+            feedback:
+                "Kāore, that's evaluation, or making sure everything is in order!",
+        },
+        {
+            label: 'finding annoying jobs for our programs to do',
+            feedback: 'Kāore, usually those kinds of jobs find us!',
+        },
+    ]}
+/>
+
+### **Debugging Practice**
+
+<br />
+
+#### **Weather & Watering the Garden**
+
+##### To practise debugging, let's consider Hūhana's class schedule for **watering the garden**.
+
+##### Let's take a closer look at the **schedule**, the **weather**, and the **algorithm** that the students use to see if we can find any **bugs** in their process for looking after the school garden.
+
+<br />
+
+#### **18.** Compare the schedule and the weather forecast:
+
+<Figure>
+    <ImageWithBorder src={waterschedule} radius={''} />
+</Figure>
+
+<MultiChoiceActivity
+    question="Do you see any potential problems, or bugs, with this program?"
+    choices={[
+        {
+            label: 'Yes, we will be watering the garden in the rain',
+            correct: true,
+            feedback: "Ka pai! Seems silly to water when it's already wet!",
+        },
+        {
+            label: 'No, everything looks ok with the schedule',
+            feedback:
+                "Kāore, tenā anō. Are you sure there's nothing to consider?",
+        },
+        {
+            label: 'Yes, Māia is responsible two days in a row',
+            feedback: 'Kāore, are you sure? Take another look at the roster.',
+        },
+        {
+            label: 'Yes, we need to water more on rainy days',
+            feedback: "Kāore, really? But if it's rainy, isn't it already wet?",
+        },
+    ]}
+/>
+
+#### **19.** What are some ways we could improve, or help debug, this process?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        {
+            label: "Add another step to the algorithm: 'Check the Weather'",
+            correct: true,
+        },
+        {
+            label:
+                "Add an algorithm condition that: 'If it's raining, then skip watering'",
+            correct: true,
+        },
+        {
+            label:
+                'Make sure the weather forecast information is accurate and up to date',
+            correct: true,
+        },
+        { label: "Don't worry about it, and just water anytime" },
+        {
+            label:
+                "Add an algorithm condition that: 'If it's raining, then water extra'",
+        },
+        {
+            label:
+                "Add a schedule column of checkboxes for 'Raincheck Skip' to keep track of weather interruptions",
+            correct: true,
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Conclusion {#conclusion}
+
+#### Alright! You've made it to the end of this lesson series! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={kaitiakit3final} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **kaitiakitanga**, understanding the **purpose** of a garden, and starting to use **computational thinking** to solve problems like a computer!
+
+##### Well done, and keep up the good work in your studies to come!

@@ -1,0 +1,27 @@
+{
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.options": {
+    "extensions": [".ts", ".js"]
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.workingDirectories": ["funcs/*", "packages/*"],
+  "files.eol": "\n",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/lib": true,
+    "**/out": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/lib": true,
+    "**/out": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.enable": true
+}

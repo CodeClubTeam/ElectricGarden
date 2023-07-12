@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "sendInstructionsMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-instructions",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    }
+  ],
+  "scriptFile": "../dist/send-instructions/index.js"
+}

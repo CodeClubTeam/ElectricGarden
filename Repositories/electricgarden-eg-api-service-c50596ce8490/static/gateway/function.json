@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "type": "table",
+      "name": "table",
+      "tableName": "NodeEvents",
+      "connection": "electricgarden_STORAGE",
+      "direction": "out"
+    },
+    {
+      "type": "queueTrigger",
+      "name": "eventHubMessages",
+      "queueName": "sensor-event-azure-tables",
+      "connection": "AzureWebJobsDashboard",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}

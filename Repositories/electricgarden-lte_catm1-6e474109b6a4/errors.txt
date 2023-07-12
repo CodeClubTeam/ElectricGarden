@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "main.py", line 129, in <module>
+  File "main.py", line 51, in main
+NameError: name 'mchine' is not defined

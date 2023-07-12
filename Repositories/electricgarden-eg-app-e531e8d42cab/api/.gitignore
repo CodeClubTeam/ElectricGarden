@@ -1,0 +1,28 @@
+# OS
+.DS_STORE
+Thumbs.db
+
+# Nested (and root) node_modules, we will have a build service for this.
+**/node_modules/
+
+# Vagrant machine configuration
+.vagrant
+
+# local.settings.json is copied from one of the environments/*.settings.json file.
+local.settings.json
+
+# local environment with direnv/nvm
+.envrc
+.nvmrc
+
+# Daemon that runs on Vagrant server
+daemon/
+.nyc_output/
+coverage/
+test-reports/
+webpack.config.js.orig
+yarn-error.log
+
+.env
+test-reports/
+globalConfig.json

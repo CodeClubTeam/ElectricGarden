@@ -1,0 +1,2 @@
+pyserial>=3.1.x
+pyinstaller>=3.2.x,<3.3

@@ -1,0 +1,1404 @@
+---
+name: student-data
+title: 1.4 Data & Graphs
+level: 3
+ordinal: 40
+locked: false
+publish: production
+coverImagePath: ./databanner.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+} from '../../../../activities';
+
+import databanner from './databanner.png';
+import tohupatai from './tohupatai.png';
+import graphcan from './graphcan.png';
+import datagraph from './datagraph.png';
+
+import temperatureData from './chart-temperature.json';
+import leavescolour from './leavescolour.png';
+import leavesshape from './leavesshape.png';
+import leavessize from './leavessize.png';
+
+import create_store_share from './create_store_share.png';
+import create from './create.png';
+import store from './store.png';
+import share from './share.png';
+
+import observe1 from './observe1.png';
+import measure1 from './measure1.png';
+import question1 from './question1.png';
+
+import collect from './collect.png';
+import analyse from './analyse.png';
+import organise from './organise.png';
+import collect1 from './collect1.png';
+import organise1 from './organise1.png';
+import analyse1 from './analyse1.png';
+import collect2 from './collect2.png';
+import organise2 from './organise2.png';
+import analyse2 from './analyse2.png';
+import datamgmt1 from './datamgmt1.png';
+
+import kohikohi from './kohikohi.png';
+import nahanaha from './nahanaha.png';
+import tatari from './tatari.png';
+import wehewehe from './wehewehe.png';
+
+import heahatekauwhata from './heahatekauwhata.png';
+import hovergraph1 from './hovergraph1.png';
+
+import trinketbanner from './trinketbanner2.png';
+import sortcolour from './sortcolour.png';
+import sortgender from './sortgender.png';
+import sortnumber from './sortnumber.png';
+
+import bargraph1 from './bargraph1.png';
+import piegraph1 from './piegraph1.png';
+import linegraph1 from './linegraph1.png';
+
+import bargraph2 from './bargraph2.png';
+import piegraph2 from './piegraph2.png';
+import linegraph2 from './linegraph2.png';
+
+import bargraph3 from './bargraph3.png';
+import linegraph3 from './linegraph3.png';
+
+import bargraph4 from './bargraph4.png';
+import piegraph4 from './piegraph4.png';
+import linegraph4 from './linegraph4.png';
+import circlegraph1 from './circlegraph1.png';
+import bargraph from './bargraph.png';
+import piechart from './piechart.png';
+import linegraph from './linegraph.png';
+import circlegraph from './circlegraph.png';
+import bargraphbig from './bargraphbig.png';
+import piechartbig from './piechartbig.png';
+import linegraphbig from './linegraphbig.png';
+import graphaxis from './graphaxis.png';
+
+import airtempeg from './airtempeg.png';
+import soiltempeg from './soiltempeg.png';
+import soilmoistureeg from './soilmoistureeg.png';
+
+import run from './run.png';
+import multigraph from './multigraph.png';
+import relateairlux from './relateairlux.png';
+import relatehumair from './relatehumair.png';
+import relateall from './relateall.png';
+
+import complete1_4 from './complete1_4.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.4 Data & Graphs**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={databanner} border="true" />
+</Figure>
+
+<br />
+
+##### Nō reira, it's time for you to complete your **online project** to build on your knowledge of **data** and **graphs**.
+
+##### Ngā mihi e hoa. Do your best, and Have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He raraunga</TextBox>]}>
+        <Para>Data</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He kauwhata</TextBox>]}>
+        <Para>Graph</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He</TextBox>]}>
+        <Para>A / An / Some</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te</TextBox>]}>
+        <Para>
+            The <i>(singular)</i>
+        </Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** with the proper icon:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He kauwhata pou</TextBox>]}>
+        <ImageWithText src={bargraph1} text={'Bar graph'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He kauwhata porowhita</TextBox>]}>
+        <ImageWithText src={piegraph1} text={'Pie graph'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He kauwhata rārangi</TextBox>]}>
+        <ImageWithText src={linegraph1} text={'Line graph'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Data {#data}
+
+### What is **data**?
+
+<Captioned>
+    He aha <b>ngā raraunga</b>?
+</Captioned>
+
+<br />
+
+#### **3.** Which answer best describes data?
+
+<MultiChoiceActivity
+    question="Data is:"
+    choices={[
+        {
+            label: 'a collection of information',
+            correct: true,
+            feedback:
+                'Āe, e hoa. Data is information, information is knowledge, and knowledge is powerful!',
+        },
+        {
+            label: 'a set of step by step instructions',
+            feedback:
+                "Kāore, that sounds like an 'algorithm', which we'll talk more about in a later lesson!",
+        },
+        {
+            label: 'an error that we find in our research',
+            feedback:
+                "Kāore, that sounds like a 'bug', which we'll talk more about in a later lesson",
+        },
+        {
+            label: 'the original name for computers',
+            feedback:
+                "Kāore, the word data comes from the Latin plural for 'datum', which means 'a thing given'. Cool, eh!",
+        },
+    ]}
+/>
+
+### **Making Sense of Data**
+
+##### Here is an example with **fruit** as the subject of our data.
+
+![fruitexample](./fruitexample.png)
+
+##### What steps do we need to take to make sense of this data set?
+
+#### **4.** Match each **image** with the proper **step**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai!',
+        fail: 'Not quite, try again!',
+    }}
+    randomOrder={{ candidates: true, targets: false }}
+    background={
+        <Image
+            src={datamgmt1}
+            tooltip="3 Steps to gather and understand data"
+            width={500}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dashed' }}
+>
+    <MatchTarget
+        matches={[
+            <Image
+                src={analyse2}
+                tooltip="fruits assigned numbers"
+                width="140"
+            />,
+        ]}
+        position={{ left: 137, top: 194 }}
+    >
+        <Box width={140} height={140} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <Image
+                src={organise2}
+                tooltip="fruits grouped by type"
+                width="140"
+            />,
+        ]}
+        position={{ left: 307, top: 194 }}
+    >
+        <Box width={140} height={140} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <Image
+                src={collect2}
+                tooltip="a random group of fruit"
+                width="140"
+            />,
+        ]}
+        position={{ left: 222, top: 49 }}
+    >
+        <Box width={140} height={140} />
+    </MatchTarget>
+</MatchingActivity>
+
+### **Collecting** Data
+
+<Captioned>
+    <b>Te kohikohi</b> ngā raraunga
+</Captioned>
+
+#### **5.** What are some main ways we can **collect** data?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'Asking questions', correct: true },
+        { label: 'Observing our environment', correct: true },
+        { label: 'Taking measurements of conditions', correct: true },
+        { label: 'Making random guesses' },
+        { label: 'Not looking too closely' },
+        { label: 'Thinking we know all of the answers' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Organising** Data
+
+<Captioned>
+    <b>Te wehewehe</b> ngā raraunga
+</Captioned>
+
+#### **6.** What are some strategies we can use to **organise** data?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'Sort by type', correct: true },
+        { label: 'Sort by colour', correct: true },
+        { label: 'Sort by size', correct: true },
+        { label: 'Sort by location', correct: true },
+        { label: 'Sort completely randomly' },
+        { label: 'Sort by preference', correct: true },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Analysing** Data
+
+<Captioned>
+    <b>Te tātari</b> ngā raraunga
+</Captioned>
+
+#### **7.** What do we look for when we **analyse** data?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'Patterns', correct: true },
+        { label: 'Trends', correct: true },
+        { label: 'Instructions' },
+        { label: 'Rewards' },
+        { label: 'All of these' },
+        { label: 'None of these' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Graphs {#graphs}
+
+### What is a **graph**?
+
+<Captioned>
+    He aha <b>te kauwhata</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={bargraph3} />
+    <RoundImage src={piegraph2} />
+    <RoundImage src={linegraph3} />
+</Figure>
+
+#### **8.** Which answer best describes a graph?
+
+<MultiChoiceActivity
+    question="A graph is:"
+    choices={[
+        {
+            label: 'a diagram to show data as a visual image',
+            correct: true,
+            feedback:
+                "Ka rawe, yes! It's a way to visualise our data to look for patterns!",
+        },
+        {
+            label: 'a set of instructions about organising data',
+            feedback: 'Kāore, instructions are a separate matter!',
+        },
+        {
+            label: 'a computer program that generates organised data',
+            feedback:
+                'Kāore, although computer programs can be great at organising data into graphs!',
+        },
+        {
+            label: 'a list of data using letters and numbers',
+            feedback:
+                "Kāore, that sounds like a 'spreadsheet', which we'll talk more about in a later lesson!",
+        },
+    ]}
+/>
+
+<br />
+
+##### Different graphs are designed to show different kinds of information.
+
+##### Let's take a look at the kinds of **information and patterns** we can see using different graphs:
+
+### Using **Bar Graphs**
+
+<Captioned>
+    Whakamahia <b>he kauwhata pou</b>
+</Captioned>
+<Figure>
+    <RoundImage src={bargraph3} />
+</Figure>
+
+##### Bar graphs are arranged with a horizontal and vertical axis, and use different sized columns to display data.
+
+#### **9.** What kind of information can we see using a bar graph?
+
+<MultiChoiceActivity
+    question="A bar graph shows us:"
+    choices={[
+        {
+            label:
+                'categories of data, and the size of each bar shows the amount in each category',
+            correct: true,
+            feedback: 'Kei te pai. Where have you seen bar graphs used before?',
+        },
+        {
+            label:
+                'change over time, and the size of each bar shows how much has changed',
+            feedback:
+                "Kāore, a basic bar graph isn't great with change over time.",
+        },
+        {
+            label:
+                'size of our plants, and the size of each bar shows how tall our plants will grow',
+            feedback: 'Kāore, not every bar graph has to do with the garden!',
+        },
+        {
+            label:
+                "colours of flowers, and the size of each bar doesn't matter",
+            feedback: 'Kāore, not every bar graph has to do with the garden!',
+        },
+    ]}
+/>
+
+### Using **Pie Graphs**
+
+<Captioned>
+    Whakamahia <b>he kauwhata porowhita</b>
+</Captioned>
+<Figure>
+    <RoundImage src={piegraph2} />
+</Figure>
+
+##### Pie graphs are arranged as a circle, and use different sized segments to display data.
+
+#### **10.** What kind of information can we see using a pie graph?
+
+<MultiChoiceActivity
+    question="A pie graph shows us:"
+    choices={[
+        {
+            label:
+                'proportions of data, and each segment shows a piece of a total amount',
+            correct: true,
+            feedback: 'Kei te pai. Where have you seen pie graphs used before?',
+        },
+        {
+            label:
+                'change over time, and each segment shows how much has changed',
+            feedback:
+                "Kāore, a basic pie graph isn't great with change over time.",
+        },
+        {
+            label:
+                'range of our sprinkler, and each segment shows the watered parts of the garden',
+            feedback: 'Kāore, not every bar graph has to do with the garden!',
+        },
+        {
+            label:
+                'map of our garden, and each segment shows where to put different plants',
+            feedback: 'Kāore, not every bar graph has to do with the garden!',
+        },
+    ]}
+/>
+
+### Using **Line Graphs**
+
+<Captioned>
+    Whakamahia <b>he kauwhata rārangi</b>
+</Captioned>
+<Figure>
+    <RoundImage src={linegraph3} />
+</Figure>
+
+##### Line graphs are arranged with a horizontal and vertical axis, and use points connected by lines to display data.
+
+#### **11.** What kind of information can we see using a line graph?
+
+<MultiChoiceActivity
+    question="A line graph shows us:"
+    choices={[
+        {
+            label:
+                'change over time, and each point shows information as part of a series over time',
+            correct: true,
+            feedback:
+                'Kei te pai! Where have you seen line graphs used before?',
+        },
+        {
+            label:
+                'categories of data, and every point is a different category linked to each other by lines',
+            feedback:
+                "Kāore, a basic line graph isn't great with categories of data.",
+        },
+        {
+            label:
+                'music for the garden, and the lines show how the different notes should be played together',
+            feedback:
+                'Kāore, that sounds more like sheet music...which does actually look a lot like a graph!',
+        },
+        {
+            label:
+                'proportions of data, and the lines shows pieces of a total amount',
+            feedback: "Kāore, a basic line graph isn't great with proportions.",
+        },
+    ]}
+/>
+
+## Electric Garden Data {#EG-data}
+
+### **Reading the Electric Garden Data**
+
+<Captioned>
+    <b>Pānuitia ngā raraunga o te Electric Garden</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={datagraph} />
+</Figure>
+
+<br />
+
+##### This example graph is showing data from an Electric Garden's **air temperature**, **soil temperature**, and **soil moisture sensors** over a period of time between **7pm and 10pm** on 22 October.
+
+<CannedChart
+    data={temperatureData}
+    show={['airTemp', 'soilTemp', 'soilMoisture', 'Humidity']}
+/>
+
+![airsoilon](./tog-airsoilon.png)
+
+##### By **tapping** or **hovering your cursor** over a data point, you can see more details for the sensor measurement recorded at that point in time.
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={hovergraph1} border="true" />
+</Figure>
+
+<br />
+
+##### Let's use these graphs to **practise reading and understanding** the Electric Garden data!
+
+### **Air Temperature** Data
+
+<Captioned>
+    <b>Te paemahana o te hau</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={airtempeg} border="true" />
+</Figure>
+
+#### **12.** At what time was the air temperature at its **lowest (coolest)**?
+
+<CannedChart data={temperatureData} show={['airTemp']} />
+
+![airtemp](./tog-airtempon.png)
+
+<MultiChoiceActivity
+    question="Select the correct time:"
+    choices={[
+        {
+            label: '7:33pm',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: '8:03pm',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: '8:33pm',
+            correct: true,
+            feedback: 'Well done, nice job reading that graph!',
+        },
+        {
+            label: '9:02pm',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+    ]}
+/>
+
+### **Soil Temperature** Data
+
+<Captioned>
+    <b>Te paemahana o te oneone</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={soiltempeg} border="true" />
+</Figure>
+
+#### **13.** What temperature was the **highest (warmest)** of the soil?
+
+<CannedChart data={temperatureData} show={['soilTemp']} />
+
+![soiltemp](./tog-soiltempon.png)
+
+<MultiChoiceActivity
+    id={1}
+    question="Select the correct temperature:"
+    choices={[
+        {
+            label: '10 degrees Celsius',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: '12 degrees Celsius',
+            correct: true,
+            feedback: "Alright, you've had another good go at reading a graph!",
+        },
+        {
+            label: '9 degrees Celsius',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: '8 degrees Celsius',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+    ]}
+/>
+
+### **Soil Moisture** Data
+
+<Captioned>
+    <b>Te mākū o te oneone</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={soilmoistureeg} border="true" />
+</Figure>
+
+#### **14.** During what time period did the soil get the **most wet (sudden rise)**?
+
+<CannedChart data={temperatureData} show={['soilMoisture']} />
+
+![soilmoist](./tog-soilmoiston.png)
+
+<MultiChoiceActivity
+    id={1}
+    question="Select the correct time period:"
+    choices={[
+        {
+            label: 'Between the 7:33pm and 8:03pm readings',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: 'Between the 8:03pm and 8:33pm readings',
+            correct: true,
+            feedback:
+                "Kei te pai koe, you're getting really good at reading graphs!",
+        },
+        {
+            label: 'Between the 8:33pm and 9:32pm readings',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+        {
+            label: 'Between the 9:02pm and 10:02pm readings',
+            feedback:
+                'Kāore, tēnā anō. Take another look at the data points....',
+        },
+    ]}
+/>
+
+### **The Story Behind the Data**
+
+<Captioned>
+    <b>Te mārama mō ngā raraunga</b>
+</Captioned>
+
+###### We can try to learn even more by **overlapping** the different data sets on the same graph.
+
+###### Then, we can look for **patterns between the different conditions** and better understand how they are related.
+
+<br />
+
+##### Use the graph below to answer the questions about what has happened in the garden:
+
+<CannedChart
+    data={temperatureData}
+    show={['airTemp', 'soilTemp', 'soilMoisture']}
+/>
+
+#### **15.** What time did a weather event begin in the garden with this EG?
+
+<MultiChoiceActivity
+    id={1}
+    question="Choose the most accurate time period:"
+    choices={[
+        {
+            label: 'Between the 8:03pm and 8:33pm readings',
+            correct: true,
+            feedback:
+                'Well done! You saw the noticable change in each of the data lines on the graph.',
+        },
+        {
+            label: 'Between the 7:33pm and 8:03pm readings',
+            feedback:
+                "Hmmm, there's some change, but not quite enough to notice a weather event",
+        },
+        {
+            label: 'Between the 8:33pm and 9:02pm readings',
+            feedback:
+                'Hmmm, a change had taken place, but it seems to have steadied by this time',
+        },
+        {
+            label: 'Between the 9.02pm and 9:32pm readings',
+            feedback:
+                'The storm will have started before we can see it in the data!',
+        },
+    ]}
+/>
+
+#### **16.** How can you tell that a weather event happened at that time?
+
+<MultiChoiceActivity
+    id={1}
+    question="What evidence does the data graph show us?"
+    choices={[
+        {
+            label:
+                "There are sudden changes in each sensor's measurements that seem clearly related",
+            correct: true,
+            feedback:
+                'Well done! You recognised a correlated shift in the data over time!',
+        },
+        {
+            label: 'The weather event icon has popped up on the data graph',
+            feedback:
+                "Hmmm, that would be a cool feature...but there's so such icon!",
+        },
+        {
+            label: "There's no evidence; we just have to make a guess",
+            feedback: "Hmmm, that doesn't sound very reliable...!",
+        },
+        {
+            label: 'The readings are so steady that it seems suspicious',
+            feedback:
+                'Hmmm, steady data readings mean that nothing is changing!',
+        },
+    ]}
+/>
+
+#### **17.** How can we explain the sudden change we see in temperature and moisture?
+
+<MultiChoiceActivity
+    id={1}
+    question="Select the description that best explains the data:"
+    choices={[
+        {
+            label: 'An earthquake',
+            feedback:
+                'Hmmm, how do you reckon an earthquake would effect the temperature and moisture like this? Is this the best explanation?',
+        },
+        {
+            label: 'A heat wave',
+            feedback:
+                'Hmmm, does it make sense for the temperature to drop during a heat wave?',
+        },
+        {
+            label: 'A rain shower',
+            correct: true,
+            feedback:
+                "Yeah, that sounds like a reasonable explanation! How do you think you could follow up to make sure that's what happened?",
+        },
+        {
+            label: 'A sand storm',
+            feedback:
+                'Hmmm, how do you reckon a sand storm would effect the temperature and moisture like this?',
+        },
+    ]}
+/>
+
+#### **18.** What can we do to check that our conclusion is correct?
+
+<MultiChoiceActivity
+    question="Select all that apply. We can:"
+    choices={[
+        {
+            label: 'check the weather report for that same time and place',
+            correct: true,
+        },
+        {
+            label:
+                'check outside or recall your own experience of the weather from that same time',
+            correct: true,
+        },
+        {
+            label:
+                'ask friends or family if they remember the weather from that same time',
+            correct: true,
+        },
+        {
+            label:
+                "just make up a story; it doesn't matter what actually happened",
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Programming with Lists {#prog-list}
+
+### **Using Lists in Trinket**
+
+<Figure align={'left'}>
+    <ImageWithBorder src={trinketbanner} radius={'5px'} />
+</Figure>
+
+<br />
+
+##### Remember that **Trinket** is a tool that lets us practise our **programming** skills.
+
+##### Previously we learned about **variables**, or terms that can store information in programs.
+
+##### Now let's use Trinket to explore using **lists** to organise data and create graphs!
+
+### What is a **list**?
+
+<Captioned>
+    He aha <b>he rārangi</b>?
+</Captioned>
+
+##### In programming, a list is a way of storing **a series of data** as **a sequence of values in order**.
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>list</b> = a collection of data stored as a <b>series</b>, in a{' '}
+    <b>particular order</b>
+</Captioned>
+
+<br />
+
+##### For example, data from each Electric Garden sensor will contain many numbers for lots of measurements collected over time.
+
+##### In order to make any sense of them, these numbers must be **grouped together** and arranged in their **proper order**.
+
+##### A list is an important tool for organising big (sometimes massive!) sets of information that belong together in order.
+
+<br />
+
+#### **19.** So, which answer best describes a list?
+
+<MultiChoiceActivity
+    question="In programming, a list is:"
+    choices={[
+        {
+            label: 'a collection of related data in an ordered sequence',
+            correct: true,
+            feedback: "Ka pai, you've got it!",
+        },
+        {
+            label:
+                'a table of things to check off before we can start programming',
+            feedback: "Kāore, that's a 'checklist'!",
+        },
+        {
+            label: 'a random selection of data that looks good together',
+            feedback: 'Kāore, no way! Not random!',
+        },
+        {
+            label: 'a long line of code in a computer program',
+            feedback: 'Kāore, that could be any type of code!',
+        },
+    ]}
+/>
+
+<br />
+
+##### _Move on to the next section to get programming!_
+
+## Drawing Graphs with Trinket {#draw-graphs}
+
+### **From Lists to Graphs**
+
+###### The Electric Garden uses programming to collect data, sort it into lists, and translate it into graphs.
+
+###### Let's use the programming language Python with Trinket to practise pulling data from a list to draw graphs.
+
+<br />
+
+#### **Step A)** Formatting our graph:
+
+##### First, we need to figure our what **type of graph** we want to use.
+
+#### **20.** Which type of graph would be best for showing our EG data?
+
+<MultiChoiceActivity
+    question="Select the most suitable type of graph:"
+    choices={[
+        {
+            label: 'Line Graph',
+            correct: true,
+            image: linegraph4,
+            feedback:
+                'From our lesson, we know that the best format for showing data over time is a line graph (kauwhata rārangi).',
+        },
+        {
+            label: 'Bar Graph',
+            image: bargraph4,
+            feedback:
+                'From our lesson, do you remember what kinds of patterns a bar graph is good at showing?',
+        },
+        {
+            label: 'Pie Graph',
+            image: piegraph4,
+            feedback:
+                'From our lesson, do you remember what kinds of patterns a pie graph is good at showing?',
+        },
+        {
+            label: 'Circle Graph',
+            image: circlegraph1,
+            feedback:
+                'From our lesson, do you remember covering the use of circle graphs at all?',
+        },
+    ]}
+/>
+
+<br />
+
+##### Next, we next need to tell Trinket where the information goes on the graph:
+
+#### **21.** How should we arrange the information on our graph?
+
+##### **Label the x- and y-axis with the type of data they should show:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai! From our lesson, we know that time tracks well along the horizontal bottom (x-axis), and the measurements track well along the vertical side (y-axis).',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={graphaxis}
+            tooltip="Graph for labelling the x and y axes"
+            width={700}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dashed' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox maxWidth={14}>Time of Day</TextBox>]}
+        position={{ left: 365, top: 225 }}
+    >
+        <Box width={240} height={90} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={14}>Sensor Measurements</TextBox>]}
+        position={{ left: 180, top: 60 }}
+    >
+        <Box width={90} height={180} />
+    </MatchTarget>
+</MatchingActivity>
+
+###
+
+#### **Step B)** Pulling data from a list:
+
+##### Now that we have a format for our graph, we need to tell Trinket what data to show.
+
+##### We want to make a graph with data from the Electric Garden's **air temperature sensor**.
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={airtempeg} border="true" />
+</Figure>
+
+#### **22.** In this case, which line of code will tell our program to pull from the list we want?
+
+<MultiChoiceActivity
+    question="Select the correct line of code:"
+    choices={[
+        {
+            label: "linechart.add('Air Temp', airtemp_list)",
+            correct: true,
+            feedback:
+                'Ka rawe! You noticed the correct variable for the air temperature sensor!',
+        },
+        { label: "linechart.add('Soil Temp', soiltemp_list)" },
+        { label: "linechart.add('Humidity', humidity_list)" },
+        { label: "linechart.add('Soil Moisture', soilmoisture_list)" },
+        { label: "linechart.add('Light', light_list)" },
+    ]}
+/>
+
+<br />
+
+##### _Once we have our data set, we can let Trinket know that we're ready to **render**, or draw, the graph!_
+
+###
+
+#### **Step C)** Inputing the code into Trinket:
+
+##### Based on our decisions from steps A and B, here are the lines of code we need to use:
+
+<CollapsablePanel
+    heading={
+        <p>This line of code tells the program what type of graph we want:</p>
+    }
+>
+    <code>linechart = pygal.Line()</code>
+</CollapsablePanel>
+
+<CollapsablePanel
+    heading={<p>This line of code tells the program how to label the graph:</p>}
+>
+    <code>linechart.x_labels = map(str, time_list)</code>
+</CollapsablePanel>
+
+<CollapsablePanel
+    heading={
+        <p>This line of code tells the program which list to pull data from:</p>
+    }
+>
+    <code>linechart.add('Air Temp', airtemp_list)</code>
+</CollapsablePanel>
+
+<CollapsablePanel
+    heading={
+        <p>Finally, this line of code tells the program to draw our graph:</p>
+    }
+>
+    <code>linechart.render()</code>
+</CollapsablePanel>
+
+<br />
+
+##### Now that we have all our pieces of code, let's put them in Trinket to create our program:
+
+<br />
+
+##### Starting from **Line 30**, carefully type out these lines of code into the Trinket:
+
+<ExampleCode showLineNumbers startingLineNumber={30}>
+    {`linechart = pygal.Line()
+linechart.x_labels = map(str, time_list)
+linechart.add('Air Temp', airtemp_list)
+linechart.render()`}
+</ExampleCode>
+
+<Trinket trinketId="python/642b454c74" height="600" />
+
+##### _**Note:** Remember to take care to get all of the spelling, spaces, and symbols just right!_
+
+###
+
+#### **Step D)** Run the program!
+
+##### When you're ready, click the **run** button to draw your graph!
+
+<Figure align={'left'}>
+    <ImageWithBorder src={run} radius={''} />
+</Figure>
+
+<br />
+
+#### **Did you successfully draw the graph?**
+
+##### Answer these questions by using the airtemp sensor data from your Trinket graph above.
+
+#### **23.** What was the **hottest temperature (°C)** recorded over the two days shown in the graph?
+
+<MultiChoiceActivity
+    question="Choose the correct temperature:"
+    choices={[
+        {
+            label: '26.8°C',
+            correct: true,
+            feedback:
+                'Ka pai, sweet as! You programmed the graph then discovered that 26.8 was the highest reading during this period of time!',
+        },
+        {
+            label: '23.4°C',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label: '25.6°C',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label: '20.2°C',
+            feedback: 'Kāore, take another look at the graph',
+        },
+    ]}
+/>
+
+#### **24.** In the graph, can you see a **trend (clear direction)** in the data **between 6am and 3pm** on both days?
+
+<MultiChoiceActivity
+    question="Which answer describes the trend you see during this time period?"
+    choices={[
+        {
+            label: 'Yes, trending upwards (heating up)',
+            correct: true,
+            feedback:
+                'Ka pai, sweet as! You noticed that between these points the data was steadily increasing!',
+        },
+        {
+            label: 'Yes, trending downwards (cooling down)',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label: 'No, there is no clear trend (random temperatures)',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label: 'Yes, trending constant (same steady temperature)',
+            feedback: 'Kāore, take another look at the graph',
+        },
+    ]}
+/>
+
+## Overlapping Graphs with Trinket {#overlap-graphs}
+
+### **Multiple Data Sets in One Graph**
+
+##### Now that we know how to **pull data from a list** and **render a graph**, let's try pulling from **more than one EG sensor** to see how things are related!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={multigraph} />
+</Figure>
+
+<br />
+
+#### **Step A)** Data from different sensors:
+
+##### Let's use the <code>linechart.add</code> portion of code to pull from multiple lists:
+
+<ExampleCode>
+    {`linechart.add('Air Temp', airtemp_list)
+linechart.add('Light', light_list)
+linechart.add('Humidity', humidity_list)`}
+</ExampleCode>
+
+<br />
+
+##### **25.** With these lines of code above, which lists will the program know to pull from?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        {
+            label: 'Air temperature',
+            correct: true,
+        },
+        {
+            label: 'Humidity',
+            correct: true,
+        },
+        {
+            label: 'Light',
+            correct: true,
+        },
+        {
+            label: 'Soil temperature',
+        },
+        {
+            label: 'Soil moisture',
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+###
+
+#### **Step B)** Input the code into Trinket:
+
+##### Use the **enter** key to insert the lines for the code for the **light sensor data set** into **Line 33** and the **humidity sensor data set** into **Line 34**.
+
+##### Overall it should read like this:
+
+<ExampleCode showLineNumbers startingLineNumber={30}>
+    {`linechart = pygal.Line()
+linechart.x_labels = map(str, time_list)
+linechart.add('Air Temp', airtemp_list)
+linechart.add('Light', light_list)
+linechart.add('Humidity', humidity_list)
+linechart.render()`}
+</ExampleCode>
+
+<Trinket trinketId="python/1ea8a2454f" height="600" />
+
+###### _**Note:** Again, remember to take care to get all of the spelling, spaces, and symbols just right!_
+
+###
+
+#### **Step C)** Run the program:
+
+##### When you're ready, click the **run** button to draw your new graph!
+
+<Figure align={'left'}>
+    <ImageWithBorder src={run} radius={''} />
+</Figure>
+
+###
+
+#### **Step D)** Finding relationships between data sets:
+
+##### Now that you have a graph with multiple sets of data overlapping, let's practise reading the data to find relationships between them.
+
+##### Think about how the values in each data set change over time and what this could mean is actually happening outside in the garden.
+
+<br />
+
+##### Answer these question by comparing all of the different sensor data from your Trinket graph above.
+
+##### **26.** Can you see a **pattern (clear arrangement)** between the **air temperature** and **light levels**?
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={relateairlux} />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the description that best explains the relationship you can see:"
+    choices={[
+        {
+            label:
+                'Air temperature rises along with the light levels, which means its warmer during the day and cooler at night',
+            correct: true,
+            feedback:
+                'Ka pai, sweet as! You programmed the graph then saw that the two data lines rise and fall similarly to each other!',
+        },
+        {
+            label:
+                'Air temperature falls as the light level rises, which means it is warmer at night and cooler during the day',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label:
+                "Air temperature and light level show no pattern together, they don't have any clear arrangement",
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label:
+                "Air temperature and light level both stay at a constant level and don't change much",
+            feedback: 'Kāore, take another look at the graph',
+        },
+    ]}
+/>
+
+##### **27.** Can you see a **pattern (clear arrangement)** between the **humidity level** and **air temperature**?
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={relatehumair} />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the description that best explains the relationship you can see:"
+    choices={[
+        {
+            label:
+                'Humidity falls as the air temperature rises, which means it is less humid during the warm days and more humid during the cool nights',
+            correct: true,
+            feedback:
+                'Ka pai, sweet as! You programmed the graph then saw that the two data lines rise and fall similarly to each other!',
+        },
+        {
+            label:
+                'Humidity rises along with air temperature, which means it is more humid during the warm days and less humid during the cool nights',
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label:
+                "Humidity and air temperature show no pattern together, they don't have any clear arrangement",
+            feedback: 'Kāore, take another look at the graph',
+        },
+        {
+            label:
+                "Humidity and air temperature both stay at a constant level and don't change much",
+            feedback: 'Kāore, take another look at the graph',
+        },
+    ]}
+/>
+
+##### **28.** Looking at **all three data sets together**, can you describe the **general relationships overall**?
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={relateall} />
+</Figure>
+
+<MultiChoiceActivity
+    question="Select all options that describe the relationships you can see:"
+    choices={[
+        {
+            label:
+                'Air temperature and light have a direct relationship (similar trend), so they rise and fall together',
+            correct: true,
+        },
+        {
+            label:
+                'Humidity has an inverse relationship (opposite trend) to air temperature and light, so humidity falls when temperature and light rise',
+            correct: true,
+        },
+        {
+            label:
+                'Air temperature, light, and humidity all have a direct relationship (similar trend), so all three rise and fall together',
+        },
+        {
+            label:
+                'There is no clear relationship between any of these data sets',
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Conclusion {#conclusion}
+
+#### Ka mahi e hoa, you've done it! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_4} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **data**, **graphs**, and a bit of **programming**!
+
+##### Well done, and all the best in your studies to come!

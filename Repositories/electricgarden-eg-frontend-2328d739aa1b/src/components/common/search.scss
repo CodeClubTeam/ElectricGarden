@@ -1,0 +1,25 @@
+@import 'variables.scss';
+
+.search {
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    flex: 1;
+    font-weight: $light;
+    margin: 0 20px;
+    .search-icon {
+        position: absolute;
+        right: 0px;
+        padding: 10px;
+        top: 0px;
+    }
+    input {
+        border-radius: 4px;
+        border: 1px solid #bcbec0;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 200px;
+        height: 46px;
+    }
+}

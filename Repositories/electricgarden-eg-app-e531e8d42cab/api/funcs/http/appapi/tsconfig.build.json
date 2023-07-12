@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "references": [
+    {
+      "path": "../../../packages/doc-db"
+    },
+    {
+      "path": "../../../packages/core"
+    }
+  ],
+  "exclude": ["out", "node_modules", "static", "__mocks__", "__tests__", "setupTests.js"]
+}

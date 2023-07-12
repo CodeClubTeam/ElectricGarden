@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "envelopes",
+      "direction": "in",
+      "path": "sensorhub",
+      "connection": "eg-event-ingress_ListenOnlySAS_EVENTHUB",
+      "consumerGroup": "$Default",
+      "cardinality": "many"
+    },
+    {
+      "type": "queue",
+      "name": "outSensorEvents",
+      "queueName": "sensor-events",
+      "connection": "egorchastrationstore_STORAGE",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "outSensorEnvelope",
+      "queueName": "sensor-envelopes",
+      "connection": "egorchastrationstore_STORAGE",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

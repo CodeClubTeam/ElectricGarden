@@ -1,0 +1,161 @@
+{
+  "name": "electric-garden-frontend",
+  "version": "0.3.0",
+  "description": "Electric garden",
+  "scripts": {
+    "start": "yarn lessons:index && craco start",
+    "apply-config": "DOTENV_CONFIG_PATH=./.env.development node -r dotenv/config ./scripts/apply-configuration.js",
+    "start:localbuild": "yarn apply-config && http-server build/ -p 1234",
+    "test": "react-scripts test",
+    "test:ci": "react-scripts test --no-cache --reporters=jest-junit --passWithNoTests",
+    "checkTypes": "tsc --noEmit --watch",
+    "build": "yarn lessons:index && craco build",
+    "lint": "eslint -c .eslintrc.js --ext .ts,.tsx src",
+    "remark": "remark src/lessons/content --use frontmatter",
+    "lessons:syncdb": "ts-node --files -T -P ./scripts/tsconfig.json -r dotenv/config scripts/sync-lessons",
+    "lessons:index": "ts-node --files -T -P ./scripts/tsconfig.json -r dotenv/config scripts/lesson-index-build",
+    "lessons:slugify": "ts-node --files -T -P ./scripts/tsconfig.json -r dotenv/config scripts/slugify",
+    "lessons": "yarn lessons:index && yarn lessons:syncdb",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.15.0",
+    "@dnd-kit/core": "^2.1.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@handsontable/react": "^4.0.0",
+    "@mdx-js/react": "^1.6.22",
+    "bootstrap": "^4.6.0",
+    "file-saver": "^2.0.5",
+    "formik": "^2.2.9",
+    "handsontable": "^8.3.1",
+    "lodash-es": "^4.17.21",
+    "moment": "^2.29.1",
+    "papaparse": "^5.3.1",
+    "raygun4js": "2.22.3",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-burger-menu": "^3.0.6",
+    "react-datepicker": "^4.1.1",
+    "react-dates": "^21.8.0",
+    "react-dom": "^17.0.2",
+    "react-drag-and-drop": "^3.0.0",
+    "react-idle-timer": "^4.6.4",
+    "react-intercom": "^1.0.14",
+    "react-query": "^3.17.2",
+    "react-redux": "^7.2.4",
+    "react-responsive": "^8.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-select": "^4.3.1",
+    "react-syntax-highlighter": "^15.4.3",
+    "react-virtualized": "^9.22.3",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-helper": "^1.0.6",
+    "redux-thunk": "^2.3.0",
+    "remark-frontmatter": "^2.0.0",
+    "remark-html": "^11.0.2",
+    "remark-parse": "^8.0.2",
+    "remark-parse-yaml": "^0.0.3",
+    "reselect": "^4.0.0",
+    "seededshuffle": "^0.2.0",
+    "shortid": "^2.2.16",
+    "styled-components": "^5.3.0",
+    "victory": "34.0.1",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@craco/craco": "6.1.2",
+    "@mdx-js/loader": "^1.6.22",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addons": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
+    "@types/faker": "^5.5.6",
+    "@types/file-saver": "^2.0.2",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/jest": "^26.0.23",
+    "@types/lodash-es": "^4.17.4",
+    "@types/node-fetch": "^2.5.10",
+    "@types/papaparse": "^5.2.5",
+    "@types/raygun4js": "^2.13.3",
+    "@types/react": "^17.0.11",
+    "@types/react-burger-menu": "^2.8.0",
+    "@types/react-dates": "^21.8.2",
+    "@types/react-dom": "^17.0.8",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-responsive": "^8.0.2",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-select": "^4.0.15",
+    "@types/react-virtualized": "^9.21.11",
+    "@types/seededshuffle": "^0.2.0",
+    "@types/shortid": "^0.0.29",
+    "@types/styled-components": "^5.1.10",
+    "@types/victory": "^33.1.4",
+    "@types/webpack-env": "^1.16.0",
+    "@types/yup": "^0.29.11",
+    "babel-loader": "8.1.0",
+    "faker": "^5.5.3",
+    "husky": "4",
+    "jest-junit": "^12.2.0",
+    "lint-staged": "^11.0.0",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.3.1",
+    "react-is": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "remark-cli": "^8.0.0",
+    "remark-preset-lint-markdown-style-guide": "^3.0.0",
+    "remark-sectionize": "^1.1.1",
+    "remark-slug": "^6.0.0",
+    "remark-unwrap-images": "^2.1.0",
+    "slugify": "1.5.3",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "unified": "9.2.1",
+    "unist-util-visit": "^2.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "frontmatter",
+      "preset-lint-markdown-style-guide",
+      "html"
+    ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "lodash-es": "lodash"
+    }
+  }
+}

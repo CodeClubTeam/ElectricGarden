@@ -1,0 +1,6 @@
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\bin\Debug\EG-59.exe.config
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\bin\Debug\EG-59.exe
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\bin\Debug\EG-59.pdb
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\obj\Debug\EG-59.csprojResolveAssemblyReference.cache
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\obj\Debug\EG-59.exe
+C:\Users\jneve\Documents\Brush\Projects\codeclub\pocs\ElectricGardenPOCs\EG-59\obj\Debug\EG-59.pdb

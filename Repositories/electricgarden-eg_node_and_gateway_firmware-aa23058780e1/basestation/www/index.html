@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Electric Garden Gateway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Stylesheet is in HTML body to reduce requests */
+        /* Apply to all */
+
+        body,
+        html {
+            font-family: 'Roboto', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            color: #222;
+        }
+
+        /* Layout structure */
+
+        header {
+            color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: green;
+            z-index: 2;
+            padding-left: 180px;
+            padding-bottom: 0;
+            font-size: 28px;
+            line-height: 80px;
+        }
+
+        header a {
+            position: fixed;
+            left: 0;
+        }
+
+        aside {
+            position: fixed;
+            margin-top: 80px;
+            width: 160px;
+            height: calc(100vh - 80px);
+            background: #333;
+            z-index: 1;
+            padding: 1px 2px 0px 0px;
+        }
+
+        main {
+            margin-top: 80px;
+            margin-left: 160px;
+            margin-bottom: 30px;
+            padding: 8px;
+            width: calc(100% - 178px);
+            float: left;
+        }
+
+        footer {
+            right: 0;
+            left: 0;
+            height: 30px;
+            position: fixed;
+            bottom: 0;
+            clear: both;
+            color: white;
+            line-height: 30px;
+            text-align: center;
+            background: #333;
+        }
+
+        /* Decoration */
+
+        aside>a {
+            padding: 6px 8px 6px 12px;
+            display: block;
+            font-size: 25px;
+            text-decoration: none;
+            background: #AAA;
+            color: #333;
+            margin: 2px 0px;
+        }
+
+        aside>a[active] {
+            background: #888;
+        }
+
+        .loading {
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        /* Table formatting for status page */
+
+        table thead th {
+            text-align: left;
+        }
+
+        table thead th:nth-child(2) {
+            text-align: right;
+        }
+
+        table tr td:nth-child(2) {
+            text-align: right;
+            padding-left: 50px;
+        }
+
+        table {
+            min-width: 300px;
+        }
+
+        /* Systems list */
+
+        .status-list span:nth-child(odd) {
+            height: 25px;
+            width: 25px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-list span:nth-child(even) {
+            display: inline-block;
+            height: 25px;
+            transform: translateY(-25%);
+            padding-left: 0.2em;
+        }
+
+        .status-list span.green {
+            background-color: #2A2;
+        }
+
+        .status-list span.red {
+            background-color: #A22;
+        }
+
+        .status-list span.yellow {
+            background-color: #FC0;
+        }
+
+        span.green {
+            color: #2A2;
+        }
+
+        span.red {
+            color: #A22;
+        }
+
+        span.yellow {
+            color: #FC0;
+        }
+        /* Pace */
+        .pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #dc23a9;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.pace .pace-progress-inner {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #dc23a9, 0 0 5px #dc23a9;
+  opacity: 1.0;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -moz-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  -o-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+.pace .pace-activity {
+  display: block;
+  position: fixed;
+  z-index: 2000;
+  top: 15px;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  border: solid 2px transparent;
+  border-top-color: #dc23a9;
+  border-left-color: #dc23a9;
+  border-radius: 10px;
+  -webkit-animation: pace-spinner 400ms linear infinite;
+  -moz-animation: pace-spinner 400ms linear infinite;
+  -ms-animation: pace-spinner 400ms linear infinite;
+  -o-animation: pace-spinner 400ms linear infinite;
+  animation: pace-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes pace-spinner {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes pace-spinner {
+  0% { -moz-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes pace-spinner {
+  0% { -o-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes pace-spinner {
+  0% { -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes pace-spinner {
+  0% { transform: rotate(0deg); transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="#landing">
+                <img title="electric garden logo" alt="electric garden logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALUAAABQCAYAAABf2jSYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMjHxIGmVAAAXdElEQVR4Xu2dC5hdVXXHb16TzCSTmcwkk5k8ZiaTzCsJJE1IAiYEAnkJVZS3UUMDKpUioIgIhAxSoAgoVEEFFB+I8qhtbWtr7dcntrW1LVZpS0stxTbVYiAPS4UgM12/yV26u1j73DOTO5MZZv+/7/8lc+7e5557ztprr9fep5CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJAw6nC08GHhF4v8jPA24SqhhwnFfxMSRizOEfY5fEFYKQzxi0KO7xFu4EBCwkjElUJPqP9eaPEpoX7+Og4kJIxE3CEMhVn5YaHFXwn18xM4kDBgjGtYMf3N0+ZPOb74d0IZUS88T/inwlCYlf8ifES4UAiwpf9HqJ+/RZgH44R8z98J/034H8LPChcJxxzqlkw7fdPnFveddG9Xb9eOpq9UzZy0svhRQhkwXXic8G+EoTArTxLOFqpjWCfsFernnxS+WdgijIHv+DVheF6c0Y8KfyxcIRxTqG2vOnXT/Yv7XvvI0n6eeFdHb+e2xofFe5lbbJJQBvytMBQ6uFdosVoYtvmcEMFG0NHC2ObThIrxwq8Iwz5/IVTn87eFRFnGGsYvfvucr6tQK9dcv+C5uetq3i2fM7MlHCYeF4aCB78rtDhDGLbh7zlChHp/8dijQsUbhWF72C7kob1J+IfCNcIxh4r6iq61ty76sRXszaLBu89r/GphSubsl5ADnlBzzGKHMGxDfBvNjFD/pHjspeIxgCYO2/PZB4S/Lny7cEzHu5vW1l66+fM/M0NCrrluwZ6ahZNTyPQw8E1hKHzwH4UW1wvDNp3CJmFoZx8UqgP4z8KwPbxQaMHgGIv25Piu7Y1/4Ak1PP72RQdnH1ONIkkYBH5PaIXvB0KLG4T/K0RwaYMp0SUMhRpyDDAw9Bhamn+xuy0+JsQcGVHYV7hm4XMTdt1+oKJHf0/5UVmYs3pX6zOeUMOT7unqnbehdqe0HPN29kQh4bb3C4lBPyj8cvFfHLNjhSE+LVThU2IjW3xEiFDzuZoZ84p/KxHwGiH4JWH4GcQk0QeEPX65kChILLxHqv7UgERkIFNzt3DITJhnClc37Z246+V9E3ft3ztp588VD5cdNR1TT1r/kfaDnlDDTZ/t7ms5pe5OaYrjPWZxo9AKU8jdwhDvEHrtMAtCfFz4X0IEG6GuFuLQhH1+JOQ44CF8TRh+Dv9a+A/Cl4Vo/XcKPXAe2tj+Ib8v/AXhkGDfhJ7H903s6ds7YdeTuws9VXsLPbXFj8qKhmNr3rbh7s5eT6jhli8s6Vtw2ixCoZMO9Rh7uEToCYCSqEMItKQ6eiHfI6TWA7sZoFXVjHhROFlIAkePQdXgCtp8SIg21jYQjf6k8OeFMVQIrWnjke/kOsoOEepvIdSHBLvnpucLNwyZ7T/n+Jr3nnxfd1Swtz64pK/97AZmOluPMyZwrdB7+EqEyeImoW33QyGa9CIh2CLkOIL2DQ4U8e9C7fM9DjggcUOIj2QN7BCWMh0QID1vFg8IdXYoG/aN7zlXBbrIF/ZOuPaOfYWetr5Cz5CYAs2bam+ORUTg1oeW9nWKcylNpx7qMXZAzYb38JWkuq3jwUMilf3nwueFaGLqPM4XqvDRZ60Q4Q773yvUc3+CA2XCZmF43TGSnSw79k/sucQIdT/FFHn6wPhdFwyRYI9fdFbDlzyB/ikfXtrXfX7TH0vbsg/k4QCCw1QzS4iJMFOYB9RDew9f+d/CLCDEA3HAME+IO2OeqKlSDqDRveu3PFtYduwp9EwXAX5CnMUfijAffIVwT+z5GnZ2sXk5Ub388vlPugKtFMHu2t6IAho1go0wM+XjBNkHSDnoWUKraUMQ6bD9QlJQlAeYDGj9rwuJZWNaUOSEw0LNyECwUYhDp8QUKfVA3iX0rt+Scw9JFES08ZQDhZ3dIti9VqgPcdc1xaZlRXXzlNeccGfHy65AKxHs8xrJ4I54U4QCot8Reg+Pegx1nBC0mFaMVd0piV5kDQpwsvA/hV5/yHUQImwVlgJxVs/hw3mk2Cmsy0Y4cXTJPP6u0PaJkfP/k7DsmquvcPckEeqHCO8Jd4vzuPHZSTuX7J/wgdftmdhjw6OEM39TiIn3jJBZESVCHfpWIc5vLrSeUn87gusKdMDuHSPbFKEOghvhPbTvCKcIcZ6wWzl2j9ADAm/7h2RwxIQaobpF6IXSEBzs7tcL1cRB8LJsSxI29jweKXxC4zCdE+J7r5AiKa9tSKZgNDoxbOLWei1LhOuE2P/nCjFRGDyDDskdKNw4q7dwa5ZWpCKRgi3vOpWsGNouzDOzVC2/bN4TniBbdu9o5Jnz/SMKbcJnhbEbEQb/FwjRts/1//VK8KC98yhZjuUJNcdwurw+kCSNgngp0RGO23i2AkfP09AxUqEWwpaserxU6MFL/UOcYEKV5QZC+idC7zs9vk9YElVNk1au+/CiFz1Btlxy4Rx+c16/a8iBMMVMDojDFALHkSQINrcHr5Q0JCEwT6jJ1MWSHYTwrEa+W8hnr+n/6/8DB5fQoT1PSAYFWpQsJ3/bmYd4uu1jSX8PXxB67SHFWs1CNPyvCBEwZkmb2MC8Q0FwLmYvMqoxcwtH2fuukJghmoz6M2EuNK2rvSSsv87i8vfMf2JyTb+CPOJgWY+9AUpuqgJtwM3DTkNrxmzqUkLt2dScO6zVCElihulcwRT+q0JmiquEnp2I1vXOpUSDo8kBy8I4dmv/Xz9Dqakc4jR7uF3otVcyKyLMhCjVzHlKiLmiwKG1/byZgcRPbJZVEh7FfDyq+PcTwrwY135mwyN57Gu4+rrWZ2pbp6wv9j1iuE9ob4ISW5NEBVqFFSpMcaXqEEoJtVesxE3w2sJ9QrQ0gwh7l1kCrdog9EDtCcu2vHMp2ZJBQdaRij7qSEKUEmoGRmxgI7BeH6UOKJzScHbC+VXw/7AP5JosqLGx7UJi7i0VApQJUSSSXQNB9dHvmvu4J8Qe19/RfrDp+JrLpJ83Iw8LqMXwboYSDUKC4xRhHpQS6qeFFlmaDeEhlIe58JAwZkMrsmYeiObHqQuBFrPIo6kXCz1kCTUzjD5swpPhZ9TBAGYuT/tS2xI6eQz2MKPqETMtxJlCBv6AMLlmchta2BNij6yDXHh6f73IsKfVuSm2LsIytqmMgsQMe3coiJR451F6Wx88IPTaKm8Whg/Tw4nFfy8WeudQMvvkQR6hjg2wLKEOU/nLhNj+aFMiCLrihFCd15cBjj2uYFGy105JXUrY/rAwfV7l6rW3LHzeE2KPW8VkWXx+I/a7pzSGDIyisCDIY6yKTUHx/l8e+m8/0OzeeZSeUHHMa6v8vDALLBggNospcbXQO4cy5txZZDnPyphQkxTx2kPuTwhsYhvn5Z57fWHoX2g9TIwkwsqK+uVTt238dLcrxB6pF2k/p+G3pOuwhvzQSFawmeb0/whtDDhpOB26NhBtitYJz2VpHTJA7NtW6mFr6nXYyj4LFWQ0Qikb0yYsYghrSmLcJPTQIwzbUZilGdo8Thr3KOwfMlzogEnotVGSeCoHZtV1Vp7Zub3xnpVXtuze/EC+aEjIFe9rfrp20ZRh26vldKF3QzTGS8bIA1OfZt30RqN1tF+MhKdCMDAouvfa6rmwQ2N2IGlqFhVgd2OroonteZQMFLR5HlC/7Z0jZGh2haAOxWsP8wg1voPXF2KnKjANvTZKnu1gUDNj6dSzO98y+67l757/nbW3LOrNG/3I4trbFr5YMe0V/syQALuaxajeTYEIFjXJxB9JtaJFsIvVa0eLNgqBru625wjJlMiAYGUKUzyhPB6UXShriV3NAIBsl4B2JiXP9zE7kG0EXINXn630apKZYWwcnCSJ1z9kzJSJKQqYR6gx57y+kFUoCmrHs2bGAYfWGlfXnCUO4QHMBk8wD5f1S6fm3YTosIGG5WZ7NyaLOIXHCEOwqsRrq0QISQTsEuJkqjDxgL4t9PooiQjodghKBpfdv8Nb96j0fARCXPMP/fenoGjK6x/SM6UAg99rDwk3lgKrc7y+cCCZzyuEFiigmAlWuWpny35PGA+HW764pG/D3Z19yy6dz2xq7/OQAmclKxMWEsFE43qFLMQnbXtsSrQPMXE0amxZENnKPJk8JVqKWgYLzJnYjPGYUMNMmCJUJHIee7NpQ123dw4l8W0PFGTZtgw+7gNx91Lx26xSAyImIbKcRX5r+F3MSMzK7JnioVJs3x94gpmHR18099tdb228o+0NM3fOPbH2kpnLp10wvWXKtooZE14r5ybfYWfDYQMC8SUh6Ww1MZRoUhwoinVi4CYSK6aAh+VSaIU8ni9tdMV4+J2WCCsJHCIi1KHEYLdUCElslwQMlYA4cBQkeShVqYeQkrom+oJzqMBUC9txzSSuGDwUjXGP8AWY5SixtULOzlNhfyU5BU8wssp97xKShqfcgRQ9IcRodWNFdUXnURfN/eaWB5a4gptFdnmaPq+yVAj4iALHDLMEGxWSPSulYQYDbGRiy7EKQchA0lrovBsacq3Y7aT1vXMikL8hZKuFGLDd7cC2JHLDEicEV+tQKOG17fg+bH0Gkl2XSZiPykPsTWYPNL0301wg9MCskmVyKQmt5XGUJzSumf7O1dcteNYT3iwec1ULvw+5GbNAm2NneQ8g5L8KB1uMjqlDbJfyT9ZPsqEN9nLeuGlWJCMkQqu2Kt/pJbXQ1Ahr1jnxNzApcFTRwKzOxylG4FEAMTCITxMyyEh4kIFFs/++EJ+D3zxQpTRz4RkN95348fhKc4/t5zRg5w+FAhzR4AeTEva0UYyx8Nlw4A3CmCOtpgU2YwivPYLPv2xuaT8Lie8xYsAWZCuumP9dT4A9bvxMd1/jsdO93bBe1aAI33uYMSIMeePLQwVsWWo9MIEILxIxQXvG7FNMG/s7MDkQ9lKRJvbPHmmoXnj6rPtP/lSXK8iW6z7U/kJ1S2XeRNeoB7HdgWhoyJQ6kOmMijvMDZyxcB+Q4QRLwvT6GZTqAPPbY3a+kkGfBRIYrADC+cOUYdbTSrwhRV1X5RtXXNH8VJ449uprW78/ZQzsoMrDiIXJvIQJdiFlr3kEmnAVC2qxIUPnju8jyUMt+HA6MNRK628lnk/CisgDdSHeomYlQm/LYBWEUGOlwvSjhiasDRkqVLaeWn9vnhqQZZfNI2/xqnYc88ageUBM73nLFllbSA0LYTo2e6R4/61CQn/hedGYhCvR4B64+ZgTFNMTtlQOVtsjYG8Tci1Ej3SfP9L+4XWF5Ld7axkJ/8WcagYtvx9HlAFt0+MkXLD7/0jIK0dYNkdpA6uNspzPTDStrbls/Z0dL3nCHHLpO+aQTBqSLdOONPDos9LXSkJ7mvLOiw8KwzWMCupMvO9AcAgjWsTCYsTsiUAMBuEsg1+AtuX7ve+BmCkWmBrqZFoizAqtoSFEGMazSWrZfkoWQqNABrWHyIzOqi1rri8d+isK9ohZw1gO8GDZQsC7qSGZqvTFRQMB9rOXpcxKV9uCe5C1WAGTgUQJdiwpfuxe4tIxTYeQEJYjrAbJqOq2Bd75ldyDENyPWEKKJFJYy0JuQRdphCFLfmcphRK+DY3Bh1NMvL2k6YfdvPTCOd9gvz1PoJWsYeQtBsVuox52y12PrEbWKYqHwEuGEBy0JwF9JUVMJCfyIKt+g2navnat1DIsVoOj/fl+pnKOIex2f2t8B67V9s9DWxvyVaHXDm1v3yWJqUQanoXK4SBHMLOSWxB7nE3W6YumpzqTWhtMHkKQOPhZEaiK5i11t20oEdM+7qa2AzOXTR2SXa2GG9x870YqEQx1jnCk2JbBawcRrKy6XDQnGTtS1VnF9tAK4zah106J0wr4Pdivejw0AUgSeSvZ+V2YB6X2E8HUUZA99dpAZj4FGpUwIAMJ083TrqXCiNTUY3dj6qjwUmeinzOIOD/3LFrDUb+48vVrfrntOU+glWzmPn9zHSbjEasFKQeI7aIZPVsS4SBSoOBBhgKjpC/OjWeeIMgIJCWs2Ii2r0ceon2RUVYtNtO32oR2kxxKcxV2gQDEJFBBw1nMsqlZwaPIMocQMBIcFCgRJcIuznJoS20Zwcxja9Zxmm07niPrHKNgm4SjLp73WFYNNrUlC89swGkd1qVe5QTaw94cZSgQCjSibWdtTQVTvb6LkRvONgLYusRHWRkSc7CgrVbLEmrsWp3SmQXQuAg6/2oRD0LhmR26elyRtaUBAq/CWSpaRNSDwZzlgKnWxazwzqHkNSEWM4SYLXYQci8o4spCVdsZsx7kjV+eUEPWMHbt6F/DOCpDfix7Cm9KSLtZjoK6YRapajturF29jfCG4TEEOHSQCAlmCTU2dIi8Qg2IYhBVCEGIzPbjuikIC+G9ZElJe4QJZNVVQ7ZYyAKzGsVWoFRZMfUaFvT32kLv/TkW4+asr73mhDs7fuIJtXL55c1PTpoxaTji62UFozrmwWfZx/ahUtyjQGDDtZRK+3aAcGBY2lnCE2pdSGyF2kNsfaR16LJWtkAdBJT6Wi3J7KADNbafoQJHGx8EXCcMz2P5qNAiy8H3NLuLmvapG1ftas2s0z7u5rYf1S2bRvJs1ACHgKSHl02M/RAygPaBki1UxDZFR7BCxKIHEI8/BE6S1w7mEepYtk8dTAW/w2sH+c04foDQISaV/VyPZS1IRtszIxBOBMyI4Xksva0rsoQaG3wgmN2xbfaXs7KQJ3ys4+XGtaOrEArnCofG3hz2uwgD/zwMliFZgYbh+xVjkYrw1Rkga+dTu6cc9RNeO5hHqGPVd2EMGGQV9Yf7gmDe2OVrUO8NWtiu2CFzyRsYdJMbNDQgRBqewxIzzkYjsHW95wDDbTHyYlzdUdPOWnFl8/e2PuTHtDd8orN39uoarn9UgCRBbOMcQnh48WhOL/KhpJ0mTFj14rWxSRVi0bEHwyAJBZV0stcOMsuU8tRjmjoM+QHMBq8dxIkMYV9fbUkpALMT6yWpMQk1O7OU/j7+JbIS9rW0S8WYMTC/PL+ERQ2DReXc9bVXH3fjAnc95PqPtr80Y3EVibNRAWoySm2ek8VQCxMii8V8deNGNA2jPibUMMxwsT+f10azcdYxtCCpYPtCBmoYbstaahaG9BTs31EqI2iJuadmjEITRjHqS6MUlI5y3BsM3qu2B4aqQlP7uQ0Pn/zJV5azHntD276Kuoph2U6hHGCKJz5pbcU8RFOHiQW0tYbzQhKrplxVp2D+jlUHYp4o0PDW+SSk9S0hA6NU6AlNHgvXEasHxNSzFgmgFb09ToislNo3D5JRRHN76fvYOyuVvHEgBKFLnpOX2udYWVDfXXnaqp2tu61gr7yq+Sm5o6OqdBXhJmEQ21KBh2s1LFreW9bFamWcJrQHmTMEHVMAp4MwIMIfy1JyXAWAAWPLQrkONBXfXUpTA2YJb2bAJieGXmobCBirf8GE4PzsPUhCh9XiStZx4nSXilnHolAwdMQBvo4XYYKh7V8O1C86u+FB60iufH8zAzm2u+yIBYJEZo8lU2gYLYnkAeIMsksq2/cy/YaO4kDB1g2hsKGBOa9dzOqF21TL57XzSDax1tCeB6JJS+3Tl7Va/3BBKI77EM6UDFiI9rWDInatjwrLjlkrq7dTHxIK9uJDr7gb1Sn1GJiGtB55sCDAzxIsakKow/C02v1C+wBVu6kJkQdoRWYQ4uZKaqL5DQxkjX97HOr1mOyEygBFs1PEROgQJ5ENL63weNldtPeQXWNFdaH96IvnPaYREl5Yyur24scJgwAP2D5EtJrWWpQLsVpvTJ0jucjYAj9CbWqiV2QoyU56GxmVE5Obt9TdfMzO1j2UtK7a2cI1jNo6kSMNu5NoaFPazS0PB8TjCWESayZGzHROhjO2kfuRBNfKGyQoDUabUwU5XKho2Vr3wY43zWYgheHXhAEAp0QjGFS24aiQAGEXVGz8coNIx6vSXkwYWSA+imOJ44qGsgVJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkjHIXC/wGRksTisoEJCwAAAABJRU5ErkJggg=="
+                />
+            </a>
+            Electric Garden Gateway
+        </header>
+        <aside id="sidebar">
+            <a href="#landing">Setup</a>
+            <a href="#status">Status</a>
+        </aside>
+        <main id="content">
+            <h1 class="loading">Webpage is loading...</h1>
+        </main>
+        <footer>
+            Copyright &copy; 2018 The Electric Garden
+        </footer>
+    </div>
+    <script>
+        function beginPacing() {
+            Pace.start();
+        }
+        function goHot() {
+            // Main.js and the basestation-www templates have loaded.
+            console.log('Loaded system successfully.')
+        }
+        function goDead() {
+            // The download failed.
+            console.log('Failed to load. Refreshing page.')
+            window.location.reload(true)
+        }
+    </script>
+    <script id="script-pace" src="vendor/pace.js" onload="beginPacing()"></script>
+    <script id="script-main" src="main.js" onload="goHot()" onerror="goDead()"></script>
+</body>
+
+</html>

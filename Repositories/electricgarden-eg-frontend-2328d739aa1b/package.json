@@ -1,0 +1,97 @@
+{
+  "name": "electric-garden-frontend",
+  "version": "0.3.0",
+  "description": "Electric garden",
+  "license": "MIT",
+  "scripts": {
+    "start": "REACT_APP_MOCK_SERVER=true react-scripts start",
+    "start:localserver": "react-scripts start",
+    "test": "react-scripts test",
+    "test:ci": "react-scripts test --no-cache --reporters=jest-junit",
+    "checkTypes": "tsc --noEmit --watch",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "@auth0/auth0-spa-js": "^1.0.2",
+    "file-saver": "^2.0.0-rc.3",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "papaparse": "^4.6.0",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.32.4",
+    "react-burger-menu": "^2.5.3",
+    "react-datepicker": "^2.0.0",
+    "react-dates": "^18.4.1",
+    "react-dom": "^16.0.0",
+    "react-fa": "^5.0.0",
+    "react-intercom": "^1.0.14",
+    "react-moment-proptypes": "^1.6.0",
+    "react-redux": "^7.1.0",
+    "react-responsive": "^5.0.0",
+    "react-router-dom": "^5.0.1",
+    "react-select": "^2.0.0",
+    "react-virtualized": "^9.20.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-helper": "^1.0.6",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "victory": "^30.4.1"
+  },
+  "devDependencies": {
+    "@types/faker": "^4.1.4",
+    "@types/file-saver": "^2.0.1",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.116",
+    "@types/papaparse": "^4.5.4",
+    "@types/react": "^16.4.14",
+    "@types/react-bootstrap": "^0.32.14",
+    "@types/react-burger-menu": "^2.2.1",
+    "@types/react-dates": "^17.1.5",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-fa": "^4.1.6",
+    "@types/react-redux": "^7.1.0",
+    "@types/react-responsive": "^3.0.2",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/react-select": "^2.0.4",
+    "@types/react-virtualized": "^9.18.7",
+    "@types/victory": "^31.0.19",
+    "@types/webpack-env": "^1.13.6",
+    "faker": "^4.1.0",
+    "husky": "^2.4.1",
+    "jest-junit": "^6.4.0",
+    "lint-staged": "^8.2.1",
+    "node-sass": "^4.9.3",
+    "prettier": "^1.18.2",
+    "react-scripts": "^3.0.1",
+    "typescript": "^3.5.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "resolutions": {
+    "browserslist": "4.6.2",
+    "caniuse-lite": "1.0.30000974"
+  }
+}

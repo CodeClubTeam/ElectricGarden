@@ -1,0 +1,9 @@
+requests
+
+pymongo
+
+pyserial
+
+websocket
+
+python-dotenv

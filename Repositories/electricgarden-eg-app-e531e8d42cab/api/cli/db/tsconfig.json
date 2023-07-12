@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "./out",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "references": [
+    {
+      "path": "../../packages/doc-db"
+    }
+  ],
+  "include": [
+    "src"
+  ]
+}

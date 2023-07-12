@@ -1,0 +1,2727 @@
+---
+name: student-spreadsheets7
+title: 1.7 Spreadsheets
+level: 3
+ordinal: 70
+locked: false
+publish: production
+coverImagePath: ./vegbanner.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+    ImageText,
+    MatchingBox,
+    HorizontalLayout,
+    VerticalLayout,
+} from '../../../../activities';
+
+import vegbanner from './vegbanner.png';
+import hepou from './hepou1.png';
+import hekapa from './hekapa1.png';
+import hewahangamotuhake from './hewahangamotuhake1.png';
+import ripanga from './ripanga.png';
+import kapapou from './kapapou2.png';
+
+import sprdex1 from './sprdex1.png';
+import sprdex2 from './sprdex2.png';
+
+import func1 from './func1.png';
+import func2 from './func2.png';
+import func3 from './func3.png';
+import func4 from './func4.png';
+
+import arrowno from './arrowno1.png';
+import arrowup from './arrowup1.png';
+import arrowdown from './arrowdown1.png';
+
+import niwa from './niwa1.png';
+import niwa1 from './niwalight.png';
+import niwa2 from './niwarain.png';
+import niwa3 from './niwatemp.png';
+import csv from './csv.png';
+import ztoa from './ztoa1.png';
+
+import airtemp from './airtemp.png';
+import soiltemp from './soiltemp.png';
+import buffer from './buffer.png';
+import high from './saihigh.png';
+import low from './sailow.png';
+
+import spreasheetfinal from './spreasheetfinal.gif';
+
+## Introduction {#introduction}
+
+#### Kia ora, e hoa! Welcome to your **Student Project** for lesson **1.7 Spreadsheets**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={vegbanner} border="true" />
+</Figure>
+
+<br />
+
+##### Nau mai hoki mai! Now it's time for you to complete your **online project** to build on your knowledge of **spreadsheets** and **CSV files**.
+
+##### Good luck, do your best, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Kei te pai!', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He ripanga</TextBox>]}>
+        <Para>Spreadsheet</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He pūtau</TextBox>]}>
+        <Para>Cell</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He kapa</TextBox>]}>
+        <Para>Row</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He pou</TextBox>]}>
+        <Para>Column</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He piko</TextBox>]}>
+        <Para>Comma</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** with the proper parts of a spreadsheet:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai, nice matching!', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He kapa</TextBox>]}>
+        <ImageWithText src={hekapa} text={'Row'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He pou</TextBox>]}>
+        <ImageWithText src={hepou} text={'Column'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He pūtau</TextBox>]}>
+        <ImageWithText src={hewahangamotuhake} text={'Cell'} />
+    </MatchTarget>
+</MatchingActivity>
+
+#### **3.** Match the **labels** with the proper spreadsheet functions:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai, great job!', fail: 'Kāore, tēnā anō.' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Filters</TextBox>]}>
+        <ImageWithText src={func1} text={'He tātari'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Formulas</TextBox>]}>
+        <ImageWithText src={func2} text={'He ture tātai'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Graphs</TextBox>]}>
+        <ImageWithText src={func3} text={'He kauwhata'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## He Ripanga {#ripanga}
+
+### What is a **spreadsheet**?
+
+<Captioned>
+    He aha <b>te ripanga</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={ripanga} />
+</Figure>
+
+<br />
+
+#### **4.** Which answer best describes a spreadsheet?
+
+<MultiChoiceActivity
+    question="A spreadsheet is:"
+    choices={[
+        {
+            label:
+                'a computer program for managing data in interactive table charts',
+            correct: true,
+            feedback:
+                'Ka pai! These can be really useful for organising big lots of information.',
+        },
+        {
+            label:
+                'a computer program for making your bed and spreading the sheets',
+            feedback:
+                "Kāore, don't think that exists...but it sounds super handy!",
+        },
+        {
+            label: 'a table chart on paper, a chalkboard, or even a computer',
+            feedback:
+                'Kāore, these are similar...but a spreadsheet has even more power!',
+        },
+        {
+            label: "a table chart for remembering your classmates' birthdays",
+            feedback:
+                'Kāore, although a spreadsheet can certainly be used for this!',
+        },
+    ]}
+/>
+
+#### **5.** What makes a spreadsheet **different** from a typical table chart?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        {
+            label: 'Spreadsheets can use formulas to make calculations',
+            correct: true,
+        },
+        {
+            label: 'Spreadsheets can use filters to re-organise things',
+            correct: true,
+        },
+        {
+            label: 'Spreadsheets can draw graphs of the data',
+            correct: true,
+        },
+        {
+            label: 'Spreadsheets are computer programs',
+            correct: true,
+        },
+        {
+            label: 'Spreadsheets can be written on paper or a chalkboard',
+        },
+        { label: 'Spreadsheets are just the same as table charts' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Rows, Columns & Cells**
+
+<Captioned>
+    <b>He kapa, he pou</b> me <b>he pūtau</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={kapapou} />
+</Figure>
+
+##### In a spreadsheet, data is sorted into **cells** that are collected in an array of **rows** and **columns**.
+
+##### Since each cell is at the crossing of a column and a row, we can use this to give each cell a name, like an address, to find information easily.
+
+##### For example, this spreadsheet shows how can we label to the cell with **Māia's name** as **A2**:
+
+<Figure>
+    <ImageWithBorder src={sprdex2} radius="0" />
+</Figure>
+
+<br />
+
+##### The the general rule for naming a cell goes like this:
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>Column Letter + Row Number = Cell Name</b>
+</Captioned>
+
+##### So, we can say Māia's name is in **cell A2**, because it's in **column A** and **row 2**.
+
+<br />
+
+##### Use this spreadsheet about student birthdays to answer the questions below:
+
+#### **6.** Which column contains the months of everyone's birthday?
+
+<Figure>
+    <ImageWithBorder src={sprdex1} radius="0" />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the correct column:"
+    choices={[
+        {
+            label: 'Column A',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Column B',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Column C',
+            correct: true,
+            feedback:
+                'Ka pai! You noticed the column header and data arranged below it!',
+        },
+        {
+            label: 'Column D',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+    ]}
+/>
+
+#### **7.** Which row contains the information about Ellie's birthday?
+
+<Figure>
+    <ImageWithBorder src={sprdex1} radius="0" />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the correct row:"
+    choices={[
+        {
+            label: 'Row 1',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Row 2',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Row 3',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Row 4',
+            correct: true,
+            feedback:
+                'Ka pai! You noticed the row title header and data arranged alongside it!',
+        },
+    ]}
+/>
+
+#### **8.** Which cell contains a different year to the other birthdays?
+
+<Figure>
+    <ImageWithBorder src={sprdex1} radius="0" />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the correct cell:"
+    choices={[
+        {
+            label: 'Cell D4',
+            correct: true,
+            feedback:
+                'Ka pai! Great job locating the proper row and column for the information!',
+        },
+        {
+            label: 'Cell B2',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Cell C1',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+        {
+            label: 'Cell A7',
+            feedback: 'Kāore, take a closer look at the information...',
+        },
+    ]}
+/>
+
+## Sorting with Spreadsheets {#sorting}
+
+### **Interactive Spreadsheet**
+
+<Captioned>
+    <b>He ripanga pāhekoheko</b>
+</Captioned>
+
+##### In this section you will get to **interact** with spreadsheet data by selecting and sorting the information in cells, rows, and columns.
+
+##### You can **select a cell** by clicking on it. Then you should see the box **outlined in blue** and the row and column headers **highlighted in dark grey**.
+
+##### You can select a **row** or **column** by clicking on a header. Then you should see the whole series of values **outlined and highlighted in blue** and the opposing headers **highlighted in dark grey**.
+
+##### Have a quick practice selecting different parts of this student birthday spreadsheet:
+
+<Spreadsheet
+    data={[
+        ['Māia', '5', 'July', '2013'],
+        ['Jon', '23', 'April', '2013'],
+        ['Ellie', '17', 'January', '2014'],
+        ['Nikau', '8', 'October', '2013'],
+    ]}
+    colHeaders={['A (Name)', 'B (Date)', 'C (Month)', 'D (Year)']}
+    colWidths={120}
+    rowHeights={60}
+    height="300"
+    width="600"
+/>
+
+### **The Filter Function**
+
+<Captioned>
+    <b>He tātari</b>
+</Captioned>
+<Figure>
+    <RoundImage src={func4} />
+</Figure>
+
+##### Now let's try using a filter, or **sorting function**, to re-arrange our example spreadsheet.
+
+##### With this example spreadsheet, simply **click or tap** on the **column header text** to sort the table by that category of data.
+
+##### Once you've sorted a column, you should see the column **highlighted blue** and an **arrow** next to the header text.
+
+<Spreadsheet
+    data={[
+        ['Māia', '5', 'July', '2013'],
+        ['Jon', '23', 'April', '2013'],
+        ['Ellie', '17', 'January', '2014'],
+        ['Nikau', '8', 'October', '2013'],
+    ]}
+    colHeaders={['A (Name)', 'B (Date)', 'C (Month)', 'D (Year)']}
+    colWidths={120}
+    rowHeights={60}
+    height="300"
+    width="600"
+/>
+
+##### **Here's what the arrows mean for this example spreadsheet program:**
+
+<Figure align={'left'}>
+    <ImageWithText src={arrowno} text={'Original Order'} />
+    <ImageWithText src={arrowup} text={'Progressive Order'} />
+    <ImageWithText src={arrowdown} text={'Reverse Order'} />
+</Figure>
+
+-   ###### **No Arrow** = the original order that the data appeared in the spreadsheet
+-   ###### **Up Arrow** = progressive order, such as from 1 up to 10, or A to Z
+-   ###### **Down Arrow** = reverse order, such as from 10 down to 1, or Z to A
+
+<br />
+
+##### This means that you can sort data **numerically** from lowest to highest, or highest to lowest, and reset to the original input order.
+
+##### It also means that the data will sort **alphabetically** from A to Z, or Z to A, and reset again as well.
+
+<br />
+
+##### _Use this clever sorting function to help answer the following sets of questions!_
+
+### **Pumpkin Growing Contest**
+
+##### Take a look at this spreadsheet of data from a school pumpkin growing competion.
+
+#### **9.** Use a sorting function to answer the questions about the contest:
+
+<Spreadsheet
+    data={[
+        ['Māia', '10.1kg', '1.0m', '12/01/21'],
+        ['Jon', '10.6kg', '1.1m', '12/01/21'],
+        ['Ellie', '10.9kg', '1.2m', '13/01/21'],
+        ['Nikau', '10.8kg', '1.1m', '09/01/21'],
+    ]}
+    colHeaders={[
+        'A (Name)',
+        'B (Weight)',
+        'C (Circumference)',
+        'D (Submission Date)',
+    ]}
+    colWidths={[100, 100, 140, 160]}
+    rowHeights={60}
+    height="300"
+    width="600"
+/>
+
+<MultiChoiceActivity
+    question="A) Who had the heaviest ( ↓ ) pumpkin?"
+    choices={[
+        {
+            label: 'Ellie',
+            correct: true,
+            feedback:
+                'Ka pai! Nice job using the sorting tool to quickly find the right information!',
+        },
+        {
+            label: 'Māia',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: 'Jon',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: 'Nikau',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+    ]}
+/>
+
+##### **B) Arrange the students in reverse alphabetical order by Name ( ↓ ):**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image src={ztoa} tooltip="Reverse alphabetical order" width={800} />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox minWidth={'100px'}>Nikau</TextBox>]}
+        position={{ left: 192, top: 50 }}
+        backgroundColor={'#ec008c'}
+    >
+        <Box width={100} height={48}>
+            <Para color={'black'} size={16}>
+                A
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'100px'}>Māia</TextBox>]}
+        position={{ left: 322, top: 50 }}
+    >
+        <Box width={100} height={48}>
+            <Para color={'black'} size={16}>
+                B
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'100px'}>Jon</TextBox>]}
+        position={{ left: 452, top: 50 }}
+    >
+        <Box width={100} height={48}>
+            <Para color={'black'} size={16}>
+                C
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'100px'}>Ellie</TextBox>]}
+        position={{ left: 582, top: 50 }}
+    >
+        <Box width={100} height={48}>
+            <Para color={'black'} size={16}>
+                D
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+## Comparing NIWA Data {#niwa}
+
+### **New Zealand Climate Data**
+
+<Captioned>
+    <b>Ngā raraunga āhuarangi o Aotearoa</b>
+</Captioned>
+
+##### Hūhana is looking at a data set from **NIWA** - the National Institute of Water & Atmospheric Research.
+
+<Figure>
+    <ImageWithBorder src={niwa} radius="0" />
+</Figure>
+
+<br />
+
+##### Like the Electric Garden, NIWA takes sensor data from the environment all around New Zealand.
+
+##### Hūhana wants to use this data to see how her school EG data compares to other places across the country.
+
+##### But, she's having a hard time because the NIWA data sets are **so big**!
+
+<br />
+
+##### _Can you use the sorting function to help Hūhana make sense of the NIWA spreadsheets?_
+
+### **Mean Monthly Sunshine (hours)**
+
+<Figure align={'left'}>
+    <ImageWithBorder src={niwa1} />
+</Figure>
+
+<br />
+
+#### **10.** Which place gets the **most ( ↓ )** hours of sunshine over **Christmas**?
+
+<Spreadsheet
+    data={[
+        [
+            'Kaitaia',
+            '223.5',
+            '201.7',
+            '201.1',
+            '160.6',
+            '143.0',
+            '126.8',
+            '138.6',
+            '161.8',
+            '165.3',
+            '190.7',
+            '192.7',
+            '209.9',
+            '2115.7',
+        ],
+        [
+            'Auckland',
+            '228.8',
+            '194.9',
+            '189.2',
+            '157.3',
+            '139.8',
+            '110.3',
+            '128.1',
+            '142.9',
+            '148.6',
+            '178.1',
+            '188.1',
+            '197.2',
+            '2003.1',
+        ],
+        [
+            'Tauranga',
+            '261.5',
+            '217.3',
+            '214.0',
+            '183.9',
+            '165.3',
+            '135.4',
+            '151.0',
+            '173.4',
+            '174.1',
+            '212.7',
+            '224.2',
+            '232.7',
+            '2345.6',
+        ],
+        [
+            'Hamilton',
+            '229.8',
+            '192.9',
+            '193.3',
+            '165.1',
+            '138.3',
+            '112.8',
+            '126.4',
+            '144.1',
+            '147.5',
+            '174.8',
+            '187.1',
+            '207.6',
+            '2019.6',
+        ],
+        [
+            'Rotorua',
+            '242.9',
+            '205.9',
+            '199.7',
+            '170.5',
+            '145.1',
+            '119.1',
+            '130.7',
+            '152.1',
+            '155.1',
+            '190.8',
+            '200.1',
+            '215.8',
+            '2127.8',
+        ],
+        [
+            'Gisborne',
+            '249.9',
+            '200.7',
+            '190.7',
+            '164.9',
+            '145.6',
+            '128.6',
+            '124.1',
+            '163.3',
+            '180.7',
+            '219.4',
+            '217.5',
+            '232.4',
+            '2217.7',
+        ],
+        [
+            'Taupo',
+            '224.3',
+            '202.6',
+            '179.7',
+            '156.3',
+            '126.3',
+            '96.1',
+            '116.5',
+            '134.6',
+            '140.0',
+            '179.6',
+            '190.4',
+            '204.6',
+            '1950.9',
+        ],
+        [
+            'New Plymouth',
+            '248.4',
+            '225.0',
+            '212.8',
+            '177.8',
+            '143.9',
+            '118.1',
+            '138.0',
+            '162.7',
+            '162.6',
+            '189.6',
+            '206.9',
+            '211.6',
+            '2197.2',
+        ],
+        [
+            'Napier',
+            '249.3',
+            '202.6',
+            '201.7',
+            '172.4',
+            '155.6',
+            '130.7',
+            '134.7',
+            '166.8',
+            '181.2',
+            '213.9',
+            '216.2',
+            '233.7',
+            '2258.7',
+        ],
+        [
+            'Wanganui',
+            '250.2',
+            '213.5',
+            '192.1',
+            '159.4',
+            '129.0',
+            '99.2',
+            '120.7',
+            '137.8',
+            '147.5',
+            '180.1',
+            '203.6',
+            '221.9',
+            '2055.0',
+        ],
+        [
+            'Palmerston North',
+            '212.4',
+            '191.0',
+            '173.5',
+            '145.6',
+            '109.3',
+            '79.1',
+            '103.8',
+            '119.9',
+            '124.2',
+            '142.6',
+            '165.3',
+            '176.7',
+            '1743.5',
+        ],
+        [
+            'Masterton',
+            '238.6',
+            '204.4',
+            '169.2',
+            '155.6',
+            '132.0',
+            '99.9',
+            '114.9',
+            '128.6',
+            '148.0',
+            '184.0',
+            '185.6',
+            '221.3',
+            '1982.2',
+        ],
+        [
+            'Wellington',
+            '246.9',
+            '210.9',
+            '205.2',
+            '161.3',
+            '132.7',
+            '99.1',
+            '118.9',
+            '147.3',
+            '163.2',
+            '192.8',
+            '209.3',
+            '222.8',
+            '2110.3',
+        ],
+        [
+            'Nelson',
+            '267.5',
+            '231.4',
+            '230.4',
+            '196.2',
+            '175.7',
+            '143.3',
+            '159.0',
+            '182.2',
+            '189.3',
+            '221.4',
+            '234.9',
+            '241.1',
+            '2472.4',
+        ],
+        [
+            'Blenheim',
+            '262.2',
+            '223.7',
+            '230.8',
+            '193.7',
+            '172.7',
+            '151.6',
+            '157.1',
+            '183.9',
+            '189.5',
+            '226.7',
+            '234.7',
+            '248.8',
+            '2475.3',
+        ],
+        [
+            'Westport',
+            '213.0',
+            '174.9',
+            '164.2',
+            '151.5',
+            '114.7',
+            '93.4',
+            '120.7',
+            '118.6',
+            '138.9',
+            '158.4',
+            '171.7',
+            '179.4',
+            '1799.3',
+        ],
+        [
+            'Kaikoura',
+            '247.8',
+            '193.8',
+            '183.8',
+            '173.3',
+            '145.8',
+            '118.8',
+            '136.9',
+            '155.7',
+            '175.9',
+            '194.2',
+            '198.7',
+            '212.4',
+            '2137.1',
+        ],
+        [
+            'Hokitika',
+            '219.5',
+            '187.4',
+            '177.3',
+            '146.7',
+            '119.1',
+            '98.7',
+            '126.1',
+            '136.7',
+            '141.0',
+            '167.8',
+            '184.0',
+            '189.4',
+            '1893.8',
+        ],
+        [
+            'Christchurch',
+            '237.9',
+            '195.0',
+            '191.2',
+            '162.6',
+            '140.8',
+            '117.1',
+            '127.1',
+            '153.9',
+            '169.5',
+            '203.8',
+            '223.7',
+            '219.9',
+            '2142.5',
+        ],
+        [
+            'Mt Cook',
+            '184.8',
+            '167.2',
+            '151.1',
+            '125.3',
+            '92.1',
+            '66.1',
+            '74.5',
+            '113.0',
+            '130.3',
+            '149.4',
+            '158.5',
+            '168.7',
+            '1580.9',
+        ],
+        [
+            'Lake Tekapo',
+            '253.8',
+            '220.9',
+            '230.9',
+            '199.4',
+            '145.4',
+            '139.9',
+            '149.7',
+            '170.1',
+            '200.0',
+            '231.7',
+            '241.5',
+            '234.0',
+            '2417.4',
+        ],
+        [
+            'Timaru',
+            '192.7',
+            '170.2',
+            '168.6',
+            '158.0',
+            '130.1',
+            '121.0',
+            '131.0',
+            '151.5',
+            '156.5',
+            '183.4',
+            '189.0',
+            '179.7',
+            '1931.9',
+        ],
+        [
+            'Queenstown',
+            '230.3',
+            '207.3',
+            '187.0',
+            '145.4',
+            '87.8',
+            '71.8',
+            '88.3',
+            '120.0',
+            '153.6',
+            '197.7',
+            '216.6',
+            '223.5',
+            '1929.2',
+        ],
+        [
+            'Alexandra',
+            '231.4',
+            '199.8',
+            '193.7',
+            '158.2',
+            '121.2',
+            '87.1',
+            '90.7',
+            '135.9',
+            '164.7',
+            '193.9',
+            '214.1',
+            '215.0',
+            '2005.8',
+        ],
+        [
+            'Te Anau',
+            '184.2',
+            '178.5',
+            '152.9',
+            '125.3',
+            '84.8',
+            '64.9',
+            '66.0',
+            '115.6',
+            '138.4',
+            '178.6',
+            '192.3',
+            '180.1',
+            '1661.4',
+        ],
+        [
+            'Dunedin',
+            '179.6',
+            '158.0',
+            '146.1',
+            '125.9',
+            '108.4',
+            '95.3',
+            '110.6',
+            '122.2',
+            '136.8',
+            '165.5',
+            '166.9',
+            '168.3',
+            '1683.7',
+        ],
+        [
+            'Invercargill',
+            '185.9',
+            '167.2',
+            '142.6',
+            '117.2',
+            '87.5',
+            '78.7',
+            '97.9',
+            '123.0',
+            '139.8',
+            '173.0',
+            '181.3',
+            '188.2',
+            '1682.2',
+        ],
+        [
+            'Chatham Islands',
+            '191.3',
+            '145.5',
+            '124.2',
+            '106.3',
+            '81.2',
+            '61.8',
+            '74.4',
+            '101.0',
+            '109.1',
+            '129.7',
+            '148.9',
+            '164.0',
+            '1437.3',
+        ],
+    ]}
+    colHeaders={[
+        'LOCATION',
+        'JAN',
+        'FEB',
+        'MAR',
+        'APR',
+        'MAY',
+        'JUN',
+        'JUL',
+        'AUG',
+        'SEP',
+        'OCT',
+        'NOV',
+        'DEC',
+        'TOTAL',
+    ]}
+    colWidths={[120, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 100]}
+    rowHeights={60}
+    height="300"
+    width="800"
+/>
+
+<MultiChoiceActivity
+    question="Choose the correct place:"
+    choices={[
+        {
+            label: 'Blenheim',
+            correct: true,
+            feedback:
+                'Ka pai! Excellent use of the sorting tool to quickly find the right information!',
+        },
+        {
+            label: 'Kaitaia',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: 'Chatham Islands',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: 'Nelson',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+    ]}
+/>
+
+### **Mean Daily Maximum Air Temperature (°C)**
+
+<Figure align={'left'}>
+    <ImageWithBorder src={niwa3} />
+</Figure>
+
+<br />
+
+#### **11.** Which places are the **top 3 coldest ( ↑ )** places around Matariki, **in July**?
+
+<Spreadsheet
+    data={[
+        [
+            'Kaitaia',
+            '23.9',
+            '24.6',
+            '23.0',
+            '20.9',
+            '18.5',
+            '16.4',
+            '15.6',
+            '15.8',
+            '17.0',
+            '18.1',
+            '19.7',
+            '21.9',
+            '19.6',
+        ],
+        [
+            'Whangarei ',
+            '24.3',
+            '24.3',
+            '22.9',
+            '20.5',
+            '18.1',
+            '16.1',
+            '15.3',
+            '15.7',
+            '17.3',
+            '18.7',
+            '20.6',
+            '22.8',
+            '19.7',
+        ],
+        [
+            'Auckland',
+            '23.1',
+            '23.7',
+            '22.4',
+            '20.1',
+            '17.7',
+            '15.5',
+            '14.7',
+            '15.1',
+            '16.5',
+            '17.8',
+            '19.5',
+            '21.6',
+            '19.0',
+        ],
+        [
+            'Tauranga',
+            '24.0',
+            '24.0',
+            '22.5',
+            '19.9',
+            '17.4',
+            '15.1',
+            '14.5',
+            '15.0',
+            '16.6',
+            '18.1',
+            '20.1',
+            '22.3',
+            '19.1',
+        ],
+        [
+            'Hamilton',
+            '23.9',
+            '24.3',
+            '22.7',
+            '19.9',
+            '16.9',
+            '14.3',
+            '13.8',
+            '14.7',
+            '16.5',
+            '17.9',
+            '19.8',
+            '21.9',
+            '18.9',
+        ],
+        [
+            'Rotorua',
+            '22.8',
+            '22.9',
+            '20.9',
+            '18.0',
+            '15.1',
+            '12.6',
+            '12.0',
+            '12.8',
+            '14.6',
+            '16.4',
+            '18.6',
+            '20.8',
+            '17.3',
+        ],
+        [
+            'Gisborne',
+            '24.6',
+            '24.2',
+            '22.6',
+            '19.9',
+            '17.4',
+            '15.1',
+            '14.2',
+            '15.1',
+            '17.0',
+            '18.9',
+            '20.9',
+            '23.2',
+            '19.5',
+        ],
+        [
+            'Taupo',
+            '22.7',
+            '22.6',
+            '20.4',
+            '17.2',
+            '14.1',
+            '11.7',
+            '11.0',
+            '11.9',
+            '13.9',
+            '15.8',
+            '18.3',
+            '20.7',
+            '16.7',
+        ],
+        [
+            'New Plymouth',
+            '21.7',
+            '22.1',
+            '20.9',
+            '18.6',
+            '16.0',
+            '14.0',
+            '13.3',
+            '14.0',
+            '15.0',
+            '16.1',
+            '18.1',
+            '19.9',
+            '17.5',
+        ],
+        [
+            'Napier',
+            '24.5',
+            '24.2',
+            '22.7',
+            '19.9',
+            '17.4',
+            '15.0',
+            '14.1',
+            '15.1',
+            '17.3',
+            '19.2',
+            '20.9',
+            '23.2',
+            '19.5',
+        ],
+        [
+            'Wanganui',
+            '22.5',
+            '22.8',
+            '21.4',
+            '18.8',
+            '16.3',
+            '14.1',
+            '13.3',
+            '14.1',
+            '15.7',
+            '17.0',
+            '18.7',
+            '20.9',
+            '18.0',
+        ],
+        [
+            'Palmerston North',
+            '23.0',
+            '23.5',
+            '21.5',
+            '18.6',
+            '15.8',
+            '13.3',
+            '12.7',
+            '13.5',
+            '15.3',
+            '16.7',
+            '18.3',
+            '20.9',
+            '17.8',
+        ],
+        [
+            'Masterton',
+            '24.3',
+            '24.0',
+            '21.9',
+            '18.8',
+            '15.4',
+            '13.2',
+            '12.1',
+            '13.1',
+            '15.4',
+            '17.5',
+            '19.8',
+            '22.1',
+            '18.1',
+        ],
+        [
+            'Wellington',
+            '20.3',
+            '20.6',
+            '19.1',
+            '16.6',
+            '14.3',
+            '12.2',
+            '11.4',
+            '12.2',
+            '13.7',
+            '14.9',
+            '16.6',
+            '18.5',
+            '15.9',
+        ],
+        [
+            'Nelson',
+            '22.4',
+            '22.6',
+            '21.0',
+            '18.1',
+            '15.6',
+            '13.1',
+            '12.5',
+            '13.4',
+            '15.0',
+            '16.9',
+            '18.9',
+            '20.7',
+            '17.6',
+        ],
+        [
+            'Blenheim',
+            '24.1',
+            '23.8',
+            '21.9',
+            '19.0',
+            '16.0',
+            '13.3',
+            '12.6',
+            '13.8',
+            '15.8',
+            '18.0',
+            '20.0',
+            '22.2',
+            '18.4',
+        ],
+        [
+            'Westport',
+            '19.9',
+            '20.5',
+            '19.1',
+            '17.1',
+            '15.0',
+            '13.0',
+            '12.6',
+            '13.0',
+            '14.3',
+            '15.3',
+            '16.7',
+            '18.4',
+            '16.4',
+        ],
+        [
+            'Kaikoura',
+            '19.9',
+            '19.9',
+            '18.6',
+            '16.1',
+            '14.2',
+            '12.0',
+            '10.8',
+            '11.8',
+            '13.8',
+            '15.2',
+            '16.9',
+            '18.9',
+            '15.7',
+        ],
+        [
+            'Hokitika',
+            '19.5',
+            '19.9',
+            '18.6',
+            '16.5',
+            '14.3',
+            '12.3',
+            '11.9',
+            '12.6',
+            '13.8',
+            '14.9',
+            '16.4',
+            '18.0',
+            '15.7',
+        ],
+        [
+            'Christchurch',
+            '22.7',
+            '22.1',
+            '20.5',
+            '17.7',
+            '14.7',
+            '12.0',
+            '11.3',
+            '12.7',
+            '15.3',
+            '17.2',
+            '19.3',
+            '21.1',
+            '17.2',
+        ],
+        [
+            'Mt Cook',
+            '20.5',
+            '20.7',
+            '17.9',
+            '14.5',
+            '11.0',
+            '7.6',
+            '6.5',
+            '8.6',
+            '11.9',
+            '14.2',
+            '16.5',
+            '18.2',
+            '14.0',
+        ],
+        [
+            'Lake Tekapo',
+            '21.6',
+            '21.3',
+            '18.7',
+            '14.9',
+            '10.7',
+            '7.0',
+            '5.8',
+            '8.3',
+            '11.9',
+            '14.5',
+            '17.2',
+            '19.4',
+            '14.4',
+        ],
+        [
+            'Timaru',
+            '21.5',
+            '20.8',
+            '19.5',
+            '16.8',
+            '13.7',
+            '11.3',
+            '10.6',
+            '12.1',
+            '14.5',
+            '16.2',
+            '18.0',
+            '19.7',
+            '16.2',
+        ],
+        [
+            'Milford Sound',
+            '18.9',
+            '19.3',
+            '17.8',
+            '15.5',
+            '12.4',
+            '9.6',
+            '9.2',
+            '11.4',
+            '13.1',
+            '14.5',
+            '16.0',
+            '17.5',
+            '14.6',
+        ],
+        [
+            'Queenstown ',
+            '21.8',
+            '21.8',
+            '18.8',
+            '15.0',
+            '11.7',
+            '8.4',
+            '7.8',
+            '9.8',
+            '12.9',
+            '15.3',
+            '17.1',
+            '19.7',
+            '15.0',
+        ],
+        [
+            'Alexandra',
+            '25.1',
+            '24.8',
+            '22.3',
+            '18.0',
+            '13.6',
+            '8.8',
+            '8.1',
+            '12.5',
+            '16.4',
+            '19.0',
+            '21.1',
+            '23.3',
+            '17.9',
+        ],
+        [
+            'Manapouri',
+            '20.8',
+            '20.6',
+            '18.2',
+            '14.9',
+            '11.6',
+            '8.4',
+            '8.1',
+            '10.0',
+            '12.7',
+            '14.9',
+            '16.5',
+            '18.9',
+            '14.8',
+        ],
+        [
+            'Dunedin',
+            '18.9',
+            '18.6',
+            '17.3',
+            '15.3',
+            '12.7',
+            '10.6',
+            '10.0',
+            '11.2',
+            '13.2',
+            '14.7',
+            '16.1',
+            '17.3',
+            '14.7',
+        ],
+        [
+            'Invercargill ',
+            '18.7',
+            '18.6',
+            '17.1',
+            '14.9',
+            '12.3',
+            '10.0',
+            '9.5',
+            '11.1',
+            '13.1',
+            '14.4',
+            '15.8',
+            '17.5',
+            '14.4',
+        ],
+        [
+            'Chatham Islands',
+            '17.9',
+            '18.2',
+            '17.1',
+            '14.9',
+            '13.0',
+            '11.3',
+            '10.5',
+            '11.0',
+            '11.9',
+            '13.1',
+            '14.4',
+            '16.4',
+            '14.1',
+        ],
+        [
+            'Antarctica Scott Base',
+            '-1.2',
+            '-8.0',
+            '-15.9',
+            '-18.7',
+            '-20.0',
+            '-20.1',
+            '-22.5',
+            '-23.4',
+            '-21.3',
+            '-15.6',
+            '-7.2',
+            '-1.2',
+            '-14.6',
+        ],
+    ]}
+    colHeaders={[
+        'LOCATION',
+        'JAN',
+        'FEB',
+        'MAR',
+        'APR',
+        'MAY',
+        'JUN',
+        'JUL',
+        'AUG',
+        'SEP',
+        'OCT',
+        'NOV',
+        'DEC',
+        'TOTAL',
+    ]}
+    colWidths={[120, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 100]}
+    rowHeights={60}
+    height="300"
+    width="800"
+/>
+
+<MultiChoiceActivity
+    question="Select the correct three places:"
+    choices={[
+        { label: 'Antarctica Scott Base', correct: true },
+        { label: 'Lake Tekapo', correct: true },
+        { label: 'Mt Cook', correct: true },
+        { label: 'Queenstown' },
+        { label: 'Manapouri' },
+        { label: 'Chatham Islands' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Mean Monthly Rainfall (mm)**
+
+<Figure align={'left'}>
+    <ImageWithBorder src={niwa2} />
+</Figure>
+
+<br />
+
+#### **12.** How many millimetres of rain did **the rainiest place ( ↓ )** get **in total**?
+
+<Spreadsheet
+    data={[
+        [
+            'Kaitaia',
+            '82.0',
+            '92.5',
+            '82.0',
+            '97.7',
+            '131.9',
+            '149.1',
+            '165.4',
+            '140.0',
+            '126.7',
+            '97.8',
+            '86.2',
+            '99.6',
+            '1349.2',
+        ],
+        [
+            'Whangarei',
+            '81.2',
+            '95.2',
+            '118.1',
+            '98.9',
+            '111.2',
+            '131.5',
+            '168.6',
+            '128.4',
+            '112.2',
+            '85.3',
+            '77.1',
+            '96.4',
+            '1317.7',
+        ],
+        [
+            'Auckland',
+            '73.3',
+            '66.1',
+            '87.3',
+            '99.4',
+            '112.6',
+            '126.4',
+            '145.1',
+            '118.4',
+            '105.1',
+            '100.2',
+            '85.8',
+            '92.8',
+            '1210.7',
+        ],
+        [
+            'Tauranga',
+            '76.0',
+            '86.6',
+            '92.7',
+            '120.9',
+            '105.7',
+            '115.7',
+            '127.4',
+            '112.3',
+            '87.6',
+            '90.4',
+            '75.3',
+            '90.3',
+            '1176.5',
+        ],
+        [
+            'Hamilton',
+            '76.3',
+            '68.7',
+            '79.4',
+            '80.3',
+            '99.7',
+            '113.2',
+            '118.2',
+            '103.4',
+            '91.5',
+            '91.9',
+            '85.0',
+            '100.7',
+            '1108.4',
+        ],
+        [
+            'Rotorua',
+            '92.7',
+            '93.9',
+            '99.2',
+            '107.2',
+            '116.9',
+            '136.1',
+            '134.5',
+            '131.4',
+            '109.3',
+            '112.3',
+            '93.8',
+            '114.2',
+            '1358.9',
+        ],
+        [
+            'Gisborne',
+            '56.2',
+            '71.3',
+            '91.4',
+            '98.2',
+            '101.3',
+            '104.6',
+            '127.7',
+            '76.2',
+            '73.5',
+            '72.5',
+            '67.1',
+            '56.2',
+            '978.7',
+        ],
+        [
+            'Taupo',
+            '77.3',
+            '67.9',
+            '66.5',
+            '68.4',
+            '74.9',
+            '92.8',
+            '96.0',
+            '87.4',
+            '81.6',
+            '86.2',
+            '67.9',
+            '93.6',
+            '954.5',
+        ],
+        [
+            'New Plymouth',
+            '114.5',
+            '85.4',
+            '126.5',
+            '125.4',
+            '97.1',
+            '152.6',
+            '131.1',
+            '117.2',
+            '104.8',
+            '117.8',
+            '100.3',
+            '113.1',
+            '1398.0',
+        ],
+        [
+            'Napier',
+            '46.8',
+            '54.3',
+            '66.8',
+            '67.9',
+            '74.8',
+            '82.1',
+            '108.3',
+            '60.1',
+            '57.9',
+            '59.9',
+            '52.4',
+            '53.5',
+            '776.0',
+        ],
+        [
+            'Wanganui',
+            '59.2',
+            '75.5',
+            '62.9',
+            '69.2',
+            '79.5',
+            '88.8',
+            '85.3',
+            '74.4',
+            '73.7',
+            '88.0',
+            '75.4',
+            '86.4',
+            '916.7',
+        ],
+        [
+            'Palmerston North',
+            '55.0',
+            '67.8',
+            '51.8',
+            '65.9',
+            '71.5',
+            '95.1',
+            '82.5',
+            '76.9',
+            '86.1',
+            '96.4',
+            '80.9',
+            '87.5',
+            '919.9',
+        ],
+        [
+            'Masterton',
+            '44.4',
+            '68.9',
+            '84.5',
+            '54.0',
+            '93.6',
+            '105.3',
+            '90.9',
+            '86.7',
+            '73.7',
+            '77.2',
+            '77.5',
+            '70.9',
+            '922.9',
+        ],
+        [
+            'Wellington',
+            '75.7',
+            '69.8',
+            '87.1',
+            '83.6',
+            '112.9',
+            '132.8',
+            '137.5',
+            '113.7',
+            '97.8',
+            '114.9',
+            '97.0',
+            '84.4',
+            '1215.4',
+        ],
+        [
+            'Nelson',
+            '76.5',
+            '63.5',
+            '70.8',
+            '80.9',
+            '82.0',
+            '92.7',
+            '77.6',
+            '81.9',
+            '85.1',
+            '87.2',
+            '78.3',
+            '83.6',
+            '950.7',
+        ],
+        [
+            'Blenheim',
+            '48.9',
+            '49.4',
+            '46.5',
+            '52.7',
+            '60.6',
+            '70.7',
+            '74.3',
+            '62.2',
+            '65.2',
+            '67.4',
+            '55.0',
+            '58.1',
+            '720.1',
+        ],
+        [
+            'Westport',
+            '178.2',
+            '128.9',
+            '158.9',
+            '156.7',
+            '174.2',
+            '212.5',
+            '167.6',
+            '185.0',
+            '187.4',
+            '200.3',
+            '169.0',
+            '203.0',
+            '2154.4',
+        ],
+        [
+            'Kaikoura',
+            '46.0',
+            '46.8',
+            '62.6',
+            '51.8',
+            '56.9',
+            '75.9',
+            '100.6',
+            '56.5',
+            '50.1',
+            '62.7',
+            '55.5',
+            '44.6',
+            '695.9',
+        ],
+        [
+            'Hokitika',
+            '248.3',
+            '189.0',
+            '215.8',
+            '231.5',
+            '236.8',
+            '273.5',
+            '218.0',
+            '230.8',
+            '260.1',
+            '275.1',
+            '225.3',
+            '297.0',
+            '2901.4',
+        ],
+        [
+            'Christchurch',
+            '38.3',
+            '42.3',
+            '44.8',
+            '46.2',
+            '63.7',
+            '60.9',
+            '68.4',
+            '64.4',
+            '41.1',
+            '52.8',
+            '45.8',
+            '49.5',
+            '618.2',
+        ],
+        [
+            'Mt Cook',
+            '457.5',
+            '278.4',
+            '417.9',
+            '363.0',
+            '357.1',
+            '314.5',
+            '305.2',
+            '313.4',
+            '297.4',
+            '478.9',
+            '414.2',
+            '487.2',
+            '4491.2',
+        ],
+        [
+            'Lake Tekapo',
+            '43.6',
+            '35.9',
+            '48.8',
+            '45.2',
+            '56.5',
+            '60.0',
+            '49.6',
+            '58.4',
+            '50.4',
+            '49.5',
+            '41.3',
+            '52.2',
+            '591.6',
+        ],
+        [
+            'Timaru',
+            '46.5',
+            '51.7',
+            '47.6',
+            '38.7',
+            '46.6',
+            '38.8',
+            '46.2',
+            '43.8',
+            '36.5',
+            '49.5',
+            '49.6',
+            '52.8',
+            '546.8',
+        ],
+        [
+            'Milford Sound',
+            '722.0',
+            '454.7',
+            '595.1',
+            '533.2',
+            '596.6',
+            '487.1',
+            '423.7',
+            '463.5',
+            '551.4',
+            '640.3',
+            '548.0',
+            '700.1',
+            '6715.4',
+        ],
+        [
+            'Queenstown',
+            '64.7',
+            '50.3',
+            '53.4',
+            '56.2',
+            '68.5',
+            '71.5',
+            '50.3',
+            '66.2',
+            '62.4',
+            '66.4',
+            '63.6',
+            '75.3',
+            '741.4',
+        ],
+        [
+            'Alexandra',
+            '50.1',
+            '32.8',
+            '29.0',
+            '22.0',
+            '27.4',
+            '31.6',
+            '24.2',
+            '17.6',
+            '20.9',
+            '28.7',
+            '30.6',
+            '44.5',
+            '335.3',
+        ],
+        [
+            'Manapouri',
+            '85.4',
+            '84.3',
+            '86.5',
+            '90.0',
+            '100.9',
+            '101.8',
+            '82.0',
+            '93.9',
+            '100.0',
+            '107.7',
+            '91.1',
+            '105.1',
+            '1092.2',
+        ],
+        [
+            'Dunedin',
+            '72.9',
+            '67.8',
+            '64.0',
+            '50.9',
+            '64.7',
+            '57.9',
+            '57.1',
+            '55.7',
+            '48.3',
+            '61.7',
+            '56.4',
+            '80.2',
+            '726.2',
+        ],
+        [
+            'Invercargill',
+            '115.0',
+            '87.1',
+            '97.4',
+            '95.9',
+            '114.4',
+            '104.0',
+            '85.2',
+            '75.6',
+            '84.2',
+            '95.0',
+            '90.4',
+            '105.0',
+            '1146.6',
+        ],
+        [
+            'Chatham Islands',
+            '54.9',
+            '63.9',
+            '84.7',
+            '75.7',
+            '87.9',
+            '107.8',
+            '84.7',
+            '84.4',
+            '71.1',
+            '63.4',
+            '66.7',
+            '66.3',
+            '898.9',
+        ],
+    ]}
+    colHeaders={[
+        'LOCATION',
+        'JAN',
+        'FEB',
+        'MAR',
+        'APR',
+        'MAY',
+        'JUN',
+        'JUL',
+        'AUG',
+        'SEP',
+        'OCT',
+        'NOV',
+        'DEC',
+        'TOTAL',
+    ]}
+    colWidths={[120, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 75, 100]}
+    rowHeights={60}
+    height="300"
+    width="800"
+/>
+
+<MultiChoiceActivity
+    question="Choose the correct amount of rain:"
+    choices={[
+        {
+            label: '6715.4mm',
+            correct: true,
+            feedback:
+                "Ka pai! You're really getting the hang of using the sorting tool to quickly find information!",
+        },
+        {
+            label: '1349.2mm',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: '8745.6mm',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+        {
+            label: '335.3mm',
+            feedback: 'Kāore, have another go at sorting the information...',
+        },
+    ]}
+/>
+
+## He Kōnae Kuputuhi Wehe ā-Piko {#csv}
+
+### What is a **CSV file**?
+
+<Captioned>
+    He aha <b>te kōnae kuputuhi wehe ā-piko</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={csv} />
+</Figure>
+
+<br />
+
+#### **13.** In 'CSV file', what do the letters **C-S-V** stand for?
+
+<MultiChoiceActivity
+    question="CSV stands for:"
+    choices={[
+        {
+            label: 'Comma-Separated Values',
+            correct: true,
+            feedback:
+                'Ka pai! Because the information is organised with commas rather than lines and spaces.',
+        },
+        {
+            label: 'Complete-Software Variables',
+            feedback:
+                "Hmmm, that sounds fancy...but I'm not sure it really means anything!",
+        },
+        {
+            label: 'Complex-Standard Values',
+            feedback:
+                "Hmmm, that sounds really important...but I'm not sure it really means anything!",
+        },
+        {
+            label: 'Colon-Separated Variables',
+            feedback:
+                'Hmmm, is the information in CSV files organised with colons (:) or some other punctuation...?',
+        },
+    ]}
+/>
+
+### **Reading CSV files**
+
+<Captioned>
+    <b>Pānuihia te kōnae kuputuhi wehe ā-piko</b>
+</Captioned>
+
+##### How do computers read CSV files? First, remember that computer programs think differently than we do.
+
+##### So rather than looking for neat rows and columns, CSV files use **plain text** and **commas** to organise data.
+
+##### A program like a spreadsheet then reads each **line of text as a row** and each **comma separating columns**.
+
+<br />
+
+##### Do you think you can read a CSV file like a computer?
+
+##### Try answering the next set of questions using the example CSV file:
+
+<br />
+
+#### **14.** How many **columns** are represented in this CSV file?
+
+<Captioned
+    font={'Courier'}
+    size={'20'}
+    align={'left'}
+    color={'black'}
+    border={true}
+>
+    <b>
+        name,weight,circumference,submission_date
+        <br />
+        Māia,3.4,1.1,12_01_21
+        <br />
+        Jon,1.6,0.7,12_01_21
+        <br />
+        Ellie,5.3,1.0,13_01_21
+        <br />
+        Nikau,0.8,0.6,19_01_21
+    </b>
+</Captioned>
+
+<MultiChoiceActivity
+    question="Choose the correct number of columns:"
+    choices={[
+        {
+            label: '4 columns',
+            correct: true,
+            feedback:
+                'Ka pai! Nice job making sense of this CSV file like a computer!',
+        },
+        {
+            label: '3 columns',
+            feedback:
+                'Kāore, take a closer look at the information and commas...',
+        },
+        {
+            label: '6 columns',
+            feedback:
+                'Kāore, take a closer look at the information and commas...',
+        },
+        {
+            label: '5 columns',
+            feedback:
+                'Kāore, take a closer look at the information and commas...',
+        },
+    ]}
+/>
+
+<br />
+
+#### **15.** How many **rows** are represented in this CSV file?
+
+<Captioned
+    font={'Courier'}
+    size={'20'}
+    align={'left'}
+    color={'black'}
+    border={true}
+>
+    <b>
+        name,weight,circumference,submission_date
+        <br />
+        Māia,3.4,1.1,12_01_21
+        <br />
+        Jon,1.6,0.7,12_01_21
+        <br />
+        Ellie,5.3,1.0,13_01_21
+        <br />
+        Nikau,0.8,0.6,19_01_21
+    </b>
+</Captioned>
+
+<MultiChoiceActivity
+    question="Choose the correct number of rows:"
+    choices={[
+        {
+            label: '5 rows',
+            correct: true,
+            feedback:
+                "Ka pai! You're doing well to read this CSV file like a computer!",
+        },
+        {
+            label: '3 rows',
+            feedback:
+                'Kāore, take a closer look at the information and text lines...',
+        },
+        {
+            label: '4 rows',
+            feedback:
+                'Kāore, take a closer look at the information and text lines...',
+        },
+        {
+            label: '6 rows',
+            feedback:
+                'Kāore, take a closer look at the information and text lines...',
+        },
+    ]}
+/>
+
+<br />
+
+#### **16.** What does the value **0.7** mean in this CSV file?
+
+<Captioned
+    font={'Courier'}
+    size={'20'}
+    align={'left'}
+    color={'black'}
+    border={true}
+>
+    <b>
+        name,weight,circumference,submission_date
+        <br />
+        Māia,3.4,1.1,12_01_21
+        <br />
+        Jon,1.6,0.7,12_01_21
+        <br />
+        Ellie,5.3,1.0,13_01_21
+        <br />
+        Nikau,0.8,0.6,19_01_21
+    </b>
+</Captioned>
+
+<MultiChoiceActivity
+    question="Choose the correct type of data value:"
+    choices={[
+        {
+            label: "The circumference (m) of Jon's pumpkin",
+            correct: true,
+            feedback:
+                "Ka pai! You're really getting the hang of reading this CSV file like a computer!",
+        },
+        {
+            label: 'The name of the second student',
+            feedback:
+                'Kāore, take a closer look at the information, the commas, and text lines...',
+        },
+        {
+            label: "The weight (kg) of Jon's pumpkin",
+            feedback:
+                'Kāore, take a closer look at the information, the commas, and text lines...',
+        },
+        {
+            label: "The submission date (dd/mm/yy) for Jon's pumpkin",
+            feedback:
+                'Kāore, take a closer look at the information, the commas, and text lines...',
+        },
+    ]}
+/>
+
+## CSVs & Trinket {#csv-trinket}
+
+### **Using Trinket with CSV data**
+
+<Captioned>
+    <b>Whakamahia te kuputuhi wehe ā-piko i a Trinket</b>
+</Captioned>
+
+##### Our friend **Hūhana** wants to use this data to answer some of her questions about the garden:
+
+-   ##### _What are the **hottest** and **coldest air temperatures** in this garden?_
+
+<Figure align={'left'}>
+    <ImageWithBorder src={high} />
+    <ImageWithBorder src={airtemp} border="true" />
+    <ImageWithBorder src={low} />
+</Figure>
+
+-   ##### _What are the **highest** and **lowest soil temperatures** in this garden?_
+
+<Figure align={'left'}>
+    <ImageWithBorder src={high} />
+    <ImageWithBorder src={soiltemp} border="true" />
+    <ImageWithBorder src={low} />
+</Figure>
+
+<br />
+
+##### The following Trinket has been loaded up with a massive chunk of EG data as a CSV file.
+
+##### Click the **'EG-data.csv'** tab to take a look at all of the data values:
+
+<iframe
+    src="https://trinket.io/embed/python/a1aec38aef"
+    width="100%"
+    height="200"
+    frameborder="0"
+    marginwidth="0"
+    marginheight="0"
+    allowfullscreen
+></iframe>
+
+<br />
+
+##### Hūhana is certain the answers she needs are in the CSV data, but it seems **impossible** to sort through it all!
+
+##### For sure, there are **more than 300 lines of data** here! So what should she do?
+
+##### _Can you help Hūhana use code to quickly sort through the data?_
+
+### **Sorting through the CSV**
+
+#### To start, let's look at how to set up our Trinket to read through the data for us:
+
+##### **Step A)** Open the proper file:
+
+###### Frist, this line of code tells the Trinket to **open** and **read ('r')** the proper file:
+
+<ExampleCode>{`file = open('EG-data.csv', 'r')`}</ExampleCode>
+
+<br />
+
+##### **Step B)** Pull from the proper lists:
+
+###### Next, these set up **lists** to **narrow down the data** related to Hūhana's questions:
+
+<ExampleCode>{`airtemplist = []
+soiltemplist = []`}</ExampleCode>
+
+<br />
+
+##### **Step C)** Organise the list data:
+
+###### Then, this block of code tells the program **which values belong in our two lists**:
+
+<ExampleCode>{`for line in file.read().splitlines()[1:]:
+    date,time,humidity,light,airtemp,soilmoisture,soiltemp,batteryvolt = line.split(',')
+    airtemplist.append(float(airtemp))
+    soiltemplist.append(float(soiltemp))`}</ExampleCode>
+
+###### In the programming language Python, we have to tell the program to lookout for certain kinds of numbers.
+
+-   ###### An **interger** is a whole number **without a decimal point**,
+
+-   ###### while a **floating-point number ('float')** is a number **with a decimal point**.
+
+###### It is important for us to use **'float'** here so the program will show our EG data values with the proper **decimal values**.
+
+<br />
+
+##### **Step D)** Our code for running the program:
+
+###### Altogether, your code should look something like this:
+
+<ExampleCode showLineNumbers startingLineNumber={1}>
+    {`file = open('EG-data.csv', 'r')
+airtemplist = []
+soiltemplist = []
+for line in file.read().splitlines()[1:]:
+    date,time,humidity,light,airtemp,soilmoisture,soiltemp,batteryvolt = line.split(',')
+    airtemplist.append(float(airtemp))
+    soiltemplist.append(float(soiltemp))`}
+</ExampleCode>
+
+###### _**Note:** Notice that the information in our 'for' phrase (the code in lines 5, 6, and 7) is **indented** (each has a starting gap of space) using the **Tab key**._
+
+### **Air temperatures**
+
+<Captioned>
+    <b>He paemahana o te hau</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={high} />
+    <ImageWithBorder src={airtemp} border="true" />
+    <ImageWithBorder src={low} />
+</Figure>
+
+<br />
+
+##### Now that we know how to set up our Trinket, let's have a go at helping Hūhana.
+
+##### Use our **lists** to filter the **maximum (hottest)** and **minimum (coldest)** air temperature values:
+
+<ExampleCode showLineNumbers startingLineNumber={9}>{`hotair = max(airtemplist)
+coldair = min(airtemplist)`}</ExampleCode>
+
+###### To keep things clear, let's start here with **line 9** and leave line 8 blank.
+
+###### Also notice that from here our code is **not indented** because they are each new commands.
+
+##### Then, we can use the **print** command to show the data we want:
+
+<ExampleCode
+    showLineNumbers
+    startingLineNumber={11}
+>{`print ("The hottest air temperature in this garden is"), hotair
+print ("The coldest air temperature in this garden is"), coldair`}</ExampleCode>
+
+##### _When you're ready and have entered all of your code, hit the **run** button to see what happens!_
+
+<iframe
+    src="https://trinket.io/embed/python/3fbe62bd47"
+    width="100%"
+    height="300"
+    frameborder="0"
+    marginwidth="0"
+    marginheight="0"
+    allowfullscreen
+></iframe>
+
+#### **17.** Can you find the air temperature information Hūhana needs?
+
+<MultiChoiceActivity
+    question="A) What was the hottest air temperature?"
+    choices={[
+        {
+            label: '29.0°C',
+            correct: true,
+            feedback:
+                'Ka pai! Nice work using code to sift through that massive CSV file!',
+        },
+        {
+            label: '9.2°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '15.0°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '1.5°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+    ]}
+/>
+
+<br />
+
+<MultiChoiceActivity
+    question="B) What was the coldest air temperature?"
+    choices={[
+        {
+            label: '1.5°C',
+            correct: true,
+            feedback:
+                'Ka pai! Great job using code to sift through that massive CSV file!',
+        },
+        {
+            label: '9.2°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '15.0°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '29.0°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+    ]}
+/>
+
+### **Soil temperatures**
+
+<Captioned>
+    <b>He paemahana o te oneone</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={high} />
+    <ImageWithBorder src={soiltemp} border="true" />
+    <ImageWithBorder src={low} />
+</Figure>
+
+<br />
+
+##### Great work! Next let's help Hūhana find soil temperature data.
+
+##### Use our **lists** again, this time to filter the **maximum (highest)** and **minimum (lowest)** soil temperature values:
+
+<ExampleCode
+    showLineNumbers
+    startingLineNumber={9}
+>{`hotsoil = max(soiltemplist)
+coldsoil = min(soiltemplist)`}</ExampleCode>
+
+###### Let's start again with **line 9**, leaving line 8 blank, and **not indenting** these new commands.
+
+##### Once more, use the **print** command to show the data we want:
+
+<ExampleCode
+    showLineNumbers
+    startingLineNumber={11}
+>{`print ("The highest soil temperature in this garden is"), hotsoil
+print ("The lowest soil temperature in this garden is"), coldsoil`}</ExampleCode>
+
+##### _As before, hit the **run** button when you're ready to see what happens!_
+
+<iframe
+    src="https://trinket.io/embed/python/3fbe62bd47"
+    width="100%"
+    height="300"
+    frameborder="0"
+    marginwidth="0"
+    marginheight="0"
+    allowfullscreen
+></iframe>
+
+#### **18.** Can you find the soil temperature information Hūhana needs?
+
+<MultiChoiceActivity
+    question="A) What was the highest soil temperature?"
+    choices={[
+        {
+            label: '17.0°C',
+            correct: true,
+            feedback:
+                "Ka pai! You're really getting the hang of using code to sift through massive CSV files!",
+        },
+        {
+            label: '7.1°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '5.8°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '8.5°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+    ]}
+/>
+
+<br />
+
+<MultiChoiceActivity
+    question="B) What was the lowest soil temperature?"
+    choices={[
+        {
+            label: '8.5°C',
+            correct: true,
+            feedback:
+                'Ka pai! Excellent work sifting through all of that CSV file information!',
+        },
+        {
+            label: '7.1°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '5.8°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+        {
+            label: '17.0°C',
+            feedback:
+                'Kāore, have another go at fetching the right information...',
+        },
+    ]}
+/>
+
+## Conclusion {#conclusion}
+
+#### Kātahi nā te akonga mōhio, ko koe! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={spreasheetfinal} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **spreadsheets**, **sorting**, and those all important **CSV files**!
+
+##### Well done, and all the best in your studies to come!

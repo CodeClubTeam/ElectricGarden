@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.section {
+    margin: 20px;
+    .section-header {
+        font-size: 21px;
+        font-weight: bold;
+        color: #231f20;
+        margin: 10px 0;
+    }
+    .section-body {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        border: 2px solid #a7a9ac;
+    }
+    .tags-area {
+        width: 100%;
+        border-radius: 4px;
+    }
+}

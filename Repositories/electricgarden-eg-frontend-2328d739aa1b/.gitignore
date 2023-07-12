@@ -1,0 +1,8 @@
+node_modules
+.cache
+.jest-cache
+dist
+build/
+junit.xml
+tasks/deploy.js
+tasks/deploy.js.map

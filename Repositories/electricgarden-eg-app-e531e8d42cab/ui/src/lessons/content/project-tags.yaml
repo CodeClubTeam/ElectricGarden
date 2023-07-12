@@ -1,0 +1,21 @@
+threads:
+    dt:
+        title: Digital Technologies
+        link: https://example.com
+        description: blah blah
+        topics:
+            dddo:
+                title: DDDO
+                description: Digital something
+                link: https://example.com/2
+                objectives:
+                    po1:
+                        name: PO1
+                        description: Description
+                    po2:
+                        name: PO2
+                        description: 'wefwf
+                            wefew
+                            awfe'
+            ct:
+                title: Computational Thinking

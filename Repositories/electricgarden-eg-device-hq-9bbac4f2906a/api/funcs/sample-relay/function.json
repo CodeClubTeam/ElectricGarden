@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "sampleMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-samples",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    },
+    {
+      "type": "queue",
+      "name": "multiDeliveryQueue",
+      "queueName": "device-hq-sample-relay-multi-delivery",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/sample-relay/index.js"
+}

@@ -1,0 +1,55 @@
+--- pycom-micropython/esp32/mods/moduos.c
++++ pycom-micropython/esp32/mods/moduos.c
+@@ -60,4 +60,5 @@
+ #include "pycom_version.h"
+ #include "mptask.h"
++#include "eg_version.h"
+ 
+ /// \module os - basic "operating system" services
+@@ -85,4 +86,7 @@ STATIC const qstr os_uname_info_fields[] = {
+     ,MP_QSTR_sigfox
+ #endif
++#if defined(EG_VERSION_H)
++    ,MP_QSTR_egversion
++#endif
+ };
+ STATIC const MP_DEFINE_STR_OBJ(os_uname_info_sysname_obj, MICROPY_PY_SYS_PLATFORM);
+@@ -97,15 +101,30 @@ STATIC const MP_DEFINE_STR_OBJ(os_uname_info_lorawan_obj, LORAWAN_VERSION_NUMBER
+ STATIC const MP_DEFINE_STR_OBJ(os_uname_info_sigfox_obj, SIGFOX_VERSION_NUMBER);
+ #endif
++#if defined(EG_VERSION_H)
++STATIC const MP_DEFINE_STR_OBJ(os_uname_info_egversion_obj, ELECTRICGARDEN_RELEASE_STR);
++#endif
+ STATIC MP_DEFINE_ATTRTUPLE(
+     os_uname_info_obj
+     ,os_uname_info_fields
+ #if defined(FIPY) || defined (LOPY4)
++    #if defined(EG_VERSION_H)
++    ,8
++    #else
+     ,7
++    #endif
+ #else
+-#if defined(LOPY) || defined(SIPY)
++    #if defined(LOPY) || defined(SIPY)
++        #if defined(EG_VERSION_H)
++            ,7
++        #else
++            ,6
++        #endif
++    #else
++        #if defined(EG_VERSION_H)
+             ,6
+         #else
+             ,5
+         #endif
++    #endif
+ #endif
+     ,(mp_obj_t)&os_uname_info_sysname_obj
+@@ -120,4 +139,7 @@ STATIC MP_DEFINE_ATTRTUPLE(
+     ,(mp_obj_t)&os_uname_info_sigfox_obj
+ #endif
++#if defined(EG_VERSION_H)
++    ,(mp_obj_t)&os_uname_info_egversion_obj
++#endif
+ );

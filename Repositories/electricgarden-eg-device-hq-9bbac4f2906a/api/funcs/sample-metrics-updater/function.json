@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-sample-metrics",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    }
+  ],
+  "scriptFile": "../dist/sample-metrics-updater/index.js"
+}

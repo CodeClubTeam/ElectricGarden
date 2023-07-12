@@ -1,0 +1,69 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "messages",
+      "direction": "in",
+      "connection": "EVENTHUB_LISTEN_CONNECTION",
+      "cardinality": "many",
+      "eventHubName": "messageHub"
+    },
+    {
+      "type": "queue",
+      "name": "samplesQueue",
+      "queueName": "device-hq-samples",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "countersQueue",
+      "queueName": "device-hq-counters",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "errorsQueue",
+      "queueName": "device-hq-errors",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "bootupsQueue",
+      "queueName": "device-hq-bootups",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "instructionsQueue",
+      "queueName": "device-hq-instructions",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "clockUpdatesQueue",
+      "queueName": "device-hq-clockupdates",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "auditLogQueue",
+      "queueName": "device-hq-audit-log",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "name": "sampleMetricsQueue",
+      "queueName": "device-hq-sample-metrics",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/message-pump/index.js"
+}

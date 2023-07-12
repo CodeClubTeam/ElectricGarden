@@ -1,0 +1,83 @@
+<h1>System status</h1>
+{{~#if status~}} {{~#with status~}}
+<h2>Access Point</h2>
+{{~#with ap~}}
+<table>
+    <thead>
+        <th>Property</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Status</td>
+            <td>{{~status~}}</td>
+        </tr>
+        {{~#each info~}}
+        <tr>
+            <td>{{~@key~}}</td>
+            <td>{{~this~}}</td>
+        </tr>
+        {{~/each~}}
+    </tbody>
+</table>
+{{~/with~}}
+<h2>Internet Connection</h2>
+{{~#with ip~}}
+<table>
+    <thead>
+        <th>Property</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Wifi Status</td>
+            <td>{{~status~}}</td>
+        </tr>
+        <tr>
+            <td>Internet Status</td>
+            <td>{{~internetPresent~}}</td>
+        </tr>
+        {{~#each info~}}
+        <tr>
+            <td>{{~@key~}}</td>
+            <td>{{~this~}}</td>
+        </tr>
+        {{~/each~}}
+    </tbody>
+</table>
+{{~/with~}}
+<h2>Sensor Network</h2>
+{{~#with sn~}}
+<table>
+    <thead>
+        <th>Property</th>
+        <th>Value</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Status</td>
+            <td>{{~status~}}</td>
+        </tr>
+        <tr>
+            <td>Connected Nodes</td>
+            <td>{{~nodes.length~}}</td>
+        </tr>
+    </tbody>
+</table>
+{{~/with~}}  {{~#with sn~}} {{~#if nodes.length~}}
+<h3>Connected Node List</h3>
+<ul>
+    {{~#each nodes~}}
+    <li>{{this.name}} last seen {{this.ago}}</li>
+    {{~/each~}}
+</ul>
+{{~/if~}} {{~/with~}} 
+{{~#if csrf~}}
+<h3>Control</h3>
+<form id="control" action="/ctrl/reboot" method="POST">
+    <input type="submit" name="reboot" value="Reboot Gateway" />
+</form>
+{{~/if~}}
+{{~/with~}} {{~else~}}
+<p>Waiting for status information from the gateway...</p>
+{{~/if~}}

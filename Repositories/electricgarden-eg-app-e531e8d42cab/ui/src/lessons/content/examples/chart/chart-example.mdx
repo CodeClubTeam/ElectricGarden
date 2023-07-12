@@ -1,0 +1,95 @@
+---
+name: chart-example1
+title: Chart Example
+level: 90
+publish: false
+coverImagePath: ./images/chart-cover.png
+---
+
+import stormData from './storm-data.json';
+import { CannedChart, MultiChoiceActivity } from '../../../activities';
+
+## Chart Example {#chart-example}
+
+Embedding charts with canned data.
+
+## Storm in Sumner {#storm-in-sumner}
+
+### Sensor data
+
+Real sensor data from when a spring rain storm hit in October 2019.
+
+<CannedChart data={stormData} show={['airTemp', 'soilTemp', 'soilMoisture']} />
+
+### Questions
+
+#### Timing
+
+<MultiChoiceActivity
+    tags={['dt/ddo/po1']}
+    question="At what time does the storm hit?"
+    choices={[
+        { label: '7:30' },
+        {
+            label: '8:00',
+            correct: true,
+            feedback: 'Well done. Did you notice the change in the graph?',
+        },
+        { label: '8:30', feedback: 'Close but no, storm passed by then!' },
+        { label: '9:00', feedback: 'Storm passed by then!' },
+    ]}
+    prompt="Select a time"
+/>
+
+#### Impact
+
+<MultiChoiceActivity
+    question="What impact does it have on air temperature (blue)?"
+    choices={[
+        {
+            label: 'Lowers',
+            correct: true,
+        },
+        { label: 'Raises' },
+        { label: 'No effect' },
+    ]}
+/>
+<MultiChoiceActivity
+    question="What impact does it have on soil moisture (orange)?"
+    choices={[
+        {
+            label: 'Lowers',
+        },
+        { label: 'Raises', correct: true },
+        { label: 'No effect' },
+    ]}
+/>
+
+#### Compare
+
+How do air (blue) and soil (green) temperatures affected differently?
+
+## Sensor types
+
+<MultiChoiceActivity
+    question="What types of sensors are available on the Electric Garden?"
+    choices={[
+        { label: 'Air Temperature', correct: true },
+        { label: 'Nutrients' },
+        { label: 'Soil Temperature', correct: true },
+        { label: 'Soil Density' },
+        { label: 'Humidity', correct: true },
+        { label: 'Soil Moisture', correct: true },
+        { label: 'Light', correct: true },
+        { label: '5G Growth Ions' },
+    ]}
+    feedback={{
+        allCorrect: 'Right you are!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, start over!',
+        notEnough: 'Any more?',
+        tooMany:
+            'You selected all of the right ones but chose some more that are wrong.',
+    }}
+    submitLabel="Lock it in, Eddie!"
+/>

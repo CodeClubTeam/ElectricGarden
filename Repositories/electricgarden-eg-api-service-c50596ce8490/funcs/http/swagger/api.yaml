@@ -1,0 +1,1185 @@
+openapi: 3.0.0
+servers:
+  - description: Electric Garden API
+    url: /v1
+  - description: Electric Garden API
+    url: https://api.electricgarden.nz/v1
+info:
+  description: API for the Electric Garden API
+  version: "1.0.0"
+  title: Electric Garden API
+  contact:
+    email: info@electricgarden.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+security:  # Apply the API key globally to all operations
+  - ApiKeyAuth: []     # use the same name as under securitySchemes
+  - BearerAuth: []
+tags:
+  - name: User Management
+  - name: Team Management
+  - name: Sensors
+  - name: Sensor Data
+  - name: Organisation
+  - name: Admin
+    description: Secured SuperAdmin-only calls
+paths:
+  /user:
+    get:
+      tags:
+      - User Management
+      summary: Get details of current user
+      description: |
+        Get details of the current user accessing the API
+      responses:
+        '200':
+          description: Details of the current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+    post:
+      tags:
+        - User Management
+      summary: Create users
+      operationId: createUsers
+      description: |
+        Create a new user. Pass in array of user definitions first_name, last_name, and email
+      requestBody:
+        description: Array of users
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserProfile'
+      responses:
+        '200':
+          description: Return completed UserProfileBasic
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserProfile'
+        '400':
+          description: bad input parameter
+        '500':
+          description: problem creating users on server
+  /user/apikey:
+    get:
+      tags:
+        - User Management
+      summary: Get API key
+      description: |
+        Retreives the API key for the current user.
+      responses:
+        '200':
+          description: Successfully retreived API key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apikey: 
+                    type: string
+                    description: An arbitrary string for use as an API key for this user
+        '400':
+          description: Failed to get API key
+    patch:
+      tags:
+        - User Management
+      summary: Creates a new API key
+      description: |
+        Creates a new API key for the current user. Any old API keys will be invalidated.
+      responses:
+        '200':
+          description: Successfully created API key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apikey: 
+                    type: string
+                    description: An arbitrary string for use as an API key for this user
+        '400':
+          description: Failed to create API key
+    delete:
+      tags:
+        - User Management
+      summary: Removes user's API key
+      description: |
+        Removes the API key for the current user. The user will not be able to use API keys until a new one is generated.
+      responses:
+        '200':
+          description: Successfully removed API key
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: 
+                    type: boolean
+                    example: true
+        '400':
+          description: Failed to remove API key
+  /user/list:
+    get:
+      tags:
+        - User Management
+      summary: Get list of available users
+      responses:
+        '200':
+          description: Return list of users that can be seen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserProfile'
+    post:
+      tags:
+        - User Management
+      summary: Get list of available users
+      requestBody:
+        description: Search information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: Return list of users that can be seen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserProfile'
+  /user/{userId}:
+    get:
+      tags:
+      - User Management
+      summary: Get details of specified user
+      description: |
+        Get details of the specified user by ID
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Details of the specified user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+    patch:
+      tags:
+      - User Management
+      summary: Update details of a specified user
+      description: |
+        Update details of the user specified by ID
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: UserProfile object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserProfile'
+      responses:
+        '200':
+          description: Details of the updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '400':
+          description: Error details
+    delete:
+      tags:
+        - User Management
+      summary: Delete specified user
+      description: |
+        Deletes the specified user by ID
+      parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully deleted
+        '400':
+          description: User did not exist, or otherwise could not be deleted
+  /user/{userId}/reinvite:
+    get:
+      tags:
+        - User Management
+      summary: Sends a new invite
+      description: Sends a new account invite to the specified user.
+      parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully sent the new invite
+        '400':
+          description: Failed to send invite
+
+  /team:
+    get:
+      tags:
+      - Team Management
+      summary: Get details of current user's teams
+      description: |
+        Get details of the teams that the current user accessing the API belongs to
+      responses:
+        '200':
+          description: Details of the current user's teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      tags:
+        - Team Management
+      summary: Create teams
+      operationId: createTeams
+      description: |
+        Create a new team. Pass in array of team names
+      requestBody:
+        description: Array of teams
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Team'
+      responses:
+        '200':
+          description: Return completed TeamBasic
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '400':
+          description: bad input parameter
+        '500':
+          description: problem creating teams on server
+  /team/list:
+    get:
+      tags:
+        - Team Management
+      summary: Get list of available teams
+      responses:
+        '200':
+          description: Return list of teams that can be seen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+    post:
+      tags:
+        - Team Management
+      summary: Get list of available teams
+      requestBody:
+        description: Search information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: Return list of teams that can be seen
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+  /team/{teamId}:
+    get:
+      tags:
+      - Team Management
+      summary: Get details of specified team
+      description: |
+        Get details of the specified team by ID
+      parameters:
+        - in: path
+          name: teamId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Details of the specified team
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+    patch:
+      tags:
+      - Team Management
+      summary: Update details of a specified team
+      description: |
+        Update details of the team specified by ID
+      parameters:
+        - in: path
+          name: teamId
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Team object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Team'
+      responses:
+        '200':
+          description: Details of the updated team
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Error details
+    delete:
+      tags:
+        - Team Management
+      summary: Delete specified team
+      description: |
+        Deletes the specified team by ID
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully deleted
+        '400':
+          description: Team did not exist, or otherwise could not be deleted
+  /team/{teamId}/user/{userId}:
+    put:
+      tags:
+      - Team Management
+      summary: Add user to team
+      description: Add user to team
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully added
+        '400':
+          description: Not added
+    delete:
+      tags:
+      - Team Management
+      summary: Remove user from team
+      description: Remove user from team
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully removed
+        '400':
+          description: Not added
+  /team/{teamId}/sensor/{sensorId}:
+    put:
+      tags:
+      - Team Management
+      summary: Add sensor to team
+      description: Add sensor to team
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully added
+        '400':
+          description: Not added
+    delete:
+      tags:
+      - Team Management
+      summary: Remove sensor from team
+      description: Remove sensor from team
+      parameters:
+      - in: path
+        name: teamId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully removed
+        '400':
+          description: Not added
+
+  /sensor:
+    post:
+      tags:
+        - Sensors
+        - Admin
+      summary: Create a new sensor
+      requestBody:
+        description: Array of sensors
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SensorDevice'
+      responses:
+        '200':
+          description: Return completed sensor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorDevice'
+  /sensor/list:
+    get:
+      tags:
+        - Sensors
+      summary: Get sensor list
+      description: Get list of sensors visible to current user
+      responses:
+        '200':
+          description: An array of sensor devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorDevice'
+  /sensor/list/all:
+    get:
+      tags:
+        - Sensors
+        - Admin
+      summary: Get complete sensor hardware  list
+      description: Get complete list of sensor hardware. Only superusers.
+      responses:
+        '200':
+          description: An array of sensor devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorDevice'
+
+  /sensor/{sensorId}:
+    get:
+      tags:
+        - Sensors
+      summary: Get sensor
+      description: Get sensor
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The sensor information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensorDevice'
+        '400':
+          description: Invalid sensor
+    patch:
+      tags:
+        - Sensors
+        - Admin
+      summary: Update sensor
+      description: Update sensor, only admin
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: SensorDevice object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SensorDevice'
+      responses:
+        '200':
+          description: todo
+        '400':
+          description: Invalid sensor
+    delete:
+      tags:
+        - Sensors
+        - Admin
+      summary: Delete sensor
+      description: Delete sensor, only admin
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+        '400':
+          description: Invalid sensor
+  /sensor/planttypes:
+    get:
+      tags:
+        - Sensors
+      summary: Get plant type list
+      description: Get a list of currently supported plant types for use with sensors
+      responses:
+        '200':
+          description: An array of supported plant types.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlantTypes'
+
+  /sensor/{sensorId}/data:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: An array of data points containing timestamps and available readings from the sensor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataPoint'
+    post:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Search information
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: An array of data points containing timestamps and available readings from the sensor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataPoint'
+  /sensor/{sensorId}/data/{pointId}:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pointId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Single data point object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPoint'
+  /sensor/{sensorId}/data/assignment/{datetime}:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: datetime
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+  /sensor/{sensorId}/observation:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Array of observations in the current assignment period
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Observation'
+    post:
+      tags:
+        - Sensor Data
+      summary: Create observation
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Array of observations to create
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Observation'
+      responses:
+        '200':
+          description: todo
+  /sensor/{sensorId}/observation/assignment/{datetime}:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: datetime
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+  /sensor/{sensorId}/observation/{observationId}:
+    get:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: observationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Observation'
+    patch:
+      tags:
+        - Sensor Data
+      summary: Update observation
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: observationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Observation object containing only the fields to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Observation'
+      responses:
+        '200':
+          description: todo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Observation'
+    delete:
+      tags:
+        - Sensor Data
+      parameters:
+      - in: path
+        name: sensorId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: observationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+
+  /organisation:
+    get:
+      tags:
+        - Organisation
+      responses:
+        '200':
+          description: todo
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organisation'
+    post:
+      tags:
+        - Organisation
+        - Admin
+      summary: Create new organisations
+      requestBody:
+        description: Array of organisations to create
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Organisation'
+      responses:
+        '200':
+          description: todo
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organisation'
+  /organisation/list:
+    get:
+      tags:
+        - Organisation
+        - Admin
+      responses:
+        '200':
+          description: Array of all organisations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organisation'
+  /organisation/{organisationId}:
+    get:
+      tags:
+        - Organisation
+        - Admin
+      parameters:
+      - in: path
+        name: organisationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Organisation information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organisation'
+    patch:
+      tags:
+        - Organisation
+        - Admin
+      parameters:
+      - in: path
+        name: organisationId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: Organisation object only containing fields to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organisation'
+      responses:
+        '200':
+          description: todo
+    delete:
+      tags:
+        - Organisation
+        - Admin
+      parameters:
+      - in: path
+        name: organisationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: todo
+
+
+components:
+  securitySchemes:
+    ApiKeyAuth:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: X-Api-Key  # name of the header, query parameter or cookie
+    BearerAuth:        # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    UserProfile:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: David Smith
+        email:
+          type: string
+          example: email@example.com
+        role:
+          type: string
+          enum:
+            - su
+            - admin
+            - leader
+            - member
+        date_created:
+          type: string
+          format: date
+          example: '2018-09-18 14:28:07'
+          readOnly: true
+        status:
+          type: string
+          example: active
+        teams:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/TeamItem'
+        avatar:
+          $ref: '#/components/schemas/Avatar'
+    UserItem:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        full_name:
+          type: string
+          readOnly: true
+          example: David Smith
+    Avatar:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851      
+        name:
+          type: string
+          example: "Firefighter"
+        url:
+          type: string
+    TeamItem:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          readOnly: true
+          example: Adam's Team 
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: Adam's Team
+        date_created:
+          type: string
+          readOnly: true
+          format: date
+          example: '2018-09-18 14:28:07'
+        users:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/UserItem'
+        sensors:
+          type: array
+          readonly: true
+          items:
+            $ref: '#/components/schemas/SensorItem'
+    SensorDevice:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        serial:
+          type: string
+          example: '123456789ABCDFGHJKLMNPSTWXZ'
+        name:
+          type: string
+          example: Red Koala Sensor
+        plantType:
+          $ref: '#/components/schemas/PlantType'
+        teams:
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/TeamItem'
+    SensorItem:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        serial:
+          type: string
+          example: '123456789ABCDFGHJKLMNPSTWXZ'
+        name:
+          type: string
+          example: Red Koala Sensor
+    PlantType:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: Sunflower
+        goldilocksZones:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+                example: soil_moisture
+              min:
+                type: number
+              max:
+                type: number
+        defaultProperties:
+          type: array
+          items:
+            type: string
+          example:
+          - Height
+          - Radius
+          - Comment
+    DataPoint:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        timestamp:
+          type: string
+          readOnly: true
+        readings:
+          type: object
+          readOnly: true
+          additionalProperties: true
+          example:
+            air_temperature: 24
+            soil_temperature: 23.5
+            moisture: 4.91
+            battery_voltage: 1.44
+    Observation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        timestampSeconds:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+    Organisation:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        name:
+          type: string
+          example: 'Code Club'
+        logo:
+          type: string
+          format: url
+          example: 'https://static1.squarespace.com/static/5b85de6331d4df806ff85f12/t/5b85de8c898583e74bf64dc5/1537246366352/?format=128w'
+        address:
+          type: object
+          properties:
+            line1:
+              type: string
+            line2:
+              type: string
+            line3:
+              type: string
+            postcode:
+              type: string
+            country:
+              type: string
+          example:
+            line1: '104 Victoria Street'
+            line2: 'Christchurch'
+            postcode: '8025'
+            country: 'New Zealand'
+    SearchRequest:
+      type: object
+      properties:
+        skip: 
+          type: number
+        limit:
+          type: number
+        and:
+          type: object
+        or:
+          type: object
+      example:
+        skip: 20
+        limit: 10
+        and: 
+          key: value
+        or:
+          key: value

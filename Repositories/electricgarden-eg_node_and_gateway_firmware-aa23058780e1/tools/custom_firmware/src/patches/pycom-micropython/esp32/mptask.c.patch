@@ -1,0 +1,127 @@
+--- pycom-micropython/esp32/mptask.c
++++ pycom-micropython/esp32/mptask.c
+@@ -108,6 +108,6 @@ STATIC void mptask_preinit (void);
+ STATIC void mptask_init_sflash_filesystem (void);
+ STATIC void mptask_init_sflash_filesystem_fatfs(void);
+-STATIC void mptask_create_main_py (void);
+ STATIC void mptask_init_sflash_filesystem_littlefs(void);
++STATIC int  mptask_init_execute_py_fs_muted(const char filename[]);
+ #if defined (LOPY) || defined (SIPY) || defined (LOPY4) || defined (FIPY)
+ STATIC void mptask_update_lpwan_mac_address (void);
+@@ -126,7 +126,4 @@ fs_user_mount_t sflash_vfs_flash;
+ static uint8_t *gc_pool_upy;
+ 
+-static char fresh_main_py[] = "# main.py -- put your code here!\r\n";
+-static char fresh_boot_py[] = "# boot.py -- run on boot-up\r\n";
+-
+ /******************************************************************************
+  DEFINE PUBLIC FUNCTIONS
+@@ -284,5 +281,5 @@ soft_reset:
+     if (!safeboot) {
+         // run boot.py
+-        int ret = pyexec_file("boot.py");
++        int ret = mptask_init_execute_py_fs_muted("boot.py");
+         if (ret & PYEXEC_FORCED_EXIT) {
+             goto soft_reset_exit;
+@@ -306,5 +303,5 @@ soft_reset:
+                 main_py = mp_obj_str_get_str(MP_STATE_PORT(machine_config_main));
+             }
+-            int ret = pyexec_file(main_py);
++            int ret = mptask_init_execute_py_fs_muted(main_py);
+             if (ret & PYEXEC_FORCED_EXIT) {
+                 goto soft_reset_exit;
+@@ -374,4 +371,16 @@ STATIC void mptask_preinit (void) {
+ }
+ 
++STATIC int mptask_init_execute_py_fs_muted(const char filename[]) {
++    int res = pyexec_file(filename);
++    if (res) {
++        return res;
++    } else {
++        mp_printf(&mp_plat_print, "safe_exec file missing: ");
++        mp_printf(&mp_plat_print, filename);
++        mp_printf(&mp_plat_print, "\n");
++        return 1;
++    }
++}
++
+ STATIC void mptask_init_sflash_filesystem(void) {
+     if (config_get_boot_fs_type() == 0x01) {
+@@ -403,12 +412,10 @@ STATIC void mptask_init_sflash_filesystem_fatfs(void) {
+             __fatal_error("failed to create /flash");
+         }
+-        // create empty main.py
+-        mptask_create_main_py();
++        mp_printf(&mp_plat_print, "New file system, no main.py will be present.\n");
+     }
+     else if (res == FR_OK) {
+         // mount sucessful
+         if (FR_OK != f_stat(&vfs_fat->fs.fatfs, "/main.py", &fno)) {
+-            // create empty main.py
+-            mptask_create_main_py();
++            mp_printf(&mp_plat_print, "No main.py found on boot.\n");
+         }
+     } else {
+@@ -449,4 +456,5 @@ STATIC void mptask_init_sflash_filesystem_fatfs(void) {
+     if (res == FR_OK) {
+         if (fno.fattrib & AM_DIR) {
++            mp_printf(&mp_plat_print, "boot.py is directory. This is bad.\n");
+             // exists as a directory
+             // TODO handle this case
+@@ -456,11 +464,5 @@ STATIC void mptask_init_sflash_filesystem_fatfs(void) {
+         }
+     } else {
+-        // doesn't exist, create fresh file
+-        FIL fp;
+-        f_open(&vfs_fat->fs.fatfs, &fp, "/boot.py", FA_WRITE | FA_CREATE_ALWAYS);
+-        UINT n;
+-        f_write(&fp, fresh_boot_py, sizeof(fresh_boot_py) - 1 /* don't count null terminator */, &n);
+-        // TODO check we could write n bytes
+-        f_close(&fp);
++        mp_printf(&mp_plat_print, "boot.py could not be found.\n");
+     }
+ }
+@@ -532,15 +534,8 @@ STATIC void mptask_init_sflash_filesystem_littlefs(void) {
+     // create empty main.py if does not exist
+     lfs_file_t fp;
+-    lfs_ssize_t n = 0;
+ 
+     if(LFS_ERR_OK == lfs_file_open(littlefsptr, &fp, "/main.py", LFS_O_WRONLY | LFS_O_CREAT | LFS_O_EXCL))
+     {        
+-        //Create empty main.py if does not exist
+-        n = lfs_file_write(littlefsptr, &fp, fresh_main_py, sizeof(fresh_main_py) - 1 /* don't count null terminator */);
+-        lfs_file_close(littlefsptr, &fp);
+-        if(n != sizeof(fresh_main_py) - 1)
+-        {
+-            __fatal_error("failed to create main.py");
+-        }
++        mp_printf(&mp_plat_print, "main.py is missing from LFS.\n");
+     }
+ 
+@@ -548,11 +543,5 @@ STATIC void mptask_init_sflash_filesystem_littlefs(void) {
+     if(LFS_ERR_OK == lfs_file_open(littlefsptr, &fp, "/boot.py", LFS_O_WRONLY | LFS_O_CREAT | LFS_O_EXCL))
+     {
+-        //Create empty boot.py if does not exist
+-        n = lfs_file_write(littlefsptr, &fp, fresh_boot_py, sizeof(fresh_boot_py) - 1 /* don't count null terminator */);
+-        lfs_file_close(littlefsptr, &fp);
+-        if(n != sizeof(fresh_boot_py) - 1)
+-        {
+-            __fatal_error("failed to create boot.py");
+-        }
++        mp_printf(&mp_plat_print, "boot.py is missing from LFS.\n");
+     }
+ 
+@@ -638,13 +627,4 @@ STATIC void mptask_enable_wifi_ap (void) {
+ }
+ 
+-STATIC void mptask_create_main_py (void) {
+-    // create empty main.py
+-    FIL fp;
+-    f_open(&sflash_vfs_flash.fs.fatfs, &fp, "/main.py", FA_WRITE | FA_CREATE_ALWAYS);
+-    UINT n;
+-    f_write(&fp, fresh_main_py, sizeof(fresh_main_py) - 1 /* don't count null terminator */, &n);
+-    f_close(&fp);
+-}
+-
+ void stoupper (char *str) {
+     while (str && *str != '\0') {

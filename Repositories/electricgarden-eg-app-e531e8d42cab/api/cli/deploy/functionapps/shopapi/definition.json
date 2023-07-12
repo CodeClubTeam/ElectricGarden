@@ -1,0 +1,7 @@
+{
+  "folder": "shop",
+  "functions": ["shopapi"],
+  "statics": [
+    "function.json"
+  ]
+}

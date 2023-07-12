@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`catm1 convert (v1) received single entry payload result matches snapshot: sample 1`] = `
+Object {
+  "samples": Array [
+    Object {
+      "ambientHumidity": 33,
+      "ambientTemp": 28.3,
+      "batteryVoltage": 1.04,
+      "errorCode": undefined,
+      "light": 63.5,
+      "probeAirTemp": 28.3,
+      "probeMoisture": 1.5,
+      "probeSoilTemp": 28.5,
+      "rssi": -73,
+      "timestamp": 2018-09-14T00:08:30.000Z,
+    },
+  ],
+  "serial": "3HLL8DL",
+}
+`;

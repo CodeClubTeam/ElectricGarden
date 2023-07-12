@@ -1,0 +1,1 @@
+!function(a){if(!("onhashchange"in a)){var e=a.location,o=e.href,c=e.hash;setInterval(function(){var h=e.href,n=e.hash;n!=c&&"function"==typeof a.onhashchange&&(a.onhashchange({type:"hashchange",oldURL:o,newURL:h}),o=h,c=n)},100)}}(window);

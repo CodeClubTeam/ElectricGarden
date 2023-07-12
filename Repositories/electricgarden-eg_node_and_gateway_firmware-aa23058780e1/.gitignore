@@ -1,0 +1,16 @@
+**/__pycache__/
+build/
+**/node_modules/
+basestation/lopy-src/www
+tools/custom_firmware/src/flash/
+
+# Ignore docker key files 
+tools/*.key
+tools/*.key.pub
+tools/ElectricGardenManufacturingViewer/ElectricGardenManufacturingViewer/obj/
+tools/ElectricGardenManufacturingViewer/ElectricGardenManufacturingViewer/bin/Debug/
+tools/ElectricGardenManufacturingViewer/packages/System.Runtime.InteropServices.RuntimeInformation.4.0.0/runtimes/win/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll
+tools/ElectricGardenManufacturingViewer/packages/System.Runtime.InteropServices.RuntimeInformation.4.0.0/runtimes/win/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll
+tools/ElectricGardenManufacturingViewer/packages/System.Runtime.InteropServices.RuntimeInformation.4.0.0/runtimes/unix/lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll
+tools/ElectricGardenManufacturingViewer/packages/System.Runtime.InteropServices.RuntimeInformation.4.0.0/runtimes/aot/lib/netcore50/System.Runtime.InteropServices.RuntimeInformation.dll
+tools/ElectricGardenManufacturingViewer/ElectricGardenManufacturingViewer/bin/Release/ElectricGardenManufacturingViewer.exe.config

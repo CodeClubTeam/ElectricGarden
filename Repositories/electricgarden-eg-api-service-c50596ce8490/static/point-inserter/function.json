@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "sensor-event-cosmos-db",
+      "connection": "electricgarden_STORAGE"
+    }
+  ]
+}

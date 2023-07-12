@@ -1,0 +1,9 @@
+{
+  "name": "device-hq",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0"
+  }
+}

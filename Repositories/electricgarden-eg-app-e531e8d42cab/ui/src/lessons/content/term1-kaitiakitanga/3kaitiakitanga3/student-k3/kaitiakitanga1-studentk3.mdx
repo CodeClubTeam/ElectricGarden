@@ -1,0 +1,1006 @@
+---
+name: student-kaitiakitanga-i
+title: 1.3 Kaitiakitanga (Tuatahi)
+level: 3
+ordinal: 30
+locked: false
+publish: production
+coverImagePath: ./kaitiakitangabanner.jpg
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+} from '../../../../activities';
+
+import codeline from './codeline.png';
+import kaitiakitangabanner from './kaitiakitangabanner.jpg';
+import whataretuakana from './whataretuakana.png';
+import whatiskaitiaki from './whatiskaitiaki.png';
+import tuakanateina from './tuakanateina.png';
+import tuakana_teina from './tuakana_teina.png';
+import tohupatai from './tohupatai.png';
+import tangata from './tangata.png';
+
+import handwash from './handwash.png';
+import studying from './studying.png';
+import dogwalking from './dogwalking.png';
+import rubbish from './rubbish.png';
+
+import school from './school1.png';
+import home from './home1.png';
+import community from './community1.png';
+import environment from './environment1.png';
+
+import pollen1 from './pollen1.png';
+import pollen2 from './pollen2.png';
+import pollen3 from './pollen3.png';
+import care from './care.png';
+
+import egtiaki from './egtiaki1.png';
+
+import outside from './outside.png';
+import graph from './graph.png';
+import thinking from './thinking.png';
+
+import information from './information.png';
+import interaction from './interaction.png';
+import understanding from './understanding.png';
+import information1 from './information1.png';
+import interaction1 from './interaction1.png';
+import understanding1 from './understanding1.png';
+import onlineportal from './onlineportal1.png';
+import marama from './marama.png';
+
+import graphtemp from './graphtemp.png';
+import graphlight from './graphlight.png';
+import graphmoisture from './graphmoisture.png';
+import graph_soil from './graph_soil.png';
+import graph_temp from './graph_temp.png';
+import graph_light from './graph_light.png';
+
+import decision from './decision.png';
+import action from './action.png';
+
+import complete1_3 from './complete1_3.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.3 Kaitiakitanga (Tuatahi)**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={kaitiakitangabanner} border="true" />
+</Figure>
+
+<br />
+
+##### Tēnā koe, now it's time for you to complete your **online project** to build on your knowledge of **kaitiakitanga**.
+
+##### As always, do your best and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te tiaki</TextBox>]}>
+        <Para>Guard, protect, care for</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He kaitiaki</TextBox>]}>
+        <Para>Guardian, protector, caretaker</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He tuakana</TextBox>]}>
+        <Para>Someone with more experience</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>He teina</TextBox>]}>
+        <Para>Someone with less experience</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** for each group with the proper icon:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te kāinga</TextBox>]}>
+        <ImageWithText src={home} text={'Home'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te kura</TextBox>]}>
+        <ImageWithText src={school} text={'School'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te hapori</TextBox>]}>
+        <ImageWithText src={community} text={'Community'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'120px'}>Te taiao</TextBox>]}>
+        <ImageWithText src={environment} text={'Environment'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Tuākana & Tēina {#tuakanateina}
+
+### What is a **tuakana** and a **teina?**
+
+<Captioned>
+    He aha <b>te tuakana</b> me <b>te teina</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={tangata} />
+    <RoundImage src={tohupatai} />
+    <RoundImage src={tangata} />
+</Figure>
+
+<br />
+
+#### **3.** Choose the best description of tuākana and tēina:
+
+<MultiChoiceActivity
+    question=""
+    choices={[
+        {
+            label:
+                'Tuākana have more experience and guide tēina who have less experience',
+            correct: true,
+            feedback: 'Ka pai, we all have different experiences to share!',
+        },
+        {
+            label: 'They are both rare types of New Zealand native bird',
+            feedback: "Kāore, maybe you're thinking 'tūī' and 'tīeke'?",
+        },
+        {
+            label: 'They are traditional tools that we can use in the garden',
+            feedback: "Kāore, these aren't tools!",
+        },
+        {
+            label: 'Tuākana only eat vegetables, and tēina only eat meat',
+            feedback: "Kāore, that's 'kaimanga' and 'kaikiko'.",
+        },
+    ]}
+/>
+
+#### **4.** Which answer best describes the **tuakana-teina relationship**?
+
+<MultiChoiceActivity
+    question="The tuakana-teina relationship is:"
+    choices={[
+        {
+            label:
+                'a partnership that where knowledge and experience are shared to teach and learn together',
+            correct: true,
+            feedback:
+                'Ka pai, they work together in a mutual learning and teaching relationship!',
+        },
+        {
+            label:
+                'a special time of year when certain stars appear in the night sky',
+            feedback: "Kāore, maybe you're thinking of Matariki?",
+        },
+        {
+            label:
+                'a special karakia that we must say when we work in the garden',
+            feedback: "Kāore, but that's probably good to do, eh!",
+        },
+        {
+            label:
+                'when meat and vegetables are eaten together on the same plate',
+            feedback: "Kāore, that's just called a meal!",
+        },
+    ]}
+/>
+
+### **Teaching and Learning Together**
+
+<Captioned>
+    <b>"Me mahi tahi tātou mō te oranga o te katoa"</b>
+</Captioned>
+
+##### Tuākana and tēina support each other in many ways.
+
+##### Let's look at some everyday interactions.
+
+##### Can you interpret the following examples of decision-making and action-taking from the **perspective** of tūakana and tēina?
+
+<br />
+
+#### **5.** Which answers can help descibe a tuakana-teina relationship you see?
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={studying} border="true" />
+</Figure>
+
+<MultiChoiceActivity
+    question="A) Select all that apply:"
+    choices={[
+        {
+            label:
+                'One girl needs help with her homework (teina) and the other girl is helping guide her (tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'Both girls are struggling with their school work and are learning together (teina to teina)',
+            correct: true,
+        },
+        {
+            label:
+                'Both girls are skilled students studying together to review for a test (tuakana to tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'One girl knows more about the subject (tuakana) and is improving her skills by teaching her mate (teina)',
+            correct: true,
+        },
+        {
+            label:
+                'No one is learning anything; they are just pretending to study',
+        },
+        {
+            label:
+                'One girl is laughing at the other girl for getting the wrong answer',
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={rubbish} border="true" />
+</Figure>
+
+<MultiChoiceActivity
+    question="B) Select all that apply:"
+    choices={[
+        {
+            label:
+                "A student doesn't know about recycling (teina) and another student showed them how to use different bins for different rubbish (tuakana)",
+            correct: true,
+        },
+        {
+            label:
+                'Students are practising sorting their rubbish into different cateogries for recyling (teina to teina)',
+            correct: true,
+        },
+        {
+            label:
+                'The environment club at school is working together to clear litter from around the school campus (tuakana to tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'A student makes sure to put their rubbish in the proper bin (tuakana) and another students sees this and learns from their example (teina)',
+            correct: true,
+        },
+        {
+            label:
+                "It doesn't matter which bin, we just toss the rubbish away wherever is most convenient",
+        },
+        {
+            label:
+                'The bin is like a basketball hoop, and if you miss then just leave the rubbish there',
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={dogwalking} border="true" />
+</Figure>
+
+<MultiChoiceActivity
+    question="C) Select all that apply:"
+    choices={[
+        {
+            label:
+                'The girl has never had a dog before (teina) and one of her friends who has a dog helps teach her about caring for pets (tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'The girl and her family have just gotten a new dog and are learning how to care for and exercise him (teina to teina)',
+            correct: true,
+        },
+        {
+            label:
+                'The girl and her family have had this dog for many years and always make sure to feed and walk him every day (tuakana to tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'The girl has a routine for walking the dog every morning (tuakana) and in this way the dog helps her learn about care and responsibility (teina)',
+            correct: true,
+        },
+        {
+            label:
+                "Walking dogs is optional; they don't need exercise and they can feed themselves",
+        },
+        {
+            label:
+                "The girl doesn't have any responsibility; someone else will look after the dog for her",
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={handwash} border="true" />
+</Figure>
+
+<MultiChoiceActivity
+    question="D) Select all that apply:"
+    choices={[
+        {
+            label:
+                'A student comes in from outside to each lunch (teina) and another student kindly reminds them to wash their hands before eating (tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'A group of students are learning about germs and practising how to properly wash their hands (teina to teina)',
+            correct: true,
+        },
+        {
+            label:
+                'All of the students at school make sure that they wash their hands after using the toilet (tuakana to tuakana)',
+            correct: true,
+        },
+        {
+            label:
+                'A student turns off the tap while washing their hands to save water (tuakana) and another students sees this and learns from their example (teina)',
+            correct: true,
+        },
+        {
+            label:
+                "Washing your hands is optional, you don't have to wash if you like dirt on your hands",
+        },
+        {
+            label:
+                "Make sure to run the tap as long as you can, we don't have to worry about how we use water",
+        },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Te Kaitiaki {#kaitiaki}
+
+### What is a **kaitiaki**?
+
+<Captioned>
+    He aha <b>te kaitiaki</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={tangata} />
+    <RoundImage src={tohupatai} />
+</Figure>
+
+#### **6.** Choose the best description of a kaitiaki:
+
+<MultiChoiceActivity
+    question="A kaitiaki is:"
+    choices={[
+        {
+            label: 'a guardian, a protector, a caretaker, and a friend',
+            correct: true,
+            feedback: 'Kei te pai. Who are some kaitiaki that you know?',
+        },
+        {
+            label: 'a type of New Zealand native bird',
+            feedback: "Kāore, maybe you're thinking of a kākāriki?",
+        },
+        {
+            label: 'a type of garden design that is protected from pests',
+            feedback: 'Kāore, though that sounds really handy!',
+        },
+        {
+            label: 'a person who only eats food from the garden',
+            feedback: 'Kāore, that sounds like a vege-garden-tarian, haha!',
+        },
+    ]}
+/>
+
+### **Kaitiaki in Your Community**
+
+#### **7.** Can you pair each **kaitiaki** with the **work** that they do?
+
+<br />
+
+##### **A) Match each role with the proper description:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore' }}
+    direction={{ sets: 'right', matches: 'right', targets: 'down' }}
+    backgroundColor={'grey'}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Caretakers</TextBox>]}>
+        <Para>
+            These people work hard to keep our{' '}
+            <strong>indoor spaces clean and safe</strong>
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Chefs</TextBox>]}>
+        <Para>
+            These people help provide for our health and nutrition by{' '}
+            <strong>preparing delicious food</strong>
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Builders</TextBox>]}>
+        <Para>
+            These people carefully <strong>construct the spaces</strong> we live
+            in, work in, and that we use every day
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Bus Drivers</TextBox>]}>
+        <Para>
+            These people <strong>deliver us quickly and safely</strong> to the
+            places we need to go
+        </Para>
+    </MatchTarget>
+</MatchingActivity>
+
+<br />
+
+##### **B) Match each role with the proper description:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore' }}
+    direction={{ sets: 'right', matches: 'right', targets: 'down' }}
+    backgroundColor={'grey'}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He kaiahuwhenua</TextBox>]}>
+        <Para>
+            These are <strong>farmers</strong>, who look after our food sources
+            and provide for our nutrition
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He mātua</TextBox>]}>
+        <Para>
+            These are <strong>parents</strong>, who look after the well-being of
+            their children and families
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He kaiako</TextBox>]}>
+        <Para>
+            These are <strong>teachers</strong>, who look after the growth and
+            success of their students
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He pirihimana</TextBox>]}>
+        <Para>
+            These are <strong>police officers</strong>, who look after our
+            safety and security by enforcing the law
+        </Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Te Māra {#temaara}
+
+### Who **cares for** the garden?
+
+<Captioned>
+    Ma wai te māra <b>e tiaki</b>?
+</Captioned>
+
+<br />
+
+#### **8.** Whose job is it to take care of the garden?
+
+<MultiChoiceActivity
+    question="Choose the best answer:"
+    choices={[
+        {
+            label: 'Everyone can care for a garden in their own way',
+            correct: true,
+            feedback:
+                'Ka pai! We can all help care for and protect our gardens!',
+        },
+        {
+            label: 'Nobody needs to look after a garden',
+            feedback:
+                'If nobody was looking after the garden, would it still be a garden...? Tēnā anō',
+        },
+        {
+            label:
+                'Only professional gardeners with special uniforms should work in a garden',
+            feedback:
+                'Kāore, we are all responsible for looking after the spaces we share',
+        },
+        {
+            label: 'The Electric Garden will take care of the garden for us',
+            feedback:
+                "Hmmm, you'll get good data from it, but the Electric Garden can't do much more on its own!",
+        },
+    ]}
+/>
+
+#### Besides gardeners, **who else** cares for the garden?
+
+<Captioned>
+    Hāunga a ngā kaingaki māra, <b>ma wai atu</b> te māra e tiaki?
+</Captioned>
+<Figure>
+    <RoundImage src={pollen1} />
+    <RoundImage src={pollen2} />
+    <RoundImage src={pollen3} />
+</Figure>
+
+##### People are not the only caretakers of the garden — gardeners can come in **all shapes and sizes**!
+
+##### Animals, insects, people, and plants all working together to create success in the garden.
+
+##### This means that each of these can be tuākana, tēina, and kaitiaki by **doing important jobs** and **sharing important lessons** with their different **strengths** and **weaknesses** in looking after the garden!
+
+<br />
+
+#### **9.** Match each **critter** with its **special role** in the garden:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Worms</TextBox>]}>
+        <Para>These creatures build and maintain the heath of the soil</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Bees</TextBox>]}>
+        <Para>These creatures collect nectar and spread pollen</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Birds</TextBox>]}>
+        <Para>
+            These creatures eat insects, spread seeds, and spread pollen
+        </Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Spiders</TextBox>]}>
+        <Para>These creatures build webs to catch and eat harmful insects</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Information & Interaction {#info-interact}
+
+### How does the EG **help**?
+
+<Captioned>
+    Me pehea te EG <b>e awhina ana</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={egtiaki} />
+</Figure>
+
+#### **10.** Which answer best describes the Electric Garden's role?
+
+<MultiChoiceActivity
+    question="The Electric Garden:"
+    choices={[
+        {
+            label:
+                'Helps us monitor the conditions in the garden so we can make good decisions about caring for the garden',
+            correct: true,
+            feedback:
+                "Ka pai! The Electric Garden can help us understand what's going on in the garden!",
+        },
+        {
+            label:
+                'Electrifies our plants so they grow faster, are easier to look after, and are healthier for us to eat',
+            feedback: "Kāore, that's not how biology works! Try again",
+        },
+        {
+            label:
+                'Waters the plants and picks our vegetables for us, we just have to change its batteries when the energy runs low',
+            feedback: "Kāore, it's not a gardening robot! Try again",
+        },
+        {
+            label:
+                'Uses all five of its sensors to change the environment and make sure that the conditions in the garden are always just right',
+            feedback:
+                'Kāore, it can only sense the conditions, not change them! Try again',
+        },
+    ]}
+/>
+
+###
+
+#### **11.** What **information** do we get from the EG?
+
+<MultiChoiceActivity
+    question="A) The Electric Garden:"
+    choices={[
+        {
+            label:
+                'Takes measurements of temperature, moisture, and light in our garden',
+            correct: true,
+            feedback:
+                'Ka pai! Each sensor takes a different kind of measurement.',
+        },
+        {
+            label:
+                'Talks to the plants and sends us a report on what they are thinking',
+            feedback: "Kāore, we can't read people's minds or plant minds!",
+        },
+        {
+            label:
+                'Forcasts the weather to tell us what the conditions will be in the future',
+            feedback: "Kāore, it can't see into the future!",
+        },
+        {
+            label: 'Uses GPS to show where our garden is on a map',
+            feedback:
+                "Kāore, it can't do that, you have to remember where you put it!",
+        },
+    ]}
+/>
+
+<br />
+
+<MultiChoiceActivity
+    question="B) Choose all that apply. The Electric Garden tells us:"
+    choices={[
+        { label: 'how hot or cold the air is', correct: true },
+        { label: 'how hot or cold the soil is', correct: true },
+        { label: 'how wet or dry the air is', correct: true },
+        { label: 'how wet or dry the soil is', correct: true },
+        { label: 'how bright or dark the light is', correct: true },
+        { label: 'how much the plants grow each day' },
+        { label: 'how many weeds are in the garden' },
+        { label: 'how to find our garden on a map' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+###
+
+#### **12.** How does the EG help us **interact** with our garden?
+
+<MultiChoiceActivity
+    question="A) Choose the best description of how we use the EG:"
+    choices={[
+        {
+            label:
+                'The Electric Garden website receives sensor data, lets us choose the information we want to see, and we can link that information with our comments and photos',
+            correct: true,
+            feedback: "Ka pai! You've got it! You must've used one before, eh!",
+        },
+        {
+            label:
+                "The Electric Garden sends data to professional gardeners to come and do our work so that we don't have to go out into the garden",
+            feedback: "Kāore, we can't get off that easily!",
+        },
+        {
+            label:
+                'The Electric Garden uses its sensors to calculate and tell us exactly what tasks we need to do to care for the garden',
+            feedback:
+                'Kāore, we have to make decisions and take actions for ourselves!',
+        },
+        {
+            label:
+                'The Electric Garden is like a drone that we can control from the classroom and change the garden conditions using each sensor',
+            feedback: "Kāore, it's not a garden robot from the future!",
+        },
+    ]}
+/>
+
+##### **B) Label the interactive areas of the EG Online:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai, nice matching! Now you know where things are online!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={onlineportal}
+            tooltip="Electric Garden Online"
+            width={800}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dashed' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Data Graph</TextBox>]}
+        position={{ left: 422, top: 102 }}
+    >
+        <Box width={261} height={180} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Toggles</TextBox>]}
+        position={{ left: 457, top: 289 }}
+    >
+        <Box width={190} height={72} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Photos</TextBox>]}
+        position={{ left: 205, top: 104 }}
+    >
+        <Box width={205} height={200} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Events</TextBox>]}
+        position={{ left: 205, top: 308 }}
+    >
+        <Box width={205} height={76} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Understanding {#understanding}
+
+### **Understanding** the Garden through **Data**
+
+<Captioned>
+    <b>Te mārama</b> ki te māra mā <b>ngā raraunga</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={marama} />
+</Figure>
+
+<br />
+
+###### The Electric Garden sends us numbers that represent **measurements** of conditions in the garden.
+
+###### The EG online platform arranges these values in a **graph** for us to see and make sense of.
+
+<br />
+
+###### But what do these numbers **really mean** about the **real world conditions** out in the garden?
+
+###### Let's practise using the information in the graphs to understand **the story behind the data**.
+
+<br />
+
+#### **13.** Light in the Garden
+
+###### Look at the section of the graph where **the line goes flat at 0**.
+
+###### We see the brightness level **drop to 0** by 6pm and stay there for **13 hours** until 7am the next day.
+
+![graph_light](./graph_light.png)
+
+###### According to the data, this means that the garden went dark between **6pm Wednesday** and **7am Thursday**.
+
+###### _What do you think happened in the garden? What story does this data tell us?_
+
+<MultiChoiceActivity
+    question="Choose the best explanation for what the data shows us has happened here:"
+    choices={[
+        {
+            label:
+                'Daylight dimmed until the sun set by 6pm. It was dark all night, then daylight returned when the sun came up at 7am the next day',
+            correct: true,
+            feedback:
+                "Ka pai, nice one! You're starting to see the meaning behind the data!",
+        },
+        {
+            label:
+                'Someone put a blanket over the Electric Garden at 6pm and uncovered it at 7am the next morning',
+            feedback:
+                'Hmmm, how likely is this story? Not impossble, but definitely not the best explanation!',
+        },
+        {
+            label:
+                "The Electric Garden sleeps at night like us, so it didn't collect any data between its bedtime at 6pm and when it woke up at 7am",
+            feedback: "Kāore, digital devices don't need sleep like we do!",
+        },
+        {
+            label:
+                'The Electric Garden decided to close its eyes and meditate between 6pm and 7am while all of the students were home for the evening',
+            feedback:
+                "Kāore, e hoa, the Electric Garden doesn't have eyes to close!",
+        },
+    ]}
+/>
+
+#### **14.** Temperature in the Garden
+
+###### Look at the section of the graph where **the line sinks below 0, then jumps back up**.
+
+###### We see the temperature drop steadily from **6pm**, hit a low of **-1°C**, then rise quickly to **22°C** by **9am** the next morning.
+
+![graph_temp](./graph_temp.png)
+
+###### According to the data, this means it got colder and colder, dipped below freezing, then suddenly much warmer!
+
+###### _What do you think happened in the garden? What story does this data tell us?_
+
+<MultiChoiceActivity
+    question="Choose the best explanation for what the data shows us has happened here:"
+    choices={[
+        {
+            label:
+                'It got colder after 6pm as the sun set, kept getting colder in the dark over night, frosted first thing in the morning, then warmed up quickly after sunrise on a beautiful sunny day',
+            correct: true,
+            feedback:
+                "Ka pai, nice one! You're starting to see the meaning behind the data!",
+        },
+        {
+            label:
+                'Someone covered the air probe with ice cubes at 8am before school, then they melted in the sun',
+            feedback:
+                'Hmmm, how likely is this story? Not impossble, but definitely not the best explanation!',
+        },
+        {
+            label:
+                "The Electric Garden got a digital cold overnight and wasn't feeling well until it took digital medicine in the morning",
+            feedback: "Kāore, digital devices don't get sick like we do!",
+        },
+        {
+            label:
+                'Someone put the Electric Garden in the refrigerator overnight, in the freezer during breakfast, then by the heater at school in the morning',
+            feedback:
+                "Kāore, e hoa, I don't think anyone went to all this effort...and if they did they have some explaining to do!",
+        },
+    ]}
+/>
+
+#### **15.** Soil in the Garden
+
+###### Look at the section of the graph where **the line suddenly jumps**.
+
+###### We see the moisture level leap from around **1.3%** up to around **5.3%** in the space of **one hour**.
+
+![graph_soil](./graph_soil.png)
+
+###### According to the data, this means that the soil got **wet** between **5pm** and **6pm**!
+
+###### _What do you think happened in the garden? What story does this data tell us?_
+
+<MultiChoiceActivity
+    question="Select all the answers that might explain what the data shows us has happened here:"
+    choices={[
+        {
+            label:
+                'It began to rain just after 5pm, and the garden soil soaked up the rainwater',
+            correct: true,
+        },
+        {
+            label:
+                'The school groundskeeper decided to water the garden at 5pm before finishing up for the day',
+            correct: true,
+        },
+        {
+            label:
+                'A student noticed the garden needed watering and got permission to water near the Electric Garden after school at 5pm',
+            correct: true,
+        },
+        {
+            label:
+                'A magic portal opened up at 5pm right over the garden and dropped a litre of water on the Electric Garden soil probe',
+        },
+        {
+            label:
+                'A garden sprinkler system was set to turn on at 5pm to water the garden after everyone went home',
+            correct: true,
+        },
+        {
+            label:
+                'Nothing changed in the garden, the graph just looks like that for no reason',
+        },
+    ]}
+    feedback={{
+        allCorrect:
+            "Ka pai, you got them all! In this example we see that the data can't tell us the whole story. We need to connect the patterns we see with our actual experience in the garden!",
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Conclusion {#conclusion}
+
+#### Sweet as, ko koe anō tēnei! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_3} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **kaitiakitanga**!
+
+##### Great work, and all the best in your studies to come!

@@ -1,0 +1,60 @@
+{
+  "name": "electric-garden-api",
+  "version": "0.3.0",
+  "description": "Electric garden",
+  "private": true,
+  "workspaces": [
+    "funcs/http/*",
+    "funcs/provisioner",
+    "funcs/shop/*",
+    "funcs/ingest/*",
+    "cli/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "clean:packages": "globstar -- rm -rf packages/*/lib packages/*/tsconfig.tsbuildinfo",
+    "start": "yarn --cwd funcs/http/appapi start",
+    "build": "yarn build:packages && yarn build:ts && yarn build:cli",
+    "build:cli": "yarn --cwd cli/deploy build && yarn --cwd cli/db build",
+    "build:ts": "globstar -- tsc --build funcs/*/*/tsconfig.json funcs/*/tsconfig.json",
+    "build:packages": "globstar -- tsc -b packages/*/tsconfig.json",
+    "watch:packages": "yarn build:packages --watch",
+    "start:prov": "yarn --cwd funcs/provisioner start",
+    "lint": "globstar -- eslint packages/*/src --ext .js,.ts && globstar -- eslint funcs/* --ext .js,.ts",
+    "lint:fix": "globstar -- eslint packages/*/src --ext .js,.ts --fix && globstar -- eslint funcs/* --ext .js,.ts --fix",
+    "test": "cross-env JEST_JUNIT_OUTPUT_DIR=./test-reports/ yarn jest --runInBand",
+    "db:sync": "yarn --cwd cli/db sync-db"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "globstar": "^1.0.0",
+    "husky": "^4.3.0",
+    "jest-junit": "^12.0.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2"
+  },
+  "eslintIgnore": [
+    "node_modules/"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*/*/src/**/*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*/*/src/**/*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

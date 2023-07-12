@@ -1,0 +1,72 @@
+{
+  "name": "eg-api-sevice",
+  "version": "1.0.0",
+  "description": "Electric Garden API",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf out",
+    "build": "yarn tsc --build tsconfig.build.json",
+    "watch": "yarn build --watch",
+    "server": "cross-env PORT=8080 ts-node-dev --transpile-only server",
+    "start": "yarn build && yarn server",
+    "test": "jest --runInBand",
+    "start:deploybuild": "cross-env PORT=8080 node -r dotenv/config -r source-map-support/register ../../../cli/deploy/dist-src/api/appapi/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/storage-blob": "^10.5.0",
+    "@christensena/azure-function-express": "^2.1.1",
+    "@eg/core": "*",
+    "@eg/doc-db": "*",
+    "auth0": "^2.35.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "date-fns": "^2.15.0",
+    "dotenv-defaults": "^2.0.1",
+    "express": "^4.16.3",
+    "express-async-handler": "^1.1.4",
+    "express-jwt": "^6.0.0",
+    "fs-extra": "^9.0.1",
+    "jwks-rsa": "^1.10.1",
+    "lodash": "^4.17.20",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.8",
+    "node-fetch": "^2.6.1",
+    "raygun": "^0.12.2",
+    "uuid": "^8.3.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.2.2",
+    "@eg/test-support": "*",
+    "@shelf/jest-mongodb": "^1.2.3",
+    "@types/auth0": "^2.33.3",
+    "@types/cors": "^2.8.7",
+    "@types/express-jwt": "^0.0.42",
+    "@types/jest": "^26.0.14",
+    "@types/lodash": "^4.14.161",
+    "@types/mongoose": "^5.7.36",
+    "@types/node": "^14.11.5",
+    "@types/node-fetch": "^2.5.7",
+    "@types/raygun": "^0.11.0",
+    "@types/supertest": "^2.0.10",
+    "@types/uuid": "^8.0.0",
+    "@types/yup": "^0.29.7",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "cross-env": "^7.0.2",
+    "jest": "^26.5.2",
+    "jest-extended": "^0.11.5",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.19",
+    "ts-jest": "^26.4.1",
+    "ts-node-dev": "^1.0.0-pre.63",
+    "typescript": "^4.0.3"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "version": "4.2.3"
+    }
+  }
+}

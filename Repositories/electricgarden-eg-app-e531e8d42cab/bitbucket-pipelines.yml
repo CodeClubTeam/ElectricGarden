@@ -1,0 +1,97 @@
+# https://support.atlassian.com/bitbucket-cloud/docs/debug-pipelines-locally-with-docker/
+image: node:12
+clone:
+  depth: 1
+  lfs: true
+
+definitions:
+  caches:
+    yarn: /usr/local/share/.cache/yarn/v6
+
+  steps:
+    - step: &commonBuildStep
+        name: build and test
+        size: 2x # Double resources available for this step. Test as pipeline is failing intermittently
+        script:
+          - yarn cache dir
+          - yarn install --frozen-lockfile # for scripts
+          - cd api
+          - yarn install --frozen-lockfile
+          - yarn build:packages
+          - yarn lint
+          - yarn test
+          - yarn build
+          - cd ../ui
+          - yarn install --frozen-lockfile
+          - yarn lessons:index
+          - yarn test:ci
+          - cd ..
+          - ./scripts/ui/build-with-tokens.js ui $BITBUCKET_BUILD_NUMBER
+          - yarn install --cwd shop-ui --frozen-lockfile
+          - ./scripts/ui/build-with-tokens.js shop-ui $BITBUCKET_BUILD_NUMBER
+        caches:
+          - yarn
+        artifacts:
+          - ui/build/**
+          - shop-ui/build/**
+          - api/cli/deploy/dist/**
+          - api/cli/db/scripts/**
+    - step: &deploy
+        # Can only have ONE step that may deploy to any environment
+        # - https://community.atlassian.com/t5/Bitbucket-questions/The-deployment-environment-test-in-your-bitbucket-pipelines-yml/qaq-p/971584
+        name: Deploy to an Environment
+        script:
+          - echo "Syncing db static data"
+          - yarn --cwd api db:sync
+          # - curl -sL https://aka.ms/InstallAzureCLIDeb | bash # install azure cli
+          - apt-get update
+          - apt-get install -y ca-certificates curl apt-transport-https lsb-release gnupg
+          - curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+          - AZ_REPO=$(lsb_release -cs)
+          - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list
+          # Swap curl to apt-get lines if CLI is faulty
+          - curl -sL https://aka.ms/InstallAzureCLIDeb | bash # install azure cli
+          # - apt-get update
+          # - apt-get install -y azure-cli=2.28.0-1~stretch ## 2.29 Caused breaking issue
+          # See https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest
+          - az login --service-principal --tenant $AZURE_TENANT -u $AZURE_SP_NAME -p $AZURE_SP_PASSWORD
+          # Deploying app frontend
+          - echo "Deploying app ui to resource group eg-rg-$ENV_SUFFIX, and storage egwebapp$ENV_SUFFIX (for env $BITBUCKET_DEPLOYMENT_ENVIRONMENT)"
+          - ./scripts/ui/apply-configuration.js ui $BITBUCKET_BUILD_NUMBER # applies REACT_APP_xyz from environment to build output
+          - az storage blob sync -c \$web --account-name egwebapp$ENV_SUFFIX -s ui/build --account-key $(az storage account keys list -g eg-rg-$ENV_SUFFIX -n egwebapp$ENV_SUFFIX --query [0].value -o tsv)
+          - az cdn endpoint purge --no-wait --content-paths / --resource-group eg-rg-$ENV_SUFFIX --profile-name eg-cdn-profile-$ENV_SUFFIX --name $AZURE_CDN_ENDPOINT
+          # Deploying shop frontend
+          - echo "Deploying shop ui to resource group eg-rg-$ENV_SUFFIX, and storage egshopapp$ENV_SUFFIX (for env $BITBUCKET_DEPLOYMENT_ENVIRONMENT)"
+          - ./scripts/ui/apply-configuration.js shop-ui $BITBUCKET_BUILD_NUMBER
+          - az storage blob upload-batch --overwrite true --destination \$web --account-name egshopapp$ENV_SUFFIX --source shop-ui/build  --account-key $(az storage account keys list -g eg-rg-$ENV_SUFFIX -n egshopapp$ENV_SUFFIX --query [0].value -o tsv)
+          # Deploying functions
+          - echo "Deploying azure functions"
+          - az functionapp deployment source config-zip --resource-group eg-rg-$ENV_SUFFIX -n egapi$ENV_SUFFIX --src api/cli/deploy/dist/api-func.zip
+          - az functionapp deployment source config-zip --resource-group eg-rg-$ENV_SUFFIX -n egingest$ENV_SUFFIX --src api/cli/deploy/dist/ingest-func.zip
+          - az functionapp deployment source config-zip --resource-group eg-rg-$ENV_SUFFIX -n egprovision$ENV_SUFFIX --src api/cli/deploy/dist/provision-func.zip
+          - az functionapp deployment source config-zip --resource-group eg-rg-$ENV_SUFFIX -n egshopapi$ENV_SUFFIX --src api/cli/deploy/dist/shopapi-func.zip
+          # Warming up API functions (ignores any error responses)
+          - echo "Warming up api azure functions"
+          - wget -q -O/dev/null https://egapi$ENV_SUFFIX.azurewebsites.net/api/ || echo
+          - wget -q -O/dev/null https://egshopapi$ENV_SUFFIX.azurewebsites.net/api/ || echo
+          - echo "Syncing lessons"
+          - yarn --cwd ui install --frozen-lockfile
+          - yarn --cwd ui lessons
+pipelines:
+  default:
+    - step: *commonBuildStep
+  branches:
+    develop:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          deployment: dev
+      - step:
+          <<: *deploy
+          trigger: manual
+          deployment: test
+    master:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          deployment: production

@@ -1,0 +1,20 @@
+<h1>
+    {{#if rebootSlow}}
+        <span>This is taking a while.</span>
+    {{else}}
+        <span>Rebooting...</span>
+    {{/if}}
+</h1>
+{{#if rebootSlow}}
+    <p>
+        It seems that the reboot is taking a while, ensure that you're connected to the
+        <i>electricgarden</i> access point. If this does not help, try refreshing the browser.
+    </p>
+{{else}}
+    <p>
+        The Electric Garden Gateway will now reboot, this will take approximately 20 seconds.
+        <br /> Once the Electric Garden Gateway has rebooted you will need to reconnect your WiFi to
+        <i>electricgarden</i>.
+    </p>
+    <progress id="progressRebooting" value="{{rebootProgress}}" max="30"></progress>
+{{/if}}

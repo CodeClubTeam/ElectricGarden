@@ -1,0 +1,8 @@
+{
+  "statics": [
+    "function.json"
+  ],
+  "functions": [
+    "provisioner"
+  ]
+}

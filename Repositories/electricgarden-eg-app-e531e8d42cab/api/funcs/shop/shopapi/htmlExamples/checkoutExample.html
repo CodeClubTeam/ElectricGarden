@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout example</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+    async function goToCheckout() {
+        $('#errorDiv').html('');
+        let userEmail = document.getElementById('userEmail').value;
+        let billingEmail = document.getElementById('userEmail').value;
+        let usersName = document.getElementById('usersName').value;
+        let orgName = document.getElementById('orgName').value;
+        let addressLine1 = document.getElementById('addressLine1').value;
+        let addressLine2 = document.getElementById('addressLine2').value;
+        let city = document.getElementById('city').value;
+        let postcode = document.getElementById('postcode').value;
+        let numberOfDevices = document.getElementById('deviceCount').value;
+        let includeStrap = document.getElementById('includeStrap').checked;
+        let data = {
+            numberOfDevices: numberOfDevices,
+            schoolName: orgName,
+            emailAddress: userEmail,
+            billingEmail: billingEmail,
+            name: usersName,
+            shippingAddress: {
+                line1: addressLine1,
+                line2: addressLine2,
+                country: 'New Zealand',
+                city: city,
+                postcode: postcode,
+            },
+            billingAddress: {
+                line1: addressLine1,
+                line2: addressLine2,
+                country: 'New Zealand',
+                city: city,
+                postcode: postcode,
+            },
+            includeStrap: includeStrap
+        };
+        let stringData = JSON.stringify(data);
+        try {
+            let checkoutData = await $.ajax({
+                type: 'POST',
+                url: `http://localhost:8081/api/v1/checkout`,
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+            }).then();
+            const stripe = Stripe('pk_test_wt9FpcVKhNQz9VHeQqLBNwKT00AcU6oNBw');
+            const {error} = await stripe.redirectToCheckout({sessionId: checkoutData.id});
+        } catch (e) {
+            console.error(JSON.stringify(e));
+            let message;
+            let response = JSON.parse(e.responseText);
+
+            if (response.error != null) {
+                message = response.error;
+            } else if (response.message != null) {
+                message = response.message;
+            } else {
+                message = 'Unknown error';
+            }
+            if (message) {
+                message.replace(/\n/g, /<br\/>/);
+            }
+            $('#errorDiv').html(`${message}<br/><br/>`);
+        }
+    }
+</script>
+<div id="checkoutButtonDiv">
+    <div id="errorDiv"></div>
+    <label for="usersName">Name:</label>
+    <input type="text" value="Bob Example" id="usersName">
+    <br/>
+    <label for="userEmail">Email:</label>
+    <input type="text" value="tim.gray+stripetest@optimalbi.com" id="userEmail">
+    <br/>
+    <label for="orgName">Org name:</label>
+    <input type="text" value="Org Name" id="orgName">
+    <br/>
+    <label for="addressLine1">Street Address line 1:</label>
+    <input type="text" value="OptimalHQ" id="addressLine1">
+    <br/>
+    <label for="addressLine2">Street Address line 2:</label>
+    <input type="text" value="139 The Terrace" id="addressLine2">
+    <br/>
+    <label for="city">City:</label>
+    <input type="text" value="Wellington" id="city">
+    <br/>
+    <label for="postcode">Postcode:</label>
+    <input type="number" value="6011" id="postcode">
+    <br/>
+    <label for="deviceCount">Number of devices:</label>
+    <input type="number" min="0" max="100" required value="15" id="deviceCount">
+    <br/>
+    <label for="includeStrap">Include strap?:</label>
+    <input type="checkbox" checked id="includeStrap">
+    <br/>
+    <button onclick="goToCheckout()">Go!</button>
+</div>
+</body>
+</html>

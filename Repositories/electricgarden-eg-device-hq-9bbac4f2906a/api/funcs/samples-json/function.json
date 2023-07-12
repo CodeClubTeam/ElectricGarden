@@ -1,0 +1,25 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "samples",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "eventHub",
+      "name": "messagesToEventHub",
+      "connection": "EVENTHUB_SEND_CONNECTION",
+      "eventHubName": "messageHub",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/samples-json/index.js"
+}

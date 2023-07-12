@@ -1,0 +1,121 @@
+.nav-bar {
+    background-color: #6d6e71;
+    color: white;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    .nav-svg {
+        fill: white;
+        stroke: white;
+    }
+    img {
+        filter: invert(100%);
+        margin: 10px;
+        height: 30px;
+    }
+    .active {
+        img {
+            // BLACK MAGIC
+            // https://codepen.io/sosuke/pen/Pjoqqp
+            filter: invert(56%) sepia(86%) saturate(361%) hue-rotate(67deg)
+                brightness(94%) contrast(85%);
+        }
+    }
+
+    object {
+        stroke: white;
+        fill: white;
+    }
+    a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        font-size: 21px;
+        font-weight: var(--font-weight-light);
+
+        display: block;
+
+        &.active {
+            color: #53b848;
+            font-weight: 500;
+        }
+    }
+    .large-nav-item {
+        a {
+            padding: 30px 0 30px 20px;
+        }
+        img {
+            height: 40px;
+        }
+    }
+    .nav-item {
+        border-bottom: 1px solid lightgrey;
+    }
+
+    .nav-footer-item {
+        img {
+            // TODO: Fix this mess
+            filter: brightness(1000%);
+        }
+        font-weight: 300;
+        padding: 20px 0 20px 20px;
+        font-size: 21px;
+    }
+}
+
+.privacy-policy {
+    color: #53b848;
+    padding: 20px 0 10px 40px;
+    font-size: 12px;
+}
+
+/* For react-burger-menu */
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 20px;
+    top: 20px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+    background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+    background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+    fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+}
+
+/* Individual item */
+.bm-item {
+    display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}

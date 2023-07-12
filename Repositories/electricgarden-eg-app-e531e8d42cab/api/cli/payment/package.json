@@ -1,0 +1,12 @@
+{
+  "name": "payment-cli",
+  "version": "1.0.0",
+  "dependencies": {
+    "commander": "^6.1.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.8"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.7.36"
+  }
+}

@@ -1,0 +1,1023 @@
+---
+name: student-software
+title: 1.2 Software
+level: 3
+ordinal: 20
+locked: false
+publish: production
+coverImagePath: ./codeline.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+} from '../../../../activities';
+
+import codeline from './codeline.png';
+import input from './input.png';
+import output from './output.png';
+import io from './io.png';
+import whatin from './whatin.png';
+import whatout from './whatout.png';
+import whatio from './whatio.png';
+
+import smartphone from './smartphone.jpg';
+import hopuoro from './hopuoro.png';
+import mata from './mata.png';
+import patene from './patene.png';
+import putakatakamatua from './putakatakamatua.png';
+import puwhakaahau from './puwhakaahau.png';
+import tukuoro from './tukuoro.png';
+
+import smartphonelabel from './smartphonelabel1.png';
+import smartphonelabel3 from './smartphonelabel3.png';
+import egsetup1 from './egsetup1.png';
+
+import pumanawa1 from './pumanawa1.png';
+import pumanawa2 from './pumanawa2.png';
+import pumanawa3 from './pumanawa3.png';
+import hononga1 from './hononga1.png';
+import hononga2 from './hononga2.png';
+
+import whatissoftware from './whatissoftware.jpg';
+import usesoftware from './usesoftware.jpg';
+import snake from './snake1.png';
+
+import trinketbanner from './trinketbanner2.png';
+import python from './python1.png';
+
+import print from './print.png';
+import variablesensor from './variablesensor.png';
+import variabledef1 from './variabledef1.png';
+
+import run from './run.png';
+import trinketexplain01 from './trinketexplain01.png';
+import trinketexplain02 from './trinketexplain02.png';
+
+import sensor1 from './sensor1.png';
+import sensor2 from './sensor2.png';
+import sensor3 from './sensor3.png';
+import sensor4 from './sensor4.png';
+import sensor5 from './sensor5.png';
+import paerongo from './paerongo.png';
+
+import complete1_2 from './complete1_2.gif';
+import variablemap from './variablemap.png';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.2 Software**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={codeline} border="true" />
+</Figure>
+
+<br />
+
+##### Hoki mai anō! Now it's time for you to complete your **online project** to build on your knowledge of **software** and **programming**.
+
+##### Good luck e hoa, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>He aha</TextBox>]}>
+        <Para>What</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>He pūmanawa</TextBox>]}>
+        <Para>Software</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>He papatono</TextBox>]}>
+        <Para>Computer Program</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>He reo</TextBox>]}>
+        <Para>Language</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+###
+
+##### In our lesson, we learned about **three basic types of function**.
+
+#### **2.** Match the **kupu Māori** for each function with the proper icon:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Kē te pai!', fail: 'Not quite, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>Input</TextBox>]}>
+        <ImageWithText src={input} text={'Te tāuru'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox minWidth={'130px'}>Output</TextBox>]}>
+        <ImageWithText src={output} text={'Te tāputa'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'130px'}>Input / Output</TextBox>]}
+    >
+        <ImageWithText src={io} text={'Te tāuru / Te tāputa'} fontSize={15} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Input & Output Devices {#input-output}
+
+### What is an **input** device?
+
+<Captioned>
+    He aha he pūrere <b>tāuru</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={input} border="true" />
+</Figure>
+
+#### **3.** Choose the best description of an input device:
+
+<MultiChoiceActivity
+    question="An input device:"
+    choices={[
+        {
+            label:
+                'collects data, then sends it to an output device to process',
+            correct: true,
+            feedback: "Ka pai! It takes data 'in' to a device.",
+        },
+        {
+            label: 'processes signals for creating light and sound',
+            feedback:
+                "Kāore, that's something more specific we'll look at later!",
+        },
+        {
+            label: 'displays data in a way that is easy to read',
+            feedback: "Kāore, display isn't 'in' is it...?",
+        },
+        {
+            label: 'is only used indoors and never outdoors',
+            feedback: "Kāore, that's a different 'in'!",
+        },
+    ]}
+/>
+
+### What is an **output** device?
+
+<Captioned>
+    He aha he pūrere <b>tāputa</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={output} border="true" />
+</Figure>
+
+#### **4.** Choose the best description of an output device:
+
+<MultiChoiceActivity
+    question="An output device:"
+    choices={[
+        {
+            label:
+                'receives data, then converts it into a form we can understand and use',
+            correct: true,
+            feedback: "Ka pai! It sends data 'out' of a device.",
+        },
+        {
+            label: 'gets rid of old data by deleting it and clearing it out',
+            feedback: "Kāore, that would be a output-the-rubbish' device!",
+        },
+        {
+            label: 'can both send and receive data to multiple devices',
+            feedback: "Kāore, that's something else we'll look at later!",
+        },
+        {
+            label: 'works best in an outdoor environment like the garden',
+            feedback: "Kāore, that's a different 'out'!",
+        },
+    ]}
+/>
+
+### What is an **I/O (input/output)** device?
+
+<Captioned>
+    He aha he pūrere <b>tāuru/tāputa</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={io} border="true" />
+</Figure>
+
+#### **5.** Choose the best description of an I/O device:
+
+<MultiChoiceActivity
+    question="An I/O device:"
+    choices={[
+        {
+            label: 'can collect, send, and display data for us to use',
+            correct: true,
+            feedback:
+                "Ka pai! It can do the job of both 'input' and 'output' devices.",
+        },
+        {
+            label:
+                'can only work when it is connected to both an input and output device',
+            feedback: 'Kāore, that sounds quite complicated!',
+        },
+        {
+            label:
+                'can only display data from inside onto the outside of the device',
+            feedback: 'Kāore, that sounds more like an input device!',
+        },
+        {
+            label:
+                'can work with data when it is plugged in and when the plug is out',
+            feedback: "Kāore, that's a different 'in' and 'out'!",
+        },
+    ]}
+/>
+
+###
+
+#### **6.** Can you label the **functions** of these Smartphone parts?
+
+<br />
+
+##### **Match each of these parts with their correct function type:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai, nice matching! Now you know a bit more about your phone and how it works!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={smartphonelabel3}
+            tooltip="Smartphone Parts & Functions"
+            width={800}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Sound ( O )
+            </TextBox>,
+        ]}
+        position={{ left: 145, top: 30 }}
+    >
+        <Box width={120} height={50}>
+            <Para>A</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Touch & Light ( I / O )
+            </TextBox>,
+        ]}
+        position={{ left: 145, top: 136 }}
+    >
+        <Box width={120} height={50}>
+            <Para>B</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Sound ( I )
+            </TextBox>,
+        ]}
+        position={{ left: 145, top: 243 }}
+    >
+        <Box width={120} height={50}>
+            <Para>C</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Light ( I )
+            </TextBox>,
+        ]}
+        position={{ left: 661, top: 30 }}
+    >
+        <Box width={120} height={50}>
+            <Para>D</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Data ( I / O )
+            </TextBox>,
+        ]}
+        position={{ left: 661, top: 136 }}
+    >
+        <Box width={120} height={50}>
+            <Para>E</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                Pressure ( I )
+            </TextBox>,
+        ]}
+        position={{ left: 661, top: 243 }}
+    >
+        <Box width={120} height={50}>
+            <Para>F</Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+###
+
+#### **7.** Is the Electric Garden an **input**, **output**, or **I/O** device?
+
+<br />
+
+<Image src={egsetup1} />
+
+<br />
+
+<MultiChoiceActivity
+    question="Which device type best describes the function of the EG unit?"
+    choices={[
+        {
+            label: 'I/O Device',
+            correct: true,
+            feedback: "Ka pai, that's right! The EG can do all sorts!",
+        },
+        {
+            label: 'Input Device',
+            feedback: 'Kāore, think again about what the EG does...',
+        },
+        {
+            label: 'Output Device',
+            feedback: 'Kāore, think again about what the EG does...',
+        },
+        {
+            label: 'None of these',
+            feedback: 'Kāore . . . it must do something, right?',
+        },
+    ]}
+/>
+
+## Software {#eg-software}
+
+### What is **software**?
+
+<Captioned>
+    He aha <b>te pūmanawa</b>?
+</Captioned>
+<Figure>
+    <RoundImage src={pumanawa1} />
+    <RoundImage src={pumanawa2} />
+    <RoundImage src={pumanawa3} />
+</Figure>
+
+<br />
+
+#### **8.** Which answer best describes software?
+
+<MultiChoiceActivity
+    question="Software is:"
+    choices={[
+        {
+            label:
+                'programs and instructions that tell digital devices what to do',
+            correct: true,
+            feedback:
+                "Ka pai, well done! Instructions are 'soft' rather than the physical 'hard' parts of a device.",
+        },
+        {
+            label: 'the soft physical parts of a computer or device',
+            feedback: "Kāore, that's a different 'soft'!",
+        },
+        {
+            label: 'the first stage of creating hardware, before it hardens up',
+            feedback: "Kāore, that's something else altogether!",
+        },
+        {
+            label:
+                'a popular style of clothing that is soft to wear, like pyjamas',
+            feedback: "Kāore, but who doesn't love soft pyjamas!?",
+        },
+    ]}
+/>
+
+### **Software in Daily Life**
+
+#### Software **connects** digital hardware parts.
+
+<Captioned>
+    He pūmanawa <b>e hono</b> o he pūmārō matihiko.
+</Captioned>
+<Figure>
+    <RoundImage src={hononga1} />
+    <RoundImage src={hononga2} />
+</Figure>
+
+<br />
+
+#### **9.** What kinds of tools, devices, and machines rely on **software** to operate?
+
+<MultiChoiceActivity
+    question="Select all of the things that use software:"
+    choices={[
+        { label: 'Folding chair' },
+        { label: 'TV remote', correct: true },
+        { label: 'Watering can' },
+        { label: 'Digital clock', correct: true },
+        { label: 'Mechanical pencil' },
+        { label: 'Car', correct: true },
+        { label: 'Tape measure' },
+        { label: 'Printer', correct: true },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Programs & Programming Languages**
+
+##### Software is made up of sets of coded instructions called **programs (he papatono)**,
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>program</b> = a set of instructions for computers to follow
+</Captioned>
+
+<br />
+
+##### and programs are written in a **programming language (he reo papatono)**.
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>programming language</b> = a set of words, symbols, and formatting rules
+    for coding instructions that computers can understand
+</Captioned>
+
+<br />
+
+##### The Electric Garden uses a programming language named after a type of **snake**.
+
+#### **10.** What is the name of the programming language used by the Electric Garden?
+
+<Captioned>
+    <b>He aha te ingoa o te reo papatono nei?</b>
+</Captioned>
+
+<Figure>
+    <ImageWithBorder src={snake} border="true" />
+</Figure>
+
+<MultiChoiceActivity
+    question="Choose the programming language used by the EG:"
+    choices={[
+        {
+            label: 'Python',
+            correct: true,
+            feedback:
+                "Ka pai, that's right! All of the code for the EG follows the rules of the Python language.",
+        },
+        {
+            label: 'Cobra',
+            feedback: 'Kāore, though that is also the name of a classic car!',
+        },
+        {
+            label: 'Viper',
+            feedback: 'Kāore, though that is also the name of a sports car!',
+        },
+        {
+            label: 'Boa',
+            feedback: 'Kāore, though that is also the name of a type of scarf!',
+        },
+    ]}
+/>
+
+## Programming with Trinket {#trinket}
+
+### **Message in a Trinket**
+
+##### Trinket is a tool that lets us practise our **programming** skills.
+
+<Figure align={'left'}>
+    <ImageWithBorder src={trinketbanner} radius={'5px'} />
+</Figure>
+
+<br />
+
+##### We can use the **programming language**, Python, to write our own programs in Trinket.
+
+<Figure align={'left'}>
+    <ImageWithBorder src={python} radius={'5px'} />
+</Figure>
+
+<br />
+
+#### **11.** Try using Trinket to program a simple **message**:
+
+##### **Step A)** Check out the following code:
+
+<ExampleCode showLineNumbers startingLineNumber={1}>
+    {`message = "Kia ora, Electric Garden!"
+print message`}
+</ExampleCode>
+
+<br />
+
+###### In **line 1**, we set a value for our **message** by using the **equals sign** and putting our message inside **quotation marks**.
+
+###### Then in **line 2**, we asked the program to show us that message by using the **print** command.
+
+<br />
+
+<Figure align={'left'}>
+    <ImageWithBorder src={print} border={'true'} borderColor={'lightgrey'} />
+</Figure>
+
+<br />
+
+##### **Step B)** Input the code on your own:
+
+###### Type this code in the Trinket below:
+
+<ExampleCode showLineNumbers startingLineNumber={1}>
+    {`message = "Kia ora, Electric Garden!"
+print message`}
+</ExampleCode>
+
+<br />
+
+###### Use this code to create a message and practise using the **print** command.
+
+###### **Note:** Take special care to get all of the **spellings**, **spaces**, and **symbols** just right!
+
+<Trinket trinketId="python/884c9d016f" height="200" />
+
+<br />
+
+##### **Step C)** Run the program you've created:
+
+###### When you're ready, click the triangular **run** button above to see if it works!
+
+<Figure align={'left'}>
+    <ImageWithBorder src={run} radius={''} />
+</Figure>
+
+<br />
+
+##### **Step D)** Debugging, or making sure it works:
+
+###### How did it go? Did you have any issues? What did you do to get the program to work?
+
+<MultiChoiceActivity
+    question="Did you reveal the message with your Trinket program?"
+    randomise={false}
+    choices={[
+        {
+            label: 'Yes! I got the print command to work!',
+            correct: true,
+            feedback:
+                'Ka pai, nice programming!! Are you ready to use your sweet new skills in the next section?!',
+        },
+        {
+            label: "No! I can't get the print command to work . . .",
+            feedback:
+                'No worries, tēnā āno! Take another careful look through each step, and give it another go! ProTip: Double check to make sure that all of the lines, spelling, spaces, and symbols are exactly right!',
+        },
+    ]}
+/>
+
+## Programming & Variables {#prog-and-variables}
+
+### **Trinket & the Electric Garden**
+
+##### Now that you are familiar with Trinket, we can use it to look at **data from the Electric Garden**.
+
+##### With Python, we can use tools called **variables** to access EG data in Trinket.
+
+### What is a **variable**?
+
+<Captioned>
+    He aha <b>he taurangi</b>?
+</Captioned>
+
+##### A variable is a kind of **code word** that we use to store information in comuputer programs.
+
+##### It is a **placeholder** that we can assign any value, like a **hidden meaning**, for the program to remember.
+
+<br />
+
+<Captioned font={'Comfortaa'} size={'25'}>
+    <b>variable</b> = a placeholder to <b>store</b> and <b>recall</b>{' '}
+    information
+</Captioned>
+
+<br />
+
+##### **For example**, in the previous activity we programmed the Trinket to remember our **message**.
+
+##### The word **'message'** became a **variable** with an assigned value of **"Kia ora, Electric Garden!"**.
+
+<Figure align={'left'}>
+    <ImageWithBorder src={trinketexplain01} radius={'0'} />
+</Figure>
+
+<br />
+
+##### When you ran the **print** command, the program revealed the **hidden meaning** we set for that variable.
+
+<Figure align={'left'}>
+    <ImageWithBorder src={trinketexplain02} radius={'0'} />
+</Figure>
+
+<br />
+
+#### **12.** So, what is a variable?
+
+<MultiChoiceActivity
+    question="A variable is:"
+    choices={[
+        {
+            label:
+                'a word that we can use to represent information for a program to remember',
+            correct: true,
+            feedback:
+                "Ka pai, you've got it! They are very important in many programs.",
+        },
+        {
+            label: 'a person who is very able at writing computer programs',
+            feedback:
+                "Kāore, though it's good to try to be a 'very able' person!",
+        },
+        {
+            label:
+                'a word that shuffles data randomly to give us various information',
+            feedback: "Kāore, that doesn't sound helpful at all!",
+        },
+        {
+            label:
+                'a program that uses various programming languages to write code',
+            feedback: 'Kāore, programmers are the ones writing code.',
+        },
+    ]}
+/>
+
+### **The Electric Garden Sensor Variables**
+
+<Captioned>
+    <b>Ngā taurangi</b> mo <b>ngā paerongo</b> o te Electric Graden
+</Captioned>
+
+##### Each Electric Garden **sensor** is given a different code name, or **variable**.
+
+##### Like with our **message**, we can use these variables to access the data from each sensor.
+
+##### Here are the **variables** for each of the EG sensors:
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={variablesensor} radius={''} />
+</Figure>
+
+<br />
+
+#### **13.** Match each **variable** with the correct **EG sensor**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success:
+            'Kei te pai! Now you know the different variables that code for each EG sensor!!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={variablemap}
+            tooltip="Electric Garden Sensor Variables"
+            width={700}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                soilmoisture
+            </TextBox>,
+        ]}
+        position={{ left: 73, top: 184 }}
+    >
+        <Box width={120} height={48}>
+            <Para>C</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                airtemp
+            </TextBox>,
+        ]}
+        position={{ left: 78, top: 22 }}
+    >
+        <Box width={120} height={48}>
+            <Para>A</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                light
+            </TextBox>,
+        ]}
+        position={{ left: 618, top: 152 }}
+    >
+        <Box width={120} height={48}>
+            <Para>D</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                humidity
+            </TextBox>,
+        ]}
+        position={{ left: 117, top: 98 }}
+    >
+        <Box width={120} height={48}>
+            <Para>B</Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox minWidth={'120px'} maxWidth={12}>
+                soiltemp
+            </TextBox>,
+        ]}
+        position={{ left: 475, top: 224 }}
+    >
+        <Box width={120} height={48}>
+            <Para>E</Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+## Programming & EG Data {#prog-and-eg}
+
+### **Variables & Commands**
+
+<Captioned>
+    <b>He taurangi</b> me <b>he tono</b>
+</Captioned>
+
+##### Now that we know about **variables**, we can use the **print** command to see data from our sensors.
+
+<Figure>
+    <ImageWithBorder src={paerongo} />
+</Figure>
+
+<br />
+
+#### Try using Trinket to access **EG data**:
+
+##### **Step A)** Entering the command:
+
+###### Look at the following code:
+
+<ExampleCode>{`print airtemp`}</ExampleCode>
+
+###### The term **'print'** is the _command_ and the term **'airtemp'** is the _variable_ for the sensor we want to see data from.
+
+<br />
+
+###### In **line 12** of the Trinket below, make sure to **indent** using the **Tab key**, then type this print command:
+
+<Trinket trinketId="python/e255de1c88" height="300" />
+
+###### _**Note:** Remember to take care to get all of the **spellings**, **spaces**, and **symbols** just right!_
+
+<br />
+
+##### **Step B)** Run the program you've created:
+
+###### When you're ready, click the **run** button above to access the **air temperature sensor** data!
+
+<Figure align={'left'}>
+    <ImageWithBorder src={run} radius={''} />
+</Figure>
+
+<br />
+
+##### **Step C)** Use the data that you've revealed:
+
+###### This Trinket is set to display sensor data from **August 27, 2020**.
+
+###### So the data you access shows mesurements from that day over a 24 hour period.
+
+<br />
+
+##### Use the data from your **print** commands to answer some questions:
+
+##### **14.** What was is the hottest air temperature (°C) recorded by the EG on August 27th?
+
+<MultiChoiceActivity
+    question="Select the correct value:"
+    choices={[
+        {
+            label: '17.3°C',
+            correct: true,
+            feedback:
+                'Ka pai, sweet as! You used the print command again! Then you discovered that 17.3 was the largest number from the airtemp sensor on that day!',
+        },
+        {
+            label: '11.2°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '19.4°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '15.1°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+    ]}
+/>
+
+##### **Step D)** Accesing other EG sensor data:
+
+###### Use the **print** command in **line 12** with different **EG sensor variables**.
+
+###### Can you find the information you need to answer the questions below?
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={variablesensor} radius={''} />
+</Figure>
+
+<br />
+
+##### **15.** What was the **coldest air temperature (°C)** recorded by the EG on August 27th?
+
+<Trinket trinketId="python/e255de1c88" height="290" />
+
+<MultiChoiceActivity
+    question="Select the correct value:"
+    choices={[
+        {
+            label: '3.9°C',
+            correct: true,
+            feedback:
+                "Ka pai, nice one! You used the 'airtemp' variable to see that 3.9 was the lowest number from the airtemp sensor on that day!",
+        },
+        {
+            label: '4.5°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '10.3°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '2.1°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+    ]}
+/>
+
+##### **16.** What was the **hottest soil temperature (°C)** recorded by the EG on August 27th?
+
+<Trinket trinketId="python/e255de1c88" height="290" />
+
+<MultiChoiceActivity
+    question="Select the correct value:"
+    choices={[
+        {
+            label: '10.5°C',
+            correct: true,
+            feedback:
+                "Ka pai, nice one! You used the 'soiltemp' variable to see that 10.5 was the largest number from the soiltemp sensor on that day!",
+        },
+        {
+            label: '17.3°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '5.1°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '7.1°C',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+    ]}
+/>
+
+##### **17.** What was the **highest humidity (%)** recorded by the EG on August 27th?
+
+<Trinket trinketId="python/e255de1c88" height="290" />
+
+<MultiChoiceActivity
+    question="Select the correct value:"
+    choices={[
+        {
+            label: '92%',
+            correct: true,
+            feedback:
+                "Ka pai, nice one! You used the 'humidity' variable to see that 92 was the largest number from the humidity sensor on that day!",
+        },
+        {
+            label: '90%',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '88%',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+        {
+            label: '100%',
+            feedback: 'Kāore, tēnā anō. Take another look at the data....',
+        },
+    ]}
+/>
+
+## Conclusion {#conclusion}
+
+#### Ka pai te mahi nei, great work! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_2} border="true" />
+</Figure>
+
+<br />
+
+##### Alright! You've completed your **online project** for this lesson and shown us your knowledge of **software** and **programming**!
+
+##### Well done, and all the best in your studies to come!

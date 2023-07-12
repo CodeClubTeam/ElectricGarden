@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+@import 'components/common/variables.scss';
+@import 'components/common/grid.scss';
+
+body {
+    margin: 0;
+    background-color: #f4eff3;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
+    font-weight: $light;
+    font-size: 14px;
+    overflow: hidden;
+    color: #6d6e70;
+}
+
+.logo {
+    img {
+        height: 110px;
+        padding: 0 40px 20px 40px;
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #ec008c;
+}
+
+.dropdown-menu {
+    margin: 0;
+}
+
+.filler {
+    flex: 1;
+}
+
+.user-circle {
+    border-radius: 50%;
+    border: 4px solid #ec008c;
+    height: 50px;
+    width: 50px;
+    margin: 0 10px;
+}
+
+.org-circle {
+    border-radius: 50%;
+    border: 2px solid #939598;
+    height: 44px;
+    width: 44px;
+    margin: 0 10px;
+}
+.help-circle {
+    border-radius: 50%;
+    border: 4px solid #ed1d24;
+    height: 35px;
+    width: 35px;
+    margin: 0 10px;
+    font-size: 200%;
+    font-weight: bold;
+}
+.help-icon {
+    padding-right: 24px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+h2 {
+    font-size: 28px;
+    color: #221f20;
+    font-weight: bold;
+    margin: 20px 20px 20px;
+}
+
+.header {
+    height: 100px;
+    text-align: center;
+    border-bottom: 2px solid #a7a9ac;
+    display: flex;
+    @media (max-width: 1024px) {
+        height: 70px;
+    }
+}
+
+.body {
+    display: flex;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    th {
+        color: grey;
+        font-weight: normal;
+        font-size: 12px;
+    }
+}
+
+a {
+    color: #53b848;
+    text-decoration: none;
+}
+
+.user-drop-zone {
+    flex: 1;
+}
+.dropdown {
+    margin: 0 20px;
+
+    &.open {
+        .dropdown-toggle.btn-primary {
+            // TODO: Fix this mess
+            color: black !important;
+            background-color: #53b848 !important;
+        }
+    }
+}
+.btn {
+    background-color: #6d6e71;
+    border: none;
+    font-size: 18px;
+    font-weight: $light;
+    color: white;
+    padding: 13px 40px;
+    height: 46px;
+    border-radius: 4px;
+    &.btn-primary {
+        background-color: #ec008c;
+    }
+    &.btn-info {
+        background-color: #27a9e1;
+    }
+    &.btn-success {
+        background-color: #53b847;
+    }
+    &:hover {
+        // TODO: Fix this mess
+
+        color: white !important;
+        background-color: #53b848 !important;
+    }
+    &:active {
+        // TODO: Fix this mess
+        color: black !important;
+        background-color: #53b848 !important;
+    }
+}
+
+.graph {
+    border: 2px solid #a7a9ab;
+    border-radius: 8px;
+    flex: 1;
+    height: 70vh;
+}
+
+.checkbox-section {
+    background-color: #d4edd1;
+    width: 300px;
+    margin: 0 40px 10px 40px;
+    padding: 1px 0;
+    border-radius: 10px;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.notes-container {
+    background-color: #d4edd1;
+    width: 300px;
+    margin: 0 40px 10px 40px;
+    padding: 1px 0;
+    border-radius: 10px;
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.date-section {
+    background-color: #d4edd1;
+    width: 300px;
+    margin: 0 40px 10px 40px;
+    padding: 1px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.notes-text {
+    padding: 10px 10px 0px 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.side-menu {
+    display: grid;
+}
+
+.date-section-container {
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+.dashboard-body {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox {
+    margin: 30px;
+    label {
+        font-size: 18px;
+        font-weight: bold;
+        user-select: none;
+        // padding: 20px;
+    }
+    input[type='checkbox'] {
+        transform: scale(2);
+        // padding: 20px;
+    }
+    .subtext {
+        font-weight: $light;
+        font-style: italic;
+        font-size: 14px;
+    }
+}
+
+.user-grid-header {
+    margin: 20px;
+}
+
+hr {
+    color: #a7a9ac;
+    margin: 10px 0;
+}
+
+.header-org {
+    color: #939598;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 0 24px;
+}
+
+.user-welcome {
+    font-size: 24px;
+    margin: 0 10px;
+    .btn {
+        background-color: transparent;
+        color: #ec008c;
+        padding: 0 10px;
+        &:hover {
+            background-color: transparent;
+        }
+    }
+    .dropdown {
+        margin: 0;
+    }
+}

@@ -1,0 +1,103 @@
+@import '~bootstrap/scss/bootstrap';
+
+@import 'components/common/grid.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&display=swap');
+
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+// note changes may need to be mirrored for pre-load screen css in public/index.html
+body {
+    margin: 0;
+    --font-weight-light: 300;
+    font-family: 'Comfortaa', cursive;
+    word-wrap: break-word;
+    font-weight: var(--font-weight-light);
+    font-size: 14px;
+    color: #6d6e70;
+}
+
+label {
+    padding-right: 0.25em;
+}
+
+.filler {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    th {
+        color: grey;
+        font-weight: normal;
+        font-size: 12px;
+    }
+}
+
+a,
+a:visited,
+a:active,
+a:focus {
+    color: #53b848;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #6d6e71;
+    border: none;
+    font-size: 18px;
+    font-weight: var(--font-weight-light);
+    color: white;
+    padding: 13px 40px;
+    height: 46px;
+    border-radius: 4px;
+    &.btn-primary {
+        background-color: #ec008c;
+    }
+    &.btn-info {
+        background-color: #27a9e1;
+    }
+    &.btn-success {
+        background-color: #53b847;
+    }
+    &:hover {
+        // TODO: Fix this mess
+
+        color: white !important;
+        background-color: #53b848 !important;
+    }
+    &:active {
+        // TODO: Fix this mess
+        color: black !important;
+        background-color: #53b848 !important;
+    }
+}
+
+hr {
+    color: #a7a9ac;
+    margin: 10px 0;
+}
+
+textarea {
+    background: #f7f7f7;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+}
+
+h1 {
+    font-size: 34px;
+    letter-spacing: 1.5px;
+}
+
+h2 {
+    font-size: 30px;
+}

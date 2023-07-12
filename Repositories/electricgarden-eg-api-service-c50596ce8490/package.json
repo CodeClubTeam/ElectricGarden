@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "workspaces": [
+    "funcs/*",
+    "cli/*"
+  ],
+  "scripts": {
+    "start": "yarn --cwd funcs/http start",
+    "build": "yarn --cwd funcs/http build && yarn --cwd cli/deploy build",
+    "deploy:dev": "az functionapp deployment source config-zip -g eg-rg-dev -n egfunctionsdev --src cli/deploy/dist/azure-func.zip"
+  }
+}

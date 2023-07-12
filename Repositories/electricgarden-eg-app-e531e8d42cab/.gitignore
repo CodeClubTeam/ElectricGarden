@@ -1,0 +1,15 @@
+node_modules
+.cache
+
+.envrc
+.nvmrc
+.idea
+.yarnrc
+api/yarn api.bat
+api/globalConfig.json
+yarn-error.log
+ui/.eslintcache
+.husky/post-checkout
+.husky/post-commit
+.husky/post-merge
+.husky/pre-push

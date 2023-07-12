@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "bootupMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-bootups",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    },
+    {
+      "type": "eventHub",
+      "name": "messagesToEventHub",
+      "connection": "EVENTHUB_SEND_CONNECTION",
+      "eventHubName": "messageHub",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/bootups/index.js"
+}

@@ -1,0 +1,14 @@
+[[package]]
+category = "main"
+description = "Distributed component model for Python."
+name = "pycom"
+optional = false
+python-versions = "*"
+version = "0.6.0"
+
+[metadata]
+content-hash = "0de0b699cefb76b68c5732fb3ccde9223b29f5cb74e16c1cbeb638b00737b805"
+python-versions = "^3.7"
+
+[metadata.hashes]
+pycom = ["be7f3a05ae8a90ad72c20e70ff56e90952a444147f7504543c28f594037d1d60"]

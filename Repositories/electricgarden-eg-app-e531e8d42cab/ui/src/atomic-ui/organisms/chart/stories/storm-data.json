@@ -1,0 +1,102 @@
+{
+  "points": [
+    {
+      "timestamp": "2019-10-22T06:03:48.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10,
+        "battery_voltage": 2.34,
+        "ambient_temperature": 10.9,
+        "probe_moisture": 4.8,
+        "rssi": -97,
+        "light_sensor": 185,
+        "snr": -0.5,
+        "ambient_humidity": 37
+      }
+    },
+    {
+      "timestamp": "2019-10-22T06:33:31.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10,
+        "battery_voltage": 2.39,
+        "ambient_temperature": 10.8,
+        "probe_moisture": 4.8,
+        "rssi": -99,
+        "light_sensor": 49,
+        "snr": -3.75,
+        "ambient_humidity": 37.1
+      }
+    },
+    {
+      "timestamp": "2019-10-22T07:03:15.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10.5,
+        "battery_voltage": 2.39,
+        "ambient_temperature": 10.9,
+        "probe_moisture": 4.8,
+        "rssi": -101,
+        "light_sensor": 1.5,
+        "snr": -4,
+        "ambient_humidity": 37.6
+      }
+    },
+    {
+      "timestamp": "2019-10-22T07:33:02.000Z",
+      "readings": {
+        "probe_soil_temp": 11.5,
+        "probe_air_temp": 4.5,
+        "battery_voltage": 2.35,
+        "ambient_temperature": 7.6,
+        "probe_moisture": 8.9,
+        "rssi": -96,
+        "light_sensor": 0,
+        "snr": -0.5,
+        "ambient_humidity": 0
+      }
+    },
+    {
+      "timestamp": "2019-10-22T08:02:41.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "battery_voltage": 2.35,
+        "ambient_temperature": 7.3,
+        "probe_moisture": 8.2,
+        "rssi": -91,
+        "light_sensor": 0,
+        "snr": 6.25,
+        "ambient_humidity": 38
+      }
+    },
+    {
+      "timestamp": "2019-10-22T08:32:24.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "battery_voltage": 2.3,
+        "ambient_temperature": 7.4,
+        "probe_moisture": 8,
+        "rssi": -88,
+        "light_sensor": 0,
+        "snr": 6.75,
+        "ambient_humidity": 38.2
+      }
+    },
+    {
+      "timestamp": "2019-10-22T09:02:07.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "battery_voltage": 2.37,
+        "ambient_temperature": 7.4,
+        "probe_moisture": 8,
+        "rssi": -93,
+        "light_sensor": 0,
+        "snr": 5.5,
+        "ambient_humidity": 37.9
+      }
+    }
+  ]
+}

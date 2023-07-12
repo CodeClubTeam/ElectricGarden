@@ -1,0 +1,2 @@
+[TYPECHECK]
+ignored-modules=machine,pycom,network,time,os,micropython

@@ -1,0 +1,21 @@
+{
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.options": {
+    "extensions": [".ts", ".js"]
+  },
+  "eslint.packageManager": "yarn",
+  "eslint.workingDirectories": ["api/funcs"],
+  "files.eol": "\n",
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/out": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "barrelr.useDoubleQuotes": true
+}

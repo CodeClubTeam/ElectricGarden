@@ -1,0 +1,18 @@
+{
+  "name": "device-inactivity",
+  "version": "1.0.0",
+  "description": "Check for devices that have recently stopped sending data",
+  "main": "out/index.js",
+  "scripts": {
+    "clean": "rimraf out",
+    "build": "tsc --build",
+    "watch": "yarn build --watch"
+  },
+  "dependencies": {
+    "@eg/core": "*"
+  },
+  "devDependencies": {
+    "@azure/functions": "^1.2.2",
+    "typescript": "^4.0.3"
+  }
+}

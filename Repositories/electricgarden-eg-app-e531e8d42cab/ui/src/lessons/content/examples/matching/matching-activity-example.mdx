@@ -1,0 +1,257 @@
+---
+name: matching-example
+title: Matching Activity Example
+level: 90
+publish: localdev
+---
+
+import {
+    MatchingActivity,
+    MatchTarget,
+    TextBox,
+    Image,
+    Para,
+    Box,
+    CollapsablePanel,
+} from '../../../activities';
+import nzMap from './map-nz.svg';
+import datataonga from './datataonga.png';
+
+## Intro {#intro}
+
+Intro
+
+### Collapsable Panel
+
+Click to reveal...
+
+<CollapsablePanel heading={<p>The quick brown fox...</p>}>
+
+Jumped over the lazy dog.
+
+Ate the **slow** cat.
+
+Stood on the **_busy_** ant.
+
+Crept up behind the sneaky snake.
+
+</CollapsablePanel>
+
+## Electric Garden Sensors {#electric-garden-sensors}
+
+Match the sensor to the purpose:
+
+<MatchingActivity
+    unmatched={[<TextBox>Condensation</TextBox>, <TextBox>Density</TextBox>]}
+    feedback={{ success: 'Yeep', fail: 'Nope' }}
+>
+    <MatchTarget matches={[<TextBox>Air Temp</TextBox>]}>
+        <Para>Measures the temperature of the air.</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Humidity</TextBox>]}>
+        <Para>Measures the amount of water vapour in the air.</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Drop Zone Matching
+
+Set a background and then position match targets on it.
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Yep', fail: 'Nope' }}
+    background={<Image src={nzMap} tooltip="NZ Map" width={400} />}
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Tāmaki Makau Rau</TextBox>]}
+        position={{ left: 150, top: 80 }}
+    >
+        <Para>Auckland</Para>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={12}>Te Whanganui a Tara</TextBox>]}
+        position={{ left: 150, top: 220 }}
+    >
+        <Para>Wellington</Para>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox>Ōtautahi</TextBox>]}
+        position={{ left: 120, top: 320 }}
+    >
+        <Para>Christchurch</Para>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox>Ōtepoti</TextBox>]}
+        position={{ left: 70, top: 380 }}
+    >
+        <Para>Dunedin</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Ordered Matching randomised
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: "Āe! You've got it!",
+        fail: 'Hmmm, will that order really work? Tēnā anō',
+    }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Step 1</TextBox>]}>
+        <Para>A</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 2</TextBox>]}>
+        <Para>B</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Step 3</TextBox>]}>
+        <Para>C</Para>
+    </MatchTarget>
+
+</MatchingActivity>
+
+## Single and Multi Select
+
+### Single Select
+
+How many is 2x2? One answer only.
+
+<MatchingActivity
+    unmatched={[
+        <TextBox>8</TextBox>,
+        <TextBox>2</TextBox>,
+        <TextBox>6</TextBox>,
+        <TextBox>42</TextBox>,
+    ]}
+    direction={{
+        sets: 'down',
+        candidates: 'left',
+        targets: 'right',
+        matches: 'left',
+    }}
+    feedback={{ success: 'Yep', fail: 'Nope' }}
+    randomOrder={{ candidates: true }}
+>
+    <MatchTarget matches={[<TextBox>4</TextBox>]}>
+        <Para>2 x 2</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+### Multi Select
+
+How can we get to 4? Match all correct answers.
+
+<MatchingActivity
+    unmatched={[
+        <TextBox>6</TextBox>,
+        <TextBox>2+3</TextBox>,
+        <TextBox>1x2</TextBox>,
+    ]}
+    direction={{
+        sets: 'down',
+        candidates: 'left',
+        targets: 'right',
+        matches: 'left',
+    }}
+    feedback={{ success: 'Yep', fail: 'Nope' }}
+    randomOrder={{ candidates: true }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox>2x2</TextBox>,
+            <TextBox>2+2</TextBox>,
+            <TextBox>3+1</TextBox>,
+        ]}
+    >
+        <Para>4</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Sets
+
+This is an example of where we have multiple "buckets"
+that students can put things in.
+
+To trigger this mode you need to use `mode="sets"`
+
+<MatchingActivity
+    unmatched={[<TextBox>Odd One Out</TextBox>]}
+    direction={{
+        sets: 'down',
+        candidates: 'left',
+        targets: 'right',
+        matches: 'left',
+    }}
+    feedback={{ success: 'Yep', fail: 'Nope' }}
+    randomOrder={{ candidates: true }}
+    mode="sets"
+>
+    <MatchTarget matches={[<TextBox>Red</TextBox>, <TextBox>Yellow</TextBox>]}>
+        <Para>Colours</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>6</TextBox>, <TextBox>1</TextBox>]}>
+        <Para>Numbers</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Triangle</TextBox>]}>
+        <Para>Shapes</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+## Sets with sized targets
+
+This example has a background image with sized targets.
+
+Using `targetStyles` attribute you can adjust a few aspects including width and height (in pixels).
+These will apply to all targets.
+
+If you want to customise a specific target you can put `styles` on individual `MatchTarget`
+elements and any properties set here will trump the shared ones.
+
+<MatchingActivity
+    unmatched={[<TextBox>Odd One Out</TextBox>]}
+    direction={{
+        sets: 'down',
+        candidates: 'left',
+        targets: 'right',
+    }}
+    background={
+        <Image
+            src={datataonga}
+            tooltip="Data as taonga; drag and drop"
+            width={800}
+        />
+    }
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    randomOrder={{ candidates: true }}
+    mode="sets"
+    targetStyles={{
+        width: 220,
+        height: 180,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox>Kokako</TextBox>, <TextBox>Convovulus</TextBox>]}
+        position={{ left: 26, top: 180 }}
+    ></MatchTarget>
+    <MatchTarget
+        matches={[<TextBox>Tiki</TextBox>, <TextBox>Jandal</TextBox>]}
+        position={{ left: 289, top: 180 }}
+    ></MatchTarget>
+    <MatchTarget
+        matches={[<TextBox>Christmas Lunch</TextBox>]}
+        position={{ left: 550, top: 180 }}
+        styles={{ width: 220, height: 60 }}
+    ></MatchTarget>
+</MatchingActivity>

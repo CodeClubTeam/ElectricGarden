@@ -1,0 +1,9 @@
+dist/
+node_modules/
+
+# deploy package artifacts
+function-app.zip
+
+# Azure Functions artifacts
+local.settings.json
+azure-functions-core-tools/.telemetry

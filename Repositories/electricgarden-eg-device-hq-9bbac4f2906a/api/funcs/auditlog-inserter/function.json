@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-audit-log",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    },
+    {
+      "type": "table",
+      "name": "auditlog",
+      "tableName": "auditlog",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/auditlog-inserter/index.js"
+}

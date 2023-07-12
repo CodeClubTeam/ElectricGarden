@@ -1,0 +1,60 @@
+{
+  "points": [
+    {
+      "timestamp": "2019-10-22T06:03:48.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10,
+        "probe_moisture": 4.8
+      }
+    },
+    {
+      "timestamp": "2019-10-22T06:33:31.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10,
+        "probe_moisture": 4.8
+      }
+    },
+    {
+      "timestamp": "2019-10-22T07:03:15.000Z",
+      "readings": {
+        "probe_soil_temp": 12,
+        "probe_air_temp": 10.5,
+        "probe_moisture": 4.8
+      }
+    },
+    {
+      "timestamp": "2019-10-22T07:33:02.000Z",
+      "readings": {
+        "probe_soil_temp": 11.5,
+        "probe_air_temp": 4.5,
+        "probe_moisture": 8.9
+      }
+    },
+    {
+      "timestamp": "2019-10-22T08:02:41.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "probe_moisture": 8.2
+      }
+    },
+    {
+      "timestamp": "2019-10-22T08:32:24.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "probe_moisture": 8
+      }
+    },
+    {
+      "timestamp": "2019-10-22T09:02:07.000Z",
+      "readings": {
+        "probe_soil_temp": 10.5,
+        "probe_air_temp": 6.5,
+        "probe_moisture": 8
+      }
+    }
+  ]
+}

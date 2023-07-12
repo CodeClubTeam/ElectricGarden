@@ -1,0 +1,13 @@
+{
+  "folder": "ingest",
+  "statics": [
+    "function.json"
+  ],
+  "functions": [
+    "catm1",
+    "webhooks-stripe",
+    "sample-receiver",
+    "ping",
+    "device-inactivity"
+  ]
+}

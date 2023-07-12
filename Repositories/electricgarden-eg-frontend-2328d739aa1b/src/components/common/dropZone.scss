@@ -1,0 +1,44 @@
+.dropzone {
+    height: 300px;
+    font-family: Helvetica;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    margin: 10px 50px;
+    border: 2px solid lightgrey;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    label {
+        color: #53b848;
+        font-weight: normal;
+    }
+}
+
+.dropzone-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dragOver {
+    background-color: rgb(169, 198, 255) !important;
+    border: solid 2px rgb(61, 108, 201) !important;
+}
+
+.dragOver {
+    * {
+        pointer-events: none;
+    }
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}

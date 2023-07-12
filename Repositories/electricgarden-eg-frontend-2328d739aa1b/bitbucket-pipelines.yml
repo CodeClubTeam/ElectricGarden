@@ -1,0 +1,67 @@
+image: node:12
+clone:
+  depth: 1
+pipelines:
+  default:
+    - step:
+        name: Feature branch build
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build
+          - yarn test
+        caches:
+          - node
+          - jest
+  branches:
+    develop:
+      - step:
+          name: Dev build
+          script:
+            - yarn install --frozen-lockfile
+            - yarn build # build output has ZZZ_REACT_APP_zyx_ZZZ tokens to for apply-configuration step below
+            - yarn test
+          caches:
+            - node
+            - jest
+          artifacts:
+            - build/**
+      - step:
+          name: Deploy to dev
+          deployment: dev
+          image: microsoft/azure-cli
+          script:
+            - apk update
+            - apk add nodejs # needed for next script to run
+            - ./scripts/apply-configuration.js # applies REACT_APP_xyz from environment to build output
+            # we have to download azcopy because it inexplicably isn't in the offical azure cli image
+            # despite az storage commands depending on it
+            - apk update
+            - apk add libc6-compat # https://devops.stackexchange.com/a/8007
+            - wget https://aka.ms/downloadazcopy-v10-linux
+            - tar -xvf downloadazcopy-v10-linux
+            - cp -v ./azcopy_linux_amd64_*/azcopy /usr/local/bin/
+            - az login --service-principal --tenant $AZURE_TENANT -u $AZURE_SP_NAME -p $AZURE_SP_PASSWORD
+            - az storage blob sync -c \$web --account-name $AZURE_STORAGE_ACCOUNT -s build
+            - az cdn endpoint purge --content-paths /index.html --resource-group $AZURE_RESOURCE_GROUP --profile-name $AZURE_CDN_PROFILE --name $AZURE_CDN_ENDPOINT
+    master:
+      - step:
+          name: Production build
+          script:
+            - yarn install --frozen-lockfile
+            - yarn build
+            - yarn test
+          caches:
+            - node
+            - jest
+          artifacts:
+            - build/**
+            - node_modules/**
+      - step:
+          name: Deploy to production
+          trigger: manual
+          script:
+            - yarn deploy:prod
+definitions:
+  caches:
+    jest: .jest-cache
+    azcopy: /usr/local/bin/azcopy

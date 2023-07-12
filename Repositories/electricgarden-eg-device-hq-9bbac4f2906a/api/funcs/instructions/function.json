@@ -1,0 +1,39 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "instructions/v1/{serial}/{aspect?}",
+      "methods": ["get", "post", "put", "delete"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "table",
+      "name": "table",
+      "tableName": "actions",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "blob",
+      "name": "settingsUpdatedFlag",
+      "path": "device-update-flags/{serial}.json",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING",
+      "direction": "out"
+    },
+    {
+      "type": "eventHub",
+      "name": "messagesToEventHub",
+      "connection": "EVENTHUB_SEND_CONNECTION",
+      "eventHubName": "messageHub",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/instructions/index.js"
+}

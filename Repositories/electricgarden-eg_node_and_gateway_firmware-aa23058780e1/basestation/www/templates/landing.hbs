@@ -1,0 +1,135 @@
+<h1>Welcome to the Electric Garden Gateway</h1>
+{{~#if gettingConfiguration~}}
+<p>Please wait, fetching device configuration...</p>
+{{~else~}} {{~#if config~}} {{~#with status.checklist~}}
+{{#*inline "status"}}
+    <span {{#if color~}} class="{{~color~}}" {{/if~}}></span>
+    <span>{{~title~}}</span>
+    {{/inline}}
+    <h4>Network connectivity</h4>
+    <div class="status-list">
+        {{~#if ap~}}
+        {{!--
+            {{~#if apDefault ~}}
+                {{~>status color="yellow" title="Default Password"~}}
+            {{~else~}} --}}
+                {{~>status color="green" title="Access Point"~}}
+                {{!--
+            {{~/if~}} --}}
+        {{~else~}}
+            {{~>status color="red" title="Access Point"~}}
+        {{~/if~}}
+        {{~#if sta~}} {{~>status color="green" title="WiFi Connected"}}
+        {{~else~}} {{~#if ipcfg~}} {{~>status color="yellow" title="WiFi Configured"~}} {{~else~}} {{~>status color="red" title="WiFi Not Configured"~}}
+        {{~/if~}} {{~/if~}} {{~#if lora~}} {{~>status
+    color="green" title="Sensor Network"~}} {{~else~}} {{~>status color="red" title="Sensor Network"~}}
+        {{~/if~}}
+    </div>
+    <h4>Cloud service connection</h4>
+    <div class="status-list">
+        {{~#if conduit~}}
+            {{~>status color="green" title="Event Stream Connected"~}} 
+        {{~else~}} 
+            {{~#if lora~}}
+                {{~>status color="yellow" title="Event Stream Idle"~}}
+            {{~else~}} 
+                {{~>status color="red" title="Event Stream Disconnected"~}}
+            {{~/if~}}
+        {{~/if~}}
+
+        {{~#if id~}}
+            {{~>status color="green" title="Heartbeat Dispatched"~}}
+        {{~else~}}
+            {{~>status color="yellow" title="Heartbeat Pending"~}}
+        {{~/if~}}
+    </div>
+    {{~/with~}} {{~#if status~}}
+    <!-- <h3>Access Point</h3> -->
+    {{~#if status.checklist.apDefault~}}
+    <!-- <span class="red">Warning: You are using the default password for your access point. It is strongly recommended that you change it.</span> -->
+    {{~/if~}}
+    <!--
+    <form method="POST" action="/ctrl/ap">
+        <label for="key">Network Key</label>
+        <input type="password" name="key" />
+        <input type="submit" name="apUpdate" value="Apply Settings" />
+    </form> -->
+    <h3>WiFi Connection</h3>
+    {{#if status.checklist.sta }}
+        <p>You are connected to {{status.ip.info.ssid}}.</p>
+    {{/if}}
+    <form method="GET" action="/data/scan" trip="wifi_scanning">
+        <input type="submit" name="scan"
+        {{#if wifi_scanning }}
+        value="Scanning..." disabled
+        {{else}}
+        value="Scan for WiFi"
+        {{/if}}>
+    </form>
+    {{#if configure_wlan }}
+        <div class="cover-all">
+            <div class="center-form">
+                <h2>Configure WiFi connection to {{configure_wlan.ssid}}</h2>
+                <form method="POST" action="/ctrl/connect" trip="wifi_connecting" aftersubmit="wifi_configure_disengage">
+                    {{#if wifi_connecting}}
+                        <label>Connecting to {{configure_wlan.ssid}}</label>
+                    {{else}}
+                        <label for="cfgwlan_password">WiFi Password</label><input id="cfgwlan_password" type="password" name="password">
+                        <input type="hidden" name="ssid" value="{{configure_wlan.ssid}}">
+                        <!--
+                        <label><input type="checkbox" name="dhcp" {{#if configure_wlan.dhcp}}checked{{/if}} 
+                        onchange="wifi_toggle_dhcp()">
+                        {{#if configure_wlan.dhcp}}
+                        Use DHCP</label>
+                        {{else}}
+                        Static configuration</label>               
+                        <label for="cfgwlan_ip">Static IP</label><input id="cfgwlan_ip" name="cfgwlan_ip" type="text">
+                        <label for="cfgwlan_mask">Mask</label><input id="cfgwlan_mask" name="cfgwlan_mask" type="text">
+                        <label for="cfgwlan_gateway">Gateway</label><input id="cfgwlan_gateway" name="cfgwlan_gateway" type="text">
+                        <label for="cfgwlan_dns">DNS</label><input id="cfgwlan_dns" name="cfgwlan_dns" type="text">
+                        {{/if}}
+                        -->
+                        <input type="submit" name="connect" value="Connect">
+                        <input type="button" name="cancel" value="Cancel" onclick="wifi_configure_disengage()">
+                    {{/if}}
+                </form>
+            </div>
+        </div>
+    {{/if}}
+    {{#if scan }}
+        <table><thead>
+            <th>SSID</th>
+            <th>Signal Strength</th>
+            <th>Connect</th>
+        </thead>
+        <tbody>
+        {{#each scan }}
+        <tr>
+            <td>
+                {{this.ssid}}
+            </td>
+            <td>
+                {{this.rssi}}
+            </td>
+            <td>
+                {{#if this.con}}
+                    <form method="POST" action="/ctrl/disconnect">
+                        <input type="hidden" name="ssid" value="{{this.ssid}}">
+                        <input type="submit" name="disconnect" value="Disconnect">
+                    </form>
+                {{else}}
+                    <button onclick='wifi_configure("{{this.ssid}}", "{{this.bssid}}")'>Connect</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+        </table>
+    {{/if}}
+    {{~else~}}
+    <p>Still negotiating with gateway...</p>
+    {{~/if~}} {{~else~}}
+    <p>No configuration present. Ensure you're connected to the Electric Garden Gateway WiFi
+        <i>electricgarden</i>
+    </p>
+    {{~/if~}} {{~/if~}}

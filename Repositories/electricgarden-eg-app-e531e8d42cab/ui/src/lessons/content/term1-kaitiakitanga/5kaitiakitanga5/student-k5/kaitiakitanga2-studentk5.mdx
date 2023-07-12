@@ -1,0 +1,1053 @@
+---
+name: student-kaitiakitanga5
+title: 1.5 Kaitiakitanga (Tuarua)
+level: 3
+ordinal: 50
+locked: false
+publish: production
+coverImagePath: ./kauribanner.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+    ImageText,
+    MatchingBox,
+    HorizontalLayout,
+    VerticalLayout,
+} from '../../../../activities';
+
+import kauribanner from './kauribanner.png';
+import nature from './nature1.png';
+import culture from './culture1.png';
+import people from './people1.png';
+import truth from './truth1.png';
+import insight from './insight1.png';
+import care from './care1.png';
+import truth2 from './truth2.png';
+import insight2 from './insight2.png';
+import care2 from './care2.png';
+
+import naturebackground from './naturebackground.png';
+import fantail from './fantail.png';
+import tree from './tree.png';
+import dolphin from './dolphin.png';
+import chat from './chat.png';
+import pounamu from './pounamu.png';
+import firefighters from './firefighters.png';
+import teacher from './teacher.png';
+import grandad from './grandad.png';
+
+import naturebg from './naturebg.png';
+import culturebg from './culturebg.png';
+import peoplebg from './peoplebg.png';
+import fish from './fish1.png';
+import books from './books1.png';
+import hongi from './hongi1.png';
+import doc from './doc1.png';
+import school from './teacher1.png';
+import sibling from './sibling1.png';
+import rain from './rain1.png';
+import tomato from './tomato1.png';
+import speech from './speech1.png';
+
+import hetaongararaunga from './hetaongararaunga1.png';
+import datataonga from './datataonga.png';
+import mauriometer from './mauriometer1.png';
+import destroyed from './destroyed.png';
+import diminishing from './diminishing.png';
+import maintaining from './maintaining.png';
+import enhancing from './enhancing.png';
+import restored from './restored.png';
+import destroyed1 from './destroyed1.png';
+import diminishing1 from './diminishing1.png';
+import maintaining1 from './maintaining1.png';
+import enhancing1 from './enhancing1.png';
+import restored1 from './restored1.png';
+
+import maraeeg1 from './maraeeg1.png';
+import whakapapahuhana from './whakapapahuhana2.png';
+import gardenwhakapapa from './gardenwhakapapa1.png';
+import icon10 from './icon10.png';
+import icon20 from './icon20.png';
+import icon30 from './icon30.png';
+import icon40 from './icon40.png';
+import icon50 from './icon50.png';
+import icon60 from './icon60.png';
+import icon70 from './icon70.png';
+import icon80 from './icon80.png';
+
+import wharenuibg from './wharenuibg.png';
+import pou1 from './pou2.png';
+import heke from './heke1.png';
+import kowhaiwhai from './tahuhu.png';
+import door from './door1.png';
+import window from './window1.png';
+import tukutuku from './tukutuku1.png';
+
+import complete1_5 from './complete1_5.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.5 Kaitiakitanga (Tuarua)**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={kauribanner} border="true" />
+</Figure>
+
+<br />
+
+##### Kia haere ki te mahi! It's time for you to complete your **online project** to build on your knowledge of **data**, **taonga**, and **kaitiakitanga**.
+
+##### Good luck, do your best, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He taonga</TextBox>]}>
+        <Para>Treasure</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He whakapapa</TextBox>]}>
+        <Para>Genealogy</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He mauri</TextBox>]}>
+        <Para>Essence of Life</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Ngā</TextBox>]}>
+        <Para>
+            The <i>(plural)</i>
+        </Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** with the proper category of taonga:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Te taiao</TextBox>]}>
+        <ImageWithText src={nature} text={'Nature'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te ahurea</TextBox>]}>
+        <ImageWithText src={culture} text={'Culture'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He tāngata</TextBox>]}>
+        <ImageWithText src={people} text={'People'} />
+    </MatchTarget>
+</MatchingActivity>
+
+#### **3.** Match the **kupu Māori** with the proper principles:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Te tika</TextBox>]}>
+        <ImageWithText src={truth} text={'Truth'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te māramatanga</TextBox>]}>
+        <ImageWithText src={insight} text={'Insight'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te aroha</TextBox>]}>
+        <ImageWithText src={care} text={'Care'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## He Taonga {#taonga}
+
+### What is **taonga**?
+
+<Captioned>
+    He aha <b>he taonga</b>?
+</Captioned>
+
+#### **4.** What do we mean when we talk about taonga?
+
+<MultiChoiceActivity
+    question="Taonga are:"
+    choices={[
+        {
+            label: 'treasures, or the precious things we care about',
+            correct: true,
+            feedback: 'Kei te pai! What are some of your taonga?',
+        },
+        {
+            label: 'only money, gold, and expensive treasures',
+            feedback: 'Kāore! Taonga are not just material wealth!',
+        },
+        {
+            label: 'things that no one should care about',
+            feedback: 'Kāore! Quite the opposite!',
+        },
+        {
+            label: 'all of these',
+            feedback: 'Kāore! Some of these options contradict each other!',
+        },
+    ]}
+/>
+
+### **Examples in Nature**
+
+<Captioned>
+    <b>He tauira i te taiao</b>
+</Captioned>
+
+#### **5.** Match the **taonga** with the proper **nature category**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Te rangi" />
+            <MatchingBox title="Te whenua" />
+            <MatchingBox title="Te moana" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={rain} text={'Rain'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Sky )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={tomato} text={'Tomatoes'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Land )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={fish} text={'Fish'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Sea )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+### **Examples in Culture**
+
+<Captioned>
+    <b>He tauira i te ahurea</b>
+</Captioned>
+
+#### **6.** Match the **taonga** with the proper **culture category**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Te reo" />
+            <MatchingBox title="Te mātauranga" />
+            <MatchingBox title="He tikanga" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={speech} text={'Communication'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Language )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={books} text={'Books'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Knowledge )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={hongi} text={'Te hongi'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Customs )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+### **Examples with People**
+
+<Captioned>
+    <b>He tauira mō ngā tāngata</b>
+</Captioned>
+
+#### **7.** Match the **taonga** with the proper **people category**:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Te hapori" />
+            <MatchingBox title="Te kura" />
+            <MatchingBox title="Te whānau" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={doc} text={'DOC Rangers'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Community )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={school} text={'Teachers'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( School )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={sibling} text={'Siblings'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Family )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+## Data as Taonga {#data-taonga}
+
+### Understanding **Data as Taonga**
+
+<Captioned>
+    <b>He taonga ngā raraunga</b>
+</Captioned>
+
+##### We can think of data as taonga because **it holds information about ourselves and our world**.
+
+##### Information affects **our understanding** of the world we live in, and so also the **decisions we make**.
+
+<br />
+
+<Figure>
+    <ImageWithBorder
+        src={hetaongararaunga}
+        border="true"
+        borderColor="#2ed03c"
+    />
+</Figure>
+
+<br />
+
+##### For example, the Electric Garden data is **not the same** as the garden itself.
+
+##### However, the data numbers measure aspects of **what is really going on** outside in the garden.
+
+##### So this information **represents** the environment and garden that we treasure.
+
+##### It can help us understand what's going on so we can **make informed decisions** about caring for the garden.
+
+<br />
+
+##### We can see the same importance of data for representing the people, places, and things that surround us.
+
+#### **8.** Which of these examples of data can be used to represent **you**?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'date of birth', correct: true },
+        { label: 'home address', correct: true },
+        { label: 'whakapapa', correct: true },
+        { label: 'favourite food', correct: true },
+        { label: 'photos of you', correct: true },
+        { label: 'air temperature' },
+        { label: 'light levels' },
+        { label: 'soil temperature' },
+        { label: 'humidity levels' },
+        { label: 'photos of the garden' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+### **Examples from the Wharenui**
+
+<Captioned>
+    <b>He tauira i te wharenui</b>
+</Captioned>
+<Figure>
+    <ImageWithBorder src={maraeeg1} border="true" borderColor="#2ed03c" />
+</Figure>
+
+<br />
+
+##### It doesn't just take measurements and digital device to find data in the world around us.
+
+##### In every culture, people always find ways to create, store, and share data that represents the things that are important to them.
+
+##### Let's take a look at some examples of data stored in the **wharenui** of a **marae** here in Aoteroa New Zealand:
+
+<br />
+
+#### **9.** Can you identify how areas of a wharenui hold precious data?
+
+##### **A) Match each part of a wharenui with the correct name and description:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Te kūwaha" />
+            <MatchingBox title="Ngā matapihi" />
+            <MatchingBox title="Ngā pou" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={door} text={'Main Door'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                This threshold separates inside from outside. If the wharenui
+                were a digital device, it might represent the input and output
+                portal where information is sent and received.
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={window} text={'Windows'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                These portals connect with the spirits of the departed. If the
+                wharenui were a digital device, they might represent the Cloud,
+                connecting with stored data from the past.
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={pou1} text={'Columns'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                These support the structure of the wharenui and the mana, or
+                authority, of the wharenui's kaitiaki. If part of a digital
+                device, they might represent care and responsibility for data.
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+##### **B) Match each part of a wharenui with the correct name and description:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Ngā heke" />
+            <MatchingBox title="Te tāhuhu" />
+            <MatchingBox title="He tukutuku" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={heke} text={'Rafters'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                These support the structure of the wharenui and the mana, or
+                strength, of the wharenui's kaitiaki. If part of a digital
+                device, they might represent privacy and security of data.
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={kowhaiwhai} text={'Ridge Beam'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                This is the backbone the wharenui, often decorated with
+                kōwhaiwhai designs that record and share important knowledge
+                over generations, like the hard drive of a digital device.
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={tukutuku} text={'Panels'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200}>
+            <Para>
+                These show intricate woven or painted patterns with unique
+                names, designs, and stories of rawa, or resources. If part of a
+                digital device, they might represent programs and files.
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+## Whakapapa & Mauri {#whakapapa-mauri}
+
+### **Whakapapa as Data**
+
+<Captioned>
+    <b>Ngā raraunga i te whakapapa</b>
+</Captioned>
+
+##### Another example of data is whakapapa, or **the history and connections of people and places**.
+
+##### Whakapapa is important knowledge of how people relate to each other and to the places they are from.
+
+##### Let's take a look at a bit of Hūhana's whakapapa in the form of a family tree.
+
+<br />
+
+#### **10.** Can you help Hūhana organise her whakapapa data?
+
+##### **Match the labels with the correct family relatives:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <Image
+            src={whakapapahuhana}
+            tooltip="Whakapapa for Hūhana"
+            width={800}
+        />
+    }
+    direction={{
+        candidates: 'down',
+        targets: 'right',
+    }}
+    positions={{ candidates: { top: 0, right: 0 } }}
+    targetStyles={{ background: 'grey' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Grandmother</TextBox>]}
+        position={{ left: 231, top: 83 }}
+        backgroundColor={'#ec008c'}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Kui
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Grandfather</TextBox>]}
+        position={{ left: 412, top: 83 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Koro
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Mother</TextBox>]}
+        position={{ left: 322, top: 229 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Māmā
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Father</TextBox>]}
+        position={{ left: 503, top: 229 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Pāpā
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Partner</TextBox>]}
+        position={{ left: 141, top: 375 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Tāne
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Brother</TextBox>]}
+        position={{ left: 503, top: 375 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Nikau
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Sister</TextBox>]}
+        position={{ left: 684, top: 375 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Aroha
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Baby Son</TextBox>]}
+        position={{ left: 322, top: 522 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Tama
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox minWidth={'110px'}>Daughter</TextBox>]}
+        position={{ left: 140, top: 522 }}
+    >
+        <Box width={110} height={42}>
+            <Para color={'white'} size={16}>
+                Māia
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+<br />
+
+###### _**Note:** All of the relationships are from Hūhana's perspective._
+
+### **Data for Mauri**
+
+<Captioned>
+    <b>Ngā raraunga mō te mauri</b>
+</Captioned>
+
+##### Data can link with the real world to help us care for the **mauri** of our taonga.
+
+##### Mauri is **life essence** that we help to care for with our actions as tuākana, tēina, and kaitiaki.
+
+##### To help us think abour mauri, we can think about it on the specturm of this **mauri-o-meter**:
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={mauriometer} border="true" />
+</Figure>
+
+###### _**Note:** Based on the Mauri Model Decision Making Framework (MMDMF)_
+
+<br />
+
+###### This scale is a tool for measuring how our decisions and actions **impact the life essence** of the world around us.
+
+###### For example, a reading of **0** on the mauri-o-meter means that the life force is sustained.
+
+###### Then, depending on what we do, we can **support** (+1, +2) or **impair** (-1, -2) the strength of that force.
+
+<br />
+
+##### Let's take a look at an example of an indoor classroom plant to test how our decisions impact **mauri**.
+
+#### **Use this Trinket program to practice caring for an indoor plant:**
+
+###### Read the prompts and use the **commands: A, B, or C** to make decisions about caring for the plant.
+
+###### Can you grow the plant into a full-grown flower? What happens when you don't make the best decision?
+
+###### Keep an eye on the **mauri-o-meter** to see how your decisions impact the life essence:
+
+<Trinket
+    trinketId="python/14d0612185?outputOnly=true&start=result"
+    height="700"
+/>
+
+<br />
+
+##### **11.** How did it go? Did you have any issues? What did you do to support the mauri of the indoor plant?
+
+<MultiChoiceActivity
+    question="Did you help nurture the seed into a blossoming flower?"
+    randomise={false}
+    choices={[
+        {
+            label: 'Yes! I supported the mauri of the plant to help it thrive!',
+            correct: true,
+            feedback:
+                'Kei te pai koe!! Now can you think about how your actions support mauri in the real world?!',
+        },
+        {
+            label: "No! I can't get the plant to grow . . .",
+            feedback:
+                "No worries, tēnā āno! Have another go and really think about the impact of decision with each command. You've got this!",
+        },
+    ]}
+/>
+
+### **Whakapapa & Mauri in the Garden**
+
+<Captioned>
+    <b>Te whakapapa me te mauri i te māra</b>
+</Captioned>
+
+##### The Electric Garden data graph helps keeps a record of what's happened in the garden.
+
+##### So, in a way, it is a tool for understanding **a part of the whakapapa** for your garden.
+
+##### Every time you take an action, you can log it on the graph to keep a history your contributions to the mauri of your garden.
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={gardenwhakapapa} />
+</Figure>
+
+<br />
+
+##### Let's practice identifying the different types of events that you can log with the Electric Garden.
+
+#### **12.** Match the events with the EG Data Graph garden activities:
+
+##### **A) Match the activities with their proper icon:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget
+        matches={[<TextBox maxWidth={14}>Cleared unwanted plants</TextBox>]}
+    >
+        <ImageWithText src={icon10} text={'Weeded'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={14}>
+                Put new seeds and plants in the ground
+            </TextBox>,
+        ]}
+    >
+        <ImageWithText src={icon20} text={'Planted'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[<TextBox maxWidth={14}>Picked and gathered food</TextBox>]}
+    >
+        <ImageWithText src={icon30} text={'Harvested'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={14}>
+                Trimmed plants to keep them healthy
+            </TextBox>,
+        ]}
+    >
+        <ImageWithText src={icon40} text={'Pruned'} />
+    </MatchTarget>
+</MatchingActivity>
+
+<br />
+
+##### **B) Match the activities with their proper icon:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down' }}
+    randomOrder={{
+        candidates: true,
+        targets: true,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={14}>Provided water for the garden</TextBox>,
+        ]}
+    >
+        <ImageWithText src={icon50} text={'Watered'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={14}>Provided nutrients for the soil</TextBox>,
+        ]}
+    >
+        <ImageWithText src={icon60} text={'Fertilised'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={14}>Seeds sprouted out of the soil</TextBox>,
+        ]}
+    >
+        <ImageWithText src={icon70} text={'Germinated'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox maxWidth={14}>Uploaded a photo</TextBox>]}>
+        <ImageWithText src={icon80} text={'Photographed'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Looking after Data {#looking-after-data}
+
+###
+
+<Captioned>
+    <b>Te tika</b>
+</Captioned>
+<Figure>
+    <RoundImage src={truth2} />
+</Figure>
+
+#### **13.** What qualities do we look for in data when we think about _**tika**_?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'truth', correct: true },
+        { label: 'accuracy', correct: true },
+        { label: 'fairness', correct: true },
+        { label: 'appropriateness', correct: true },
+        { label: 'fakeness' },
+        { label: 'deceit' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+###
+
+<Captioned>
+    <b>Te māramatanga</b>
+</Captioned>
+<Figure>
+    <RoundImage src={insight2} />
+</Figure>
+
+#### **14.** What qualities do we look for in data when we think about _**māramatanga**_?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'knowledge', correct: true },
+        { label: 'insight', correct: true },
+        { label: 'understanding', correct: true },
+        { label: 'perspective', correct: true },
+        { label: 'nonsense' },
+        { label: 'confusion' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+###
+
+<Captioned>
+    <b>Te aroha</b>
+</Captioned>
+<Figure>
+    <RoundImage src={care2} />
+</Figure>
+
+#### **15.** What qualities do we look for in data when we think about _**aroha**_?
+
+<MultiChoiceActivity
+    question="Select all that apply:"
+    choices={[
+        { label: 'respect', correct: true },
+        { label: 'care', correct: true },
+        { label: 'consideration', correct: true },
+        { label: 'fairness', correct: true },
+        { label: 'disrespect' },
+        { label: 'bullying' },
+    ]}
+    feedback={{
+        allCorrect: 'Ka pai! You got them all!',
+        someCorrect: 'At least one right!',
+        noneCorrect: 'Nope, try again! Tēnā anō',
+        notEnough: 'Can you find any more?',
+        tooMany:
+            "You got all the right ones, but some choices don't fit. Tēnā anō",
+    }}
+/>
+
+## Conclusion {#conclusion}
+
+#### Tumeke, tau kē! You've made it, **congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_5} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **taonga**, **whakapapa**, and **mauri**!
+
+##### Well done, and all the best in your studies to come!

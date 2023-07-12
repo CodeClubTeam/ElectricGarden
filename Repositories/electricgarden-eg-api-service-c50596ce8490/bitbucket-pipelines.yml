@@ -1,0 +1,26 @@
+# Docker Image to use.
+image: node:10
+
+pipelines:
+  default:
+    - step:
+        name: build
+        script: # Modify the commands below to build your repository.
+          - yarn install --frozen-lockfile # frozen-lockfile causes the build to error if the yarn.lock is out of date (e.g. someone forgot to commit it).
+          - yarn run build
+  branches:
+    develop:
+      - step:
+          name: build
+          script:
+            - yarn install --frozen-lockfile # frozen-lockfile causes the build to error if the yarn.lock is out of date (e.g. someone forgot to commit it).
+            - yarn run build
+          artifacts:
+            - cli/deploy/dist/azure-func.zip
+      - step:
+          name: Deploy to dev
+          deployment: dev
+          image: microsoft/azure-cli
+          script:
+            - az login --service-principal --tenant $AZURE_TENANT -u $AZURE_SP_NAME -p $AZURE_SP_PASSWORD
+            - az functionapp deployment source config-zip -g $AZURE_RESOURCE_GROUP -n $AZURE_FUNCTIONS_APPSVC --src cli/deploy/dist/azure-func.zip

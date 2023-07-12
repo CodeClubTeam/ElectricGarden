@@ -1,0 +1,18 @@
+[
+  {
+    "sku": "asc001",
+    "name": "Strap",
+    "description": "Strap for securing device.",
+    "priceCents": 700,
+    "category": "Accessories",
+    "imageUrl": null
+  },
+  {
+    "sku": "egship001",
+    "name": "Electric Garden Device Shipping",
+    "description": "Electric Garden Device Shipping.",
+    "priceCents": 1350,
+    "category": "Shipping",
+    "imageUrl": null
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "sensor-envelopes",
+      "connection": "egorchastrationstore_STORAGE"
+    }
+  ],
+  "disabled": false
+}

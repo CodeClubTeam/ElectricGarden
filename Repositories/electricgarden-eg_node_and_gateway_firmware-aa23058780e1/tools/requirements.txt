@@ -1,0 +1,4 @@
+pyserial
+mpy_cross
+websocket
+pymongo[tls]

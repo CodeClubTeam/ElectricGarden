@@ -1,0 +1,25 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "errors/v1/{serial}",
+      "methods": ["post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "eventHub",
+      "name": "messagesToEventHub",
+      "connection": "EVENTHUB_SEND_CONNECTION",
+      "eventHubName": "messageHub",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/errors-catm1/index.js"
+}

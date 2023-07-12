@@ -1,0 +1,1024 @@
+---
+name: student-sequencing6
+title: 1.6 Sequencing & Algorithms
+level: 3
+ordinal: 60
+locked: false
+publish: production
+coverImagePath: ./musicbanner1.png
+# badges:
+#     required: Gardener
+#     earned:
+#         - Growing your first vegetable
+---
+
+import { Button } from '../../../../../atomic-ui';
+import {
+    MatchingActivity,
+    MatchTarget,
+    CannedChart,
+    Para,
+    MultiChoiceActivity,
+    Image,
+    ImageWithText,
+    TextBox,
+    Box,
+    CollapsablePanel,
+    Spreadsheet,
+    Captioned,
+    Figure,
+    RoundImage,
+    ExampleCode,
+    ImageWithBorder,
+    Trinket,
+    ImageText,
+    MatchingBox,
+    HorizontalLayout,
+    VerticalLayout,
+} from '../../../../activities';
+
+import musicbanner1 from './musicbanner1.png';
+import programmer from './programmer1.png';
+import tester from './tester1.png';
+import computer from './computer1.png';
+
+import raupapa from './raupapa3.png';
+
+import nicko from './nicko1.png';
+import huhana from './huhana1.png';
+import mia from './mia1.png';
+
+import check from './check2.png';
+import fasten from './fasten2.png';
+import remove from './remove2.png';
+import install from './install2.png';
+import sequence from './sequence1.png';
+
+import washhands from './washhands.png';
+import soap from './ringasoap.png';
+import wash from './ringawash.png';
+import rinse from './ringarinse.png';
+import dry from './ringadry.png';
+
+import hatepe from './hatepe1.png';
+import waehere from './waehere1.png';
+import reopapatono from './python1.png';
+import koromeke from './koromeke1.png';
+
+import north from './dirnorth.png';
+import south from './dirsouth.png';
+import east from './direast.png';
+import west from './dirwest.png';
+
+import dig from './gardentask_dig1.png';
+import sow from './gardentask_sow1.png';
+import cover from './gardentask_cover1.png';
+import next from './gardentask_next1.png';
+import forloop from './forloop.png';
+import loop from './loop.png';
+
+import complete1_6 from './complete1_6.gif';
+
+## Introduction {#introduction}
+
+#### Welcome to your **Student Project** for lesson **1.6 Sequencing & Algorithms**!
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={musicbanner1} border="true" />
+</Figure>
+
+<br />
+
+##### Kia ora e te whānau! It's time for you to complete your **online project** to build on your knowledge of **sequencing** and **algorithms**.
+
+##### Good luck, do your best, and have fun!
+
+## He Kupu Māori {#kupu}
+
+#### **1.** Match the **kupu Māori** with the correct English description:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'up' }}
+    backgroundColor={'grey'}
+    columns={2}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>He raupapa</TextBox>]}>
+        <Para>Sequence</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He hātepe</TextBox>]}>
+        <Para>Algorithm</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He waehere</TextBox>]}>
+        <Para>Code</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te tuhi</TextBox>]}>
+        <Para>Write, Draw, Record</Para>
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>He koromeke</TextBox>]}>
+        <Para>Loop</Para>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **2.** Match the **kupu Māori** with the proper icon for each role:
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: false,
+        targets: true,
+    }}
+>
+    <MatchTarget matches={[<TextBox>Kaituhiwaehere</TextBox>]}>
+        <ImageWithText src={programmer} text={'Programmer'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Kaiwhakamātau</TextBox>]}>
+        <ImageWithText src={tester} text={'Tester'} />
+    </MatchTarget>
+    <MatchTarget matches={[<TextBox>Te rorohiko</TextBox>]}>
+        <ImageWithText src={computer} text={'Computer'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Sequencing {#sequencing}
+
+### What is a **sequence**?
+
+<Captioned>
+    He aha <b>te raupapa</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={raupapa} />
+</Figure>
+
+<br />
+
+#### **3.** Which answer best describes a sequence?
+
+<MultiChoiceActivity
+    question="A sequence is:"
+    choices={[
+        {
+            label: 'the specific order that instructions are followed',
+            correct: true,
+            feedback:
+                "Kei te pai, that's right! The word 'sequence' comes from the Latin meaning 'to follow'. Cool, eh!",
+        },
+        {
+            label: 'the program for the sequel of a popular video game',
+            feedback:
+                "Kāore, although the word 'sequel' has the same root meaning!",
+        },
+        {
+            label:
+                'the code for the consequences of following instructions out of order',
+            feedback:
+                "Kāore, although the word 'consequence' has the same root meaning!",
+        },
+        {
+            label: 'the random order that instructions are followed',
+            feedback: "Kāore! That's nearly the opposite!",
+        },
+    ]}
+/>
+
+<br />
+
+##### Now that you know what a sequence is, let's practise sequencing some of our activities:
+
+#### **4.** What's the sequence for setting up an EG device?
+
+##### **Arrange the steps in the proper order to get our EG up and running:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Ko te Tuatahi" />
+            <MatchingBox title="Ko te Tuarua" />
+            <MatchingBox title="Ko te Tuatoru" />
+            <MatchingBox title="Ko te Tuawhā" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={remove} text={'Remove screws'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( First )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={install} text={'Install batteries'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Second )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={check} text={'Check LEDs'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Third )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={fasten} text={'Fasten screws'} />]}
+        position={{ left: 650, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Fourth )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+#### **5.** What's the sequence for washing our hands?
+
+##### **Arrange the steps in the proper order to keep clean and safe:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{
+        success: 'Kei te pai, well done!',
+        fail: 'Not quite, try again!',
+    }}
+    background={
+        <HorizontalLayout>
+            <MatchingBox title="Ko te Tuatahi" />
+            <MatchingBox title="Ko te Tuarua" />
+            <MatchingBox title="Ko te Tuatoru" />
+            <MatchingBox title="Ko te Tuawhā" />
+        </HorizontalLayout>
+    }
+    direction={{
+        candidates: 'right',
+        targets: 'center',
+    }}
+    targetStyles={{ border: '1px black dotted' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[<ImageWithText src={soap} text={'Apply soap'} />]}
+        position={{ left: 20, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( First )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={wash} text={'Wash hands'} />]}
+        position={{ left: 231, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Second )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={rinse} text={'Rinse hands'} />]}
+        position={{ left: 440, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Third )
+            </Para>
+        </Box>
+    </MatchTarget>
+    <MatchTarget
+        matches={[<ImageWithText src={dry} text={'Dry hands'} />]}
+        position={{ left: 650, top: 59 }}
+    >
+        <Box width={160} height={200} subtitle={true}>
+            <Para color="#ec008c" size={18}>
+                ( Fourth )
+            </Para>
+        </Box>
+    </MatchTarget>
+</MatchingActivity>
+
+### **Our Programming Experiment**
+
+##### During our lesson, we tried an activity to practise sequencing like a computer program.
+
+##### In the experiment, there were three roles to mimic different parts of creating and running a program.
+
+<br />
+
+#### **6.** Can you identify the three essential roles we practised?
+
+##### **Match each role description with the proper title:**
+
+<MatchingActivity
+    unmatched={[]}
+    feedback={{ success: 'Ka pai', fail: 'Kāore, tēnā anō' }}
+    direction={{ sets: 'right', matches: 'down', targets: 'right' }}
+    randomOrder={{
+        candidates: true,
+        targets: false,
+    }}
+>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={18}>
+                The role of creator, who must only write instructions exactly as
+                they will be followed
+            </TextBox>,
+        ]}
+    >
+        <ImageWithText src={huhana} text={'Programmer'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={18}>
+                The role of software, who must only read the instruction exactly
+                as they are written
+            </TextBox>,
+        ]}
+    >
+        <ImageWithText src={mia} text={'Tester'} />
+    </MatchTarget>
+    <MatchTarget
+        matches={[
+            <TextBox maxWidth={18}>
+                The role of hardware, who must only follow instructions exactly
+                as they are read
+            </TextBox>,
+        ]}
+    >
+        <ImageWithText src={nicko} text={'Computer'} />
+    </MatchTarget>
+</MatchingActivity>
+
+## Algorithms {#algorithms}
+
+### What is an **algorithm**?
+
+<Captioned>
+    He aha <b>te hātepe</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={hatepe} />
+</Figure>
+
+<br />
+
+#### **7.** Which answer best describes an algorithm?
+
+<MultiChoiceActivity
+    question="An algorithm is:"
+    choices={[
+        {
+            label: 'a set of step-by-step instructions used to complete a task',
+            correct: true,
+            feedback: "Ka pai! It's really more simple than it sounds, eh!",
+        },
+        {
+            label: 'a set of directions that is incomplete',
+            feedback: "Kāore, you won't get much done in that case!",
+        },
+        {
+            label: 'a poem with rhythm about programming devices',
+            feedback:
+                "Kāore, but go ahead and try writing a poem if you're keen!",
+        },
+        {
+            label: 'a programming language used by the Electric Garden',
+            feedback:
+                "Kāore, that one's named after a snake...remeber which one?",
+        },
+    ]}
+/>
+
+### **Algorithms for Giving Directions**
+
+##### Hūhana needs help checking all of the Electric Garden devices around town.
+
+##### Let's use Trinket to enter commands and create an algorithm to show her the way.
+
+##### We'll use the four **cardinal directions** (north, south, east, and west) to give directions:
+
+<Figure>
+    <ImageWithText src={north} text={'North'} />
+    <ImageWithText src={south} text={'South'} />
+    <ImageWithText src={east} text={'East'} />
+    <ImageWithText src={west} text={'West'} />
+</Figure>
+
+##### For each command, type **go** plus a **cardinal direction**, then press **enter** to see Hūhana move.
+
+###### For example:
+
+<ExampleCode>{`> go east`}</ExampleCode>
+
+<br />
+
+##### _Continue below to help guide Hūhana around the different maps!_
+
+### **Post Office >>> Hapori Gardens**
+
+#### **8.** Help guide Hūhana from the post office to check the Hapori Gardens EG device:
+
+<Trinket
+    trinketId="python/6461b93f9a?outputOnly=true&runOption=run&start=result"
+    height="560"
+    width="560"
+/>
+
+<br />
+
+##### **A)** Did you manage to get Hūhana to her destination?
+
+<MultiChoiceActivity
+    question=""
+    randomise={false}
+    choices={[
+        {
+            label: 'Yes! I entered commands to get her across town!',
+            correct: true,
+            feedback:
+                'Ka pai, nice algorithm!! Now use your awesome skills again with the next map!',
+        },
+        {
+            label: "No! I can't get her to go the right way...",
+            feedback:
+                'No worries, tēnā āno! Have another go, and make sure you enter directions like the example above. Double check that the spelling and spaces are just right!',
+        },
+    ]}
+/>
+
+##### **B)** What did you and Hūhana find at Hapori Gardens?
+
+<MultiChoiceActivity
+    question="Choose the description of the image you found at Hūhana's destination:"
+    choices={[
+        {
+            label: 'A row of onions growing out of the soil!',
+            correct: true,
+            feedback:
+                'Ka pai, nice algorithm!! Now use your awesome skills again with the next map!',
+        },
+        {
+            label: 'A flock of pīwakawaka fantail birds flying around!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A bunch of tomatoes ripening on the vine!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A bunch of bananas hanging from a tree!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+    ]}
+/>
+
+### **School >>> Pīwakawaka Reserve**
+
+#### **9.** Help guide Hūhana from her school to check the Pīwakawaka Reserve EG device:
+
+<Trinket
+    trinketId="python/00ff837486?outputOnly=true&runOption=run&start=result"
+    height="560"
+    width="560"
+/>
+
+<br />
+
+##### **A)** Did you manage to get Hūhana to her destination?
+
+<MultiChoiceActivity
+    question=""
+    randomise={false}
+    choices={[
+        {
+            label: 'Yes! I entered commands to get her across town!',
+            correct: true,
+            feedback:
+                'Ka pai, nice algorithm!! Now use your awesome skills again with the next map!',
+        },
+        {
+            label: "No! I can't get her to go the right way...",
+            feedback:
+                'No worries, tēnā āno! Have another go, and make sure you enter directions like the example above. Double check that the spelling and spaces are just right!',
+        },
+    ]}
+/>
+
+##### **B)** What did you and Hūhana find at Pīwakawaka Reserve?
+
+<MultiChoiceActivity
+    question="Choose the description of the image you found at Hūhana's destination:"
+    choices={[
+        {
+            label: 'A bunch of bananas hanging from a tree!',
+            correct: true,
+            feedback:
+                'Ka pai, nice algorithm!! Now use your awesome skills again with the next map!',
+        },
+        {
+            label: 'A flock of pīwakawaka fantail birds flying around!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A bunch of tomatoes ripening on the vine!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A row of onions growing out of the soil!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+    ]}
+/>
+
+### **Post Office >>> Hapori Gardens**
+
+#### **10.** Help guide Hūhana from the library to check the Lake Rakiraki EG device:
+
+<Trinket
+    trinketId="python/2827d9e371?outputOnly=true&runOption=run&start=result"
+    height="560"
+    width="560"
+/>
+
+<br />
+
+##### **A)** Did you manage to get Hūhana to her destination?
+
+<MultiChoiceActivity
+    question=""
+    randomise={false}
+    choices={[
+        {
+            label: 'Yes! I entered commands to get her across town!',
+            correct: true,
+            feedback:
+                "Ka pai, nice algorithm!! It seems you've really got the hang of this!",
+        },
+        {
+            label: "No! I can't get her to go the right way...",
+            feedback:
+                'No worries, tēnā āno! Have another go, and make sure you enter directions like the example above. Double check that the spelling and spaces are just right!',
+        },
+    ]}
+/>
+
+##### **B)** What did you and Hūhana find at Lake Rakiraki?
+
+<MultiChoiceActivity
+    question="Choose the description of the image you found at Hūhana's destination:"
+    choices={[
+        {
+            label: 'A bunch of tomatoes ripening on the vine!',
+            correct: true,
+            feedback:
+                'Ka pai, nice algorithm!! Now use your awesome skills again with the next map!',
+        },
+        {
+            label: 'A flock of pīwakawaka fantail birds flying around!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A bunch of bananas hanging from a tree!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+        {
+            label: 'A row of onions growing out of the soil!',
+            feedback:
+                'Hmmm, are you sure you ended up at the right place? Tēnā anō!',
+        },
+    ]}
+/>
+
+## Code {#code}
+
+### What is **code**?
+
+<Captioned>
+    He aha <b>te waehere</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={waehere} border="true" />
+</Figure>
+
+<br />
+
+#### **11.** Which answer best describes computer code?
+
+<MultiChoiceActivity
+    question="Code is:"
+    choices={[
+        {
+            label:
+                'the written text that makes instructions in a computer program',
+            correct: true,
+            feedback:
+                'Ka pai, e hoa! If a program were a book, code is like the letters and words that make up the sentences and paragraphs!',
+        },
+        {
+            label: 'the way you connect wires together',
+            feedback: 'Kāore, that sounds like a hardware matter!',
+        },
+        {
+            label: 'when you fix your computer by turning it off and on again',
+            feedback: 'Kāore, but that often does seem to work, eh!',
+        },
+        {
+            label: 'a book where you find the instructions for your computer',
+            feedback: 'Kāore, that sounds like a guidebook or manual!',
+        },
+    ]}
+/>
+
+### What is a **programming language**?
+
+<Captioned>
+    He aha <b>te reo papatono</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={reopapatono} />
+</Figure>
+
+<br />
+
+#### **12.** Which answer best describes a programming language?
+
+<MultiChoiceActivity
+    question="A programming language is:"
+    choices={[
+        {
+            label: 'a set of rules for writing code',
+            correct: true,
+            feedback:
+                "Ka pai, it's like grammar and vocabulary for languages that computers can understand.",
+        },
+        {
+            label: 'a secret language that only computers speak',
+            feedback:
+                "Kāore, it's not that secret! Otherwise we wouldn't be able to write any programs!",
+        },
+        {
+            label: 'the language you use when you are in an online video call',
+            feedback: "Kāore, people don't speak programming language!",
+        },
+        {
+            label: 'a foreign language that code is based on',
+            feedback:
+                "Kāore, it's not really foreign or native to anywhere, it's for computers to understand!",
+        },
+    ]}
+/>
+
+### **Practise coding with Hūhana!**
+
+<Captioned>
+    <b>Te tuhiwaehere me Hūhana!</b>
+</Captioned>
+
+##### Now that you know how to input commands using code, let's offer Hūhana our help again!
+
+##### Hūhana would like to plant up her garden by giving her **instructions** with **code**.
+
+<br />
+
+##### For her project in the garden, Hūhana needs to complete these steps for each new seed:
+
+-   ###### **dig a hole**,
+-   ###### **sow a seed**,
+-   ###### **cover the seed with soil**, then
+-   ###### **move on** to the next bed.
+
+<br />
+
+##### Let's look at some special **commands** we have set up for each of these tasks:
+
+#### **Step A)**
+
+<Figure align={'left'}>
+    <ImageWithText src={dig} text={'gardentasks.dig()'} />
+</Figure>
+
+###### This line of code tells Hūhana to **dig a small hole**:
+
+<ExampleCode>{`gardentasks.dig()`}</ExampleCode>
+
+#### **Step B)**
+
+<Figure align={'left'}>
+    <ImageWithText src={sow} text={'gardentasks.sow()'} />
+</Figure>
+
+###### Next, this line of code tells Hūhana to **drop a seed in the hole**:
+
+<ExampleCode>{`gardentasks.sow()`}</ExampleCode>
+
+#### **Step C)**
+
+<Figure align={'left'}>
+    <ImageWithText src={cover} text={'gardentasks.cover()'} />
+</Figure>
+
+###### Then, this line of code tells Hūhana to **cover the seed with soil**:
+
+<ExampleCode>{`gardentasks.cover()`}</ExampleCode>
+
+#### **Step D)**
+
+<Figure align={'left'}>
+    <ImageWithText src={next} text={'gardentasks.next()'} />
+</Figure>
+
+###### Finally, this line of code tells Hūhana that she can **move on to the next spot**:
+
+<ExampleCode>{`gardentasks.next()`}</ExampleCode>
+
+<br />
+
+##### Altogether, your code should look something like this:
+
+<ExampleCode showLineNumbers startingLineNumber={6}>
+    {`gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()`}
+</ExampleCode>
+
+<br />
+
+##### Type these four lines into the Trinket below, starting in **line 6**.
+
+##### Then hit the **run** button to see what happens!
+
+<Trinket trinketId="python/f93d0b5a0e" height="450" />
+
+<br />
+
+##### **13.** Did you manage to help Hūhana with her garden tasks?
+
+<MultiChoiceActivity
+    question=""
+    randomise={false}
+    choices={[
+        {
+            label:
+                'Yes! I entered the four commands and Hūhana followed my instructions!',
+            correct: true,
+            feedback:
+                'Ka pai, nice coding!! Now go ahead and try coding with loops in the next section!',
+        },
+        {
+            label:
+                "No! There's something off with my code, and Hūhana won't follow my instructions...",
+            feedback:
+                'No worries, tēnā āno! Have another go, and double check that all of the spelling, symbols, and spaces are exactly right!',
+        },
+    ]}
+/>
+
+## Loops {#loops}
+
+### What is a **loop**?
+
+<Captioned>
+    He aha <b>te koromeke</b>?
+</Captioned>
+<Figure>
+    <ImageWithBorder src={koromeke} />
+</Figure>
+
+<br />
+
+#### **14.** Which answer best describes a loop?
+
+<MultiChoiceActivity
+    question="A loop is:"
+    choices={[
+        {
+            label:
+                'a set of instructions that repeats as many times as we need',
+            correct: true,
+            feedback:
+                'Ka pai, these can be really useful for doing big jobs using repetitive simple tasks, like walking - left, right, repeat!',
+        },
+        {
+            label: "a crazy set of code that doesn't work properly",
+            feedback: 'Kāore, that sounds like a nightmare!',
+        },
+        {
+            label: 'a new type of computer with a round screen',
+            feedback: 'Kāore, that just sounds like a funky design preference!',
+        },
+        {
+            label: 'a way to unwrap tangled computer cords',
+            feedback: 'Kāore, that just sounds frustrating!',
+        },
+    ]}
+/>
+
+### **Repeating Instructions**
+
+<Captioned>
+    <b>He tohutohu tāruarua</b>
+</Captioned>
+
+##### We've seen that to get Hūhana to follow instructions we need to **enter each command**, one after another.
+
+##### This means that to ask her to plant more than one garden bed, we would have to **type every instruction again and again**, as many times as it takes!
+
+##### For example, to plant four of Hūhana's garden beds, we would have to repeat each of the instructions four times, **typing all the way up to line 24**!
+
+<ExampleCode showLineNumbers startingLineNumber={6}>
+    {`gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()\n
+gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()\n
+gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()\n
+gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()`}
+
+</ExampleCode>
+
+##### That's a lot of work! There must be a better way....
+
+#### _Can you think of a way to use loops to make our code more simple?_
+
+### **Writing code for a loop!**
+
+<Captioned>
+    <b>Te tuhiwaehere mā te koromeke!</b>
+</Captioned>
+
+####
+
+##### Let's look at how we might use a **loop** to help Hūhana plant as many beds as she needs while also making our coding job **quicker and easier**, too!
+
+#### **Step A)**
+
+###### To make our coding work much easier, we will be using a **"for loop"**.
+
+<Figure align={'left'}>
+    <ImageWithText src={forloop} text={'for beds in range()'} />
+</Figure>
+
+###### This will let us define what tasks the loop is **"for"** and set up the **"range"**, or how many times we want to repeat them.
+
+###### We will name our loop **"beds"** because we will be planting garden beds, and the range of beds we need to plant for Hūhana is **4**.
+
+##### So, in this case our **"for loop"** code will start off like this:
+
+<ExampleCode>{`for beds in range(4)`}</ExampleCode>
+
+<br />
+
+#### **Step B)**
+
+###### Next we need to enter the **tasks** that we want to do as part of the loop:
+
+<Figure align={'left'}>
+    <ImageWithText src={dig} text={'gardentasks.dig()'} />
+    <ImageWithText src={sow} text={'gardentasks.sow()'} />
+    <ImageWithText src={cover} text={'gardentasks.cover()'} />
+    <ImageWithText src={next} text={'gardentasks.next()'} />
+</Figure>
+
+###### _**Remember:** The tasks have to be in the proper **sequence**, because how we write them here is **exactly** how they will be repeated._
+
+##### So, let's enter the four **commands** that we used ealier to successfully sow seeds in the garden:
+
+<ExampleCode>
+    {`gardentasks.dig()
+gardentasks.sow()
+gardentasks.cover()
+gardentasks.next()`}
+</ExampleCode>
+
+<br />
+
+#### **Step C)**
+
+###### Now we can put these two bits of **code** together to complete our **"for loop"** and give it a try!
+
+<br />
+
+<Figure align={'left'}>
+    <ImageWithBorder src={loop} />
+</Figure>
+
+<br />
+
+###### Connect the "for loop" portion by adding a **colon symbol ( : )** after the range, then enter each task beneath it.
+
+###### _**Note:** Be sure to **indent** (starting gap of space) in each line using the **Tab key**._
+
+<ExampleCode showLineNumbers startingLineNumber={6}>
+    {`for beds in range(4):
+    gardentasks.dig()
+    gardentasks.sow()
+    gardentasks.cover()
+    gardentasks.next()`}
+</ExampleCode>
+
+<br />
+
+##### Type these five lines into the Trinket below, and hit the **run** button to see if it works!
+
+###### With this loop, we can see it's much quicker only have to type to **line 10** rather than all the way to **line 24** like before!
+
+<Trinket trinketId="python/fecf30397d?start=result" height="450" width="800" />
+
+###### _**Remember:** Make sure that all of the spelling, symbols, and spaces are just right, or Hūhana might have a problem!_
+
+<br />
+
+#### **15.** Did you manage to get the loop working to help Hūhana?
+
+<MultiChoiceActivity
+    question=""
+    randomise={false}
+    choices={[
+        {
+            label:
+                'Yes! I set up the "for loop", and Hūhana planted all four beds in a row!',
+            correct: true,
+            feedback:
+                'Ka pai, nice coding!! If you like, try changing the range to 1, 2, or 3 and seeing what happens then!',
+        },
+        {
+            label:
+                "No! There's something off with my code, and Hūhana won't start the loop...",
+            feedback:
+                'No worries, tēnā āno! Have another go, and double check that all of the spelling, symbols, and spaces are exactly right!',
+        },
+    ]}
+/>
+
+## Conclusion {#conclusion}
+
+#### Ka rawe tāu mahi! You've done it again! **Congratulations!**
+
+<br />
+
+<Figure>
+    <ImageWithBorder src={complete1_6} border="true" />
+</Figure>
+
+<br />
+
+##### You've completed your **online project** for this lesson and shown us your knowledge of **sequencing**, **algorithms**, and a decent bit of **Trinket programming**!
+
+##### Well done, and all the best in your studies to come!

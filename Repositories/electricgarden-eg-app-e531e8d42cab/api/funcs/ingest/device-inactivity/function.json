@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "timerTrigger",
+      "direction": "in",
+      "name": "myTimer",
+      "schedule": "0 0 7 * * *",
+      "route": "device-inactivity"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+image: node:12
+clone:
+  depth: 1
+
+definitions:
+  caches:
+    yarn: /usr/local/share/.cache/yarn/v6
+
+  steps:
+    - step: &commonBuildStep
+        name: build and test
+        script:
+          - yarn cache dir
+          - yarn install --frozen-lockfile
+          - cd api/funcs
+          - yarn install --frozen-lockfile
+          - yarn lint
+          - yarn test
+          - yarn build:production
+          - apt-get update
+          - apt-get -y install zip
+          - ./scripts/package.sh
+          - cd ../..
+          - cd ui
+          - yarn install --frozen-lockfile
+          - yarn test --passWithNoTests
+          - cd ..
+          - ./scripts/ui/build-with-tokens.js ui $BITBUCKET_BUILD_NUMBER
+        caches:
+          - yarn
+        artifacts:
+          - api/funcs/function-app.zip
+          - ui/build/**
+
+    - step: &deploy
+        # Can only have ONE step that may deploy to any environment
+        # - https://community.atlassian.com/t5/Bitbucket-questions/The-deployment-environment-test-in-your-bitbucket-pipelines-yml/qaq-p/971584
+        name: Deploy to an Environment
+        script:
+          - curl -sL https://aka.ms/InstallAzureCLIDeb | bash # install azure cli
+          # This login expires eventually. See https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest for how to set them up
+          - az login --service-principal --tenant $AZURE_TENANT -u $AZURE_SP_NAME -p $AZURE_SP_PASSWORD
+          # Deploying functions
+          - echo "Deploying azure functions"
+          - az functionapp deployment source config-zip --resource-group eg-rg-devicehq-$ENV_SUFFIX -n eg-devicehq-$ENV_SUFFIX --src api/funcs/function-app.zip
+          - echo "Warming up api azure functions" # --retry-on-http-error=502 <-- version of wget on node:12 doesn't support this?!
+          - wget -S -O/dev/null --timeout=60 --tries=5 --waitretry=30 https://eg-devicehq-$ENV_SUFFIX.azurewebsites.net/api/ping
+            # Deploying app frontend
+          - echo "Deploying app ui to  storage egdevicehqappstore$ENV_SUFFIX (for env $BITBUCKET_DEPLOYMENT_ENVIRONMENT)"
+          - ./scripts/ui/apply-configuration.js ui $BITBUCKET_BUILD_NUMBER # applies REACT_APP_xyz from environment to build output
+          - az storage blob upload-batch --destination \$web --account-name egdevicehqappstore$ENV_SUFFIX -s ui/build
+pipelines:
+  default:
+    - step: *commonBuildStep
+  branches:
+    develop:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          deployment: dev
+      - step:
+          <<: *deploy
+          trigger: manual
+          deployment: test
+    master:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          # trigger: manual
+          deployment: production

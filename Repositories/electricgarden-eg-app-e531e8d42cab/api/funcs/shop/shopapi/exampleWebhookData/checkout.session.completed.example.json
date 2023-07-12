@@ -1,0 +1,48 @@
+{
+  "id": "evt_1FVsI8HqUHIFWCJduFzb3XTe",
+  "object": "event",
+  "api_version": "2019-10-08",
+  "created": 1571631286,
+  "data": {
+    "object": {
+      "id": "cs_test_R4v3Fu0OIfXscyTkfgLtNNftAhYIvADysfo8zD0x0pHL93xmJUW1vmNP",
+      "object": "checkout.session",
+      "billing_address_collection": null,
+      "cancel_url": "http://localhost:8080/example/checkoutFailure.html?sessionid={CHECKOUT_SESSION_ID}",
+      "client_reference_id": null,
+      "customer": "cus_G1wAR6YAznfNF7",
+      "customer_email": "admin@example.com",
+      "display_items": [
+        {
+          "amount": 100,
+          "currency": "nzd",
+          "custom": {
+            "description": "Devices for Electric Garden",
+            "images": null,
+            "name": "Electric Garden Device"
+          },
+          "quantity": 15,
+          "type": "custom"
+        }
+      ],
+      "livemode": false,
+      "locale": null,
+      "mode": "subscription",
+      "payment_intent": null,
+      "payment_method_types": [
+        "card"
+      ],
+      "setup_intent": null,
+      "submit_type": null,
+      "subscription": "sub_G1wA86WXfYhzfZ",
+      "success_url": "http://localhost:8080/example/checkoutSuccess.html?sessionid={CHECKOUT_SESSION_ID}"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_H2rZgvBJsIN2LW",
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}

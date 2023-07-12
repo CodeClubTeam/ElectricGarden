@@ -1,0 +1,80 @@
+image: node:12
+clone:
+  depth: 1
+
+definitions:
+  caches:
+    yarn: /usr/local/share/.cache/yarn/v6
+
+  steps:
+    - step: &commonBuildStep
+        name: build and test
+        script:
+          # Based off https://www.techiescorner.in/azure-functions-core-tool-installation-on-ubuntu/
+          - apt-get update
+          - apt-get install apt-transport-https
+          - wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          - dpkg -i packages-microsoft-prod.deb
+          - apt-get update
+          - apt-get install dotnet-sdk-3.1 -y
+          - cd api
+          - dotnet build
+          - cd ..
+          - yarn install --frozen-lockfile --cwd ui
+          #          - yarn test:ci --cwd ui
+          - ./ui/scripts/build-with-tokens.js ui $BITBUCKET_BUILD_NUMBER
+          - yarn cache dir
+        caches:
+          - yarn
+        artifacts:
+          - api/bin/**
+          - ui/build/**
+
+    - step: &deploy
+        # Can only have ONE step that may deploy to any environment
+        # - https://community.atlassian.com/t5/Bitbucket-questions/The-deployment-environment-test-in-your-bitbucket-pipelines-yml/qaq-p/971584
+        name: Deploy to an Environment
+        script:
+          - export DEBIAN_VERSION=9
+          - apt-get update
+          - apt-get install apt-transport-https -y
+          # see Debian instructions: https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux
+          - wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+          - mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+          - wget -q https://packages.microsoft.com/config/debian/$DEBIAN_VERSION/prod.list
+          - mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+          - chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+          - chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+          - apt-get update
+          - apt-get install azure-functions-core-tools-3 dotnet-sdk-3.1 -y
+          - curl -sL https://aka.ms/InstallAzureCLIDeb | bash # install azure cli (the apt-get version fails to login with SSL error)
+          # This login expires eventually. See https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest for how to set them up
+          - az login --service-principal --tenant $AZURE_TENANT -u $AZURE_SP_NAME -p $AZURE_SP_PASSWORD
+          # Deploying functions
+          - echo "Deploying azure functions"
+          - cd api
+          - func azure functionapp publish eg-kiosk-api-$ENV_SUFFIX --csharp # --no-build is too dumb to deploy right files
+          # Deploying app frontend
+          - cd ..
+          - echo "Deploying app ui to resource group eg-rg-kiosk-$ENV_SUFFIX, and storage egkioskstore$ENV_SUFFIX (for env $BITBUCKET_DEPLOYMENT_ENVIRONMENT)"
+          - REACT_APP_API_BASE_URL="https://eg-kiosk-api-$ENV_SUFFIX.azurewebsites.net/api" ./ui/scripts/apply-configuration.js ui $BITBUCKET_BUILD_NUMBER # applies REACT_APP_xyz from environment to build output
+          - az storage blob sync -c \$web --account-name egkioskstore$ENV_SUFFIX -s ui/build
+          - az cdn endpoint purge --no-wait --content-paths / --resource-group eg-rg-kiosk-$ENV_SUFFIX --profile-name kiosk-cdn-profile-$ENV_SUFFIX --name $AZURE_CDN_ENDPOINT
+pipelines:
+  default:
+    - step: *commonBuildStep
+  branches:
+    develop:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          deployment: dev
+      - step:
+          <<: *deploy
+          trigger: manual
+          deployment: test
+    master:
+      - step: *commonBuildStep
+      - step:
+          <<: *deploy
+          deployment: production

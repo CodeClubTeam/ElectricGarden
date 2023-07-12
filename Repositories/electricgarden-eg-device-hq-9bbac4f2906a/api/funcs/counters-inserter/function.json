@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "countersMessage",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "device-hq-counters",
+      "connection": "STORAGE_ACCOUNT_CONNECTION_STRING"
+    }
+  ],
+  "scriptFile": "../dist/counters-inserter/index.js"
+}

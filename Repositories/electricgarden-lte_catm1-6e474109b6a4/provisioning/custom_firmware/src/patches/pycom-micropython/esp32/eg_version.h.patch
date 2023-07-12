@@ -1,0 +1,10 @@
+--- /dev/null
++++ pycom-micropython/esp32/eg_version.h
+@@ -0,0 +1,6 @@
++#ifndef EG_VERSION_H
++#define EG_VERSION_H
++
++#define ELECTRICGARDEN_RELEASE_STR                              "__EGVERSION__"
++
++#endif // EG_VERSION_H
+\ No newline at end of file

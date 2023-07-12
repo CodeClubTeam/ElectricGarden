@@ -1,0 +1,17 @@
+{
+  "name": "electricgarden",
+  "version": "1.0.0",
+  "description": "Electric Garden deployment tooling",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brush Technology",
+  "license": "UNLICENCED",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "ms-rest-azure": "^2.5.5"
+  }
+}

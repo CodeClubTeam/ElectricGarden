@@ -1,0 +1,16 @@
+node_modules
+.cache
+.jest-cache
+dist
+build/
+junit.xml
+tasks/deploy.js
+tasks/deploy.js.map
+yarn-error.log
+.env
+debug.log
+
+src/lessons/content/giants-guides-index.json
+src/lessons/content/facilitation-guides-index.json
+src/lessons/content/getCoverImage.ts
+src/lessons/content/getMarkdownContent.ts
